@@ -1,0 +1,134 @@
+{
+  "stand": "2026-04-07",
+  "hinweis": "Diese Datei kann mit einem einfachen Texteditor bearbeitet werden. Reihenfolge bestimmt die Darstellung.",
+  "mannschaft": [
+    {
+      "name": "Michael Förster",
+      "dienstgrad": "Oberbrandmeister",
+      "funktion": "Wehrführer, ATG",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 1
+    },
+    {
+      "name": "Torsten Lehmann",
+      "dienstgrad": "Brandmeister",
+      "funktion": "stv. Wehrführer, ATG",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 2
+    },
+    {
+      "name": "Markus Pinger",
+      "dienstgrad": "Brandmeister",
+      "funktion": "Gruppenführer, ATG",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 3
+    },
+    {
+      "name": "Thomas Unger",
+      "dienstgrad": "Oberlöschmeister",
+      "funktion": "Maschinist",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 4
+    },
+    {
+      "name": "Rüdiger Reßler",
+      "dienstgrad": "Oberlöschmeister",
+      "funktion": "Truppführer",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 5
+    },
+    {
+      "name": "Volker Wernersbach",
+      "dienstgrad": "Oberlöschmeister",
+      "funktion": "Truppführer",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 6
+    },
+    {
+      "name": "Stefanie Mühl",
+      "dienstgrad": "Löschmeisterin",
+      "funktion": "Truppführerin",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 7
+    },
+    {
+      "name": "Olaf Schwizow",
+      "dienstgrad": "Hauptfeuerwehrmann",
+      "funktion": "ATG, Ma",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 8
+    },
+    {
+      "name": "Simon Müller-Oswald",
+      "dienstgrad": "Hauptfeuerwehrmann",
+      "funktion": "ATG, Ma",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 9
+    },
+    {
+      "name": "Jan Niklas Best",
+      "dienstgrad": "Hauptfeuerwehrmann",
+      "funktion": "ATG, Ma",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 10
+    },
+    {
+      "name": "Malte Best",
+      "dienstgrad": "Feuerwehrmann",
+      "funktion": "AGT",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 11
+    },
+    {
+      "name": "Lukas Müller",
+      "dienstgrad": "Oberfeuerwehrmann",
+      "funktion": "AGT",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 12
+    },
+    {
+      "name": "Jan-Peter Reßler",
+      "dienstgrad": "Oberfeuerwehrmann",
+      "funktion": "AGT, Ma",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 13
+    },
+    {
+      "name": "Sven Wernersbach",
+      "dienstgrad": "Oberfeuerwehrmann",
+      "funktion": "Truppmann",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 14
+    },
+    {
+      "name": "Linus Pinger",
+      "dienstgrad": "Feuerwehrmann",
+      "funktion": "Truppmann",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 15
+    },
+    {
+      "name": "Julian Pinger",
+      "dienstgrad": "Feuerwehrmannanwärter",
+      "funktion": "in Ausbildung",
+      "bild": "",
+      "aktiv": true,
+      "reihenfolge": 16
+    }
+  ]
+}

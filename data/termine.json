@@ -1,0 +1,26 @@
+{
+  "stand": "2026-04-07",
+  "hinweis": "Diese Datei kann mit einem einfachen Texteditor bearbeitet werden.",
+  "wiederkehrend": [
+    {
+      "titel": "Wöchentliche Übung",
+      "tag": "Donnerstag",
+      "uhrzeit": "19:30 Uhr",
+      "ort": "Feuerwehrhaus Esselborn",
+      "beschreibung": "Regelmäßige Übung für alle aktiven Mitglieder"
+    },
+    {
+      "titel": "Jugendfeuerwehr",
+      "tag": "Freitag",
+      "uhrzeit": "18:00 Uhr",
+      "ort": "Feuerwehrhaus Esselborn",
+      "beschreibung": "Übung und Ausbildung für unsere Jugendlichen"
+    }
+  ],
+  "sondertermine": [],
+  "kalender": {
+    "name": "Feuerwehr Esselborn - Öffentlicher Kalender",
+    "ical_url": "https://calendar.google.com/calendar/ical/862fol2ms73o2mnncd36vdkuus%40group.calendar.google.com/public/basic.ics",
+    "beschreibung": "Abonnieren Sie diesen Kalender für aktuelle Einsätze, Übungen und Veranstaltungen"
+  }
+}
