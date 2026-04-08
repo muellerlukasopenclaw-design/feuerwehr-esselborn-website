@@ -22,6 +22,10 @@
     
     <title>Freiwillige Feuerwehr Esselborn</title>
     
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
     <link rel="stylesheet" href="css/style.css">
     
     <!-- Security/Privacy Meta-Tags -->
@@ -29,6 +33,14 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader" aria-hidden="true">
+        <div class="preloader-content">
+            <span class="preloader-icon">🚒</span>
+            <span class="preloader-text">Wird geladen...</span>
+        </div>
+    </div>
+    
     <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
     
     <header class="hero" role="banner">
@@ -292,5 +304,20 @@
     </footer>
 
     <script src="js/main.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('[SW] Registriert:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('[SW] Registrierung fehlgeschlagen:', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>

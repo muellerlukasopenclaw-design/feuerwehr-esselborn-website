@@ -5,6 +5,16 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Preloader ausblenden
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 500);
+        });
+    }
+    
     // Aktuelles Jahr im Footer setzen
     const yearElement = document.getElementById('current-year');
     if (yearElement) {
