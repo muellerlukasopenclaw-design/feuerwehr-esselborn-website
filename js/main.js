@@ -93,12 +93,15 @@ async function loadTermine() {
         const data = await response.json();
         const termine = data.wiederkehrend || [];
         
+        // Hilfetexte für Kalender-Integration
+        const hilfetexte = data.hilfetexte || {};
+        
         if (termine.length === 0) {
             container.innerHTML = '<p class="loading-text">Aktuell keine Termine verfügbar.</p>';
             return;
         }
         
-        container.innerHTML = `
+        let html = `
             <h3>Wöchentliche Termine</h3>
             ${termine.map(termin => `
                 <div class="termin-card" role="article" aria-label="${escapeHtml(termin.titel)}">
@@ -112,6 +115,18 @@ async function loadTermine() {
                 </div>
             `).join('')}
         `;
+        
+        // Hilfetexte aktualisieren falls vorhanden
+        if (hilfetexte.outlook) {
+            const outlookHilfe = document.getElementById('outlook-hilfe');
+            if (outlookHilfe) outlookHilfe.textContent = hilfetexte.outlook;
+        }
+        if (hilfetexte.ios) {
+            const iosHilfe = document.getElementById('ios-hilfe');
+            if (iosHilfe) iosHilfe.textContent = hilfetexte.ios;
+        }
+        
+        container.innerHTML = html;
         
     } catch (error) {
         console.error('Fehler beim Laden der Termine:', error);

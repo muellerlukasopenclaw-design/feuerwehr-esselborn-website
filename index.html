@@ -49,6 +49,7 @@
                     <li role="none"><a href="#mannschaft" role="menuitem">Mannschaft</a></li>
                     <li role="none"><a href="#termine" role="menuitem">Termine</a></li>
                     <li role="none"><a href="#mitglied" role="menuitem">Mitglied werden</a></li>
+                    <li role="none"><a href="#jubilaeum" role="menuitem">125 Jahre</a></li>
                     <li role="none"><a href="legal/impressum.html" role="menuitem">Impressum</a></li>
                 </ul>
             </div>
@@ -94,7 +95,7 @@
                 <div class="section-title">
                     <h2 id="termine-heading">Termine</h2>
                     <p class="section-intro">
-                        Abonnieren Sie unseren Kalender für aktuelle Einsätze und Übungen
+                        Abonnieren Sie unseren Kalender für aktuelle Einsätze, Übungen und Veranstaltungen
                     </p>
                 </div>
                 
@@ -103,16 +104,33 @@
                         <p class="loading-text">Termine werden geladen...</p>
                     </div>
                     
-                    <div style="margin-top: 2rem; text-align: center;">
+                    <div class="kalender-abo-section">
+                        <h3 class="kalender-abo-titel">Kalender abonnieren</h3>
                         <a href="https://calendar.google.com/calendar/ical/862fol2ms73o2mnncd36vdkuus%40group.calendar.google.com/public/basic.ics" 
                            class="btn btn-secondary kalender-link"
                            target="_blank"
                            rel="noopener noreferrer">
-                            📅 Kalender abonnieren (iCal)
+                            📅 iCal-Link kopieren
                         </a>
                         <p class="kalender-hinweis">
                             Kompatibel mit Outlook, iOS, Google Calendar
                         </p>
+                        
+                        <div class="kalender-hilfetexte">
+                            <details class="hilfe-details">
+                                <summary class="hilfe-summary">📧 Kurzanleitung: Microsoft Outlook</summary>
+                                <p class="hilfe-text" id="outlook-hilfe">
+                                    Kalender → Kalender öffnen → Aus dem Internet... → obigen Link einfügen
+                                </p>
+                            </details>
+                            
+                            <details class="hilfe-details">
+                                <summary class="hilfe-summary">📱 Kurzanleitung: iOS (iPhone)</summary>
+                                <p class="hilfe-text" id="ios-hilfe">
+                                    Einstellungen → Mail, Kontakte, Kalender → Account hinzufügen → Andere → Kalenderabo hinzufügen → obigen Link einfügen
+                                </p>
+                            </details>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -127,10 +145,14 @@
                 
                 <div class="mitglied-grid">
                     <div class="mitglied-art">
-                        <h3>Als Feuerwehrmann/frau</h3>
-                        <p>
-                            Unterstützen Sie uns aktiv im Einsatz. Wir suchen motivierte Menschen, 
-                            die sich für den Brandschutz und die Hilfeleistung in unserer Gemeinde engagieren möchten.
+                        <h3>Als Feuerwehrmann/-frau</h3>
+                        <p class="mitglied-intro">
+                            Jeder, der daran interessiert ist, uns aktiv zu unterstützen, ist herzlich eingeladen 
+                            im Rahmen einer Übung unsere Feuerwehr kennenzulernen.
+                        </p>
+                        <p class="mitglied-text">
+                            Wir suchen motivierte Menschen, die sich für den Brandschutz und die Hilfeleistung 
+                            in unserer Gemeinde engagieren möchten.
                         </p>
                         <ul class="mitglied-liste">
                             <li>Spannende Aufgaben</li>
@@ -138,32 +160,76 @@
                             <li>Kameradschaft</li>
                             <li>Gemeinsame Erlebnisse</li>
                         </ul>
-                        <a href="mailto:feuerwehr@gemeinde-esselborn.de?subject=Mitgliedsanfrage" class="btn btn-primary">
+                        <p class="mitglied-antrag-hinweis">
+                            Um Mitglied zu werden, reicht es den Mitgliedsantrag auszufüllen und an den Verein zu schicken:
+                        </p>
+                        <a href="mailto:feuerwehr@gemeinde-esselborn.de?subject=Mitgliedsanfrage%20aktive%20Feuerwehr" class="btn btn-primary">
                             Kontakt aufnehmen
                         </a>
                     </div>
                     
                     <div class="mitglied-art">
                         <h3>Förderverein</h3>
-                        <p>
+                        <p class="foerderverein-intro">
                             Unterstützen Sie unsere Arbeit auch ohne aktiven Einsatzdienst. 
                             Als Mitglied im Förderverein helfen Sie uns finanziell und ideell.
                         </p>
-                        <div class="steuervorteil-box">
-                            <p class="steuervorteil-titel">Steuervorteil</p>
-                            <p class="steuervorteil-text">
-                                Mitgliedsbeiträge und Spenden sind steuerlich absetzbar.
+                        
+                        <div class="foerderverein-details">
+                            <h4 class="foerderverein-subtitle">Was ist der Förderverein?</h4>
+                            <p class="foerderverein-text">
+                                Der Verein wurde am 15. April 2011 in Esselborn von Esselborner Bürgern und Feuerwehrkameraden 
+                                gegründet und ist als gemeinnütziger Verein e.V. in das Vereinsregister beim Amtsgericht Mainz 
+                                eingetragen.
+                            </p>
+                            
+                            <h4 class="foerderverein-subtitle">Was will der Förderverein?</h4>
+                            <p class="foerderverein-text">
+                                Sinn und Zweck des Fördervereins ist die materielle und ideelle Förderung und Unterstützung 
+                                unserer Freiwilligen Feuerwehr Esselborn. Der Verein will durch sein Wirken und durch 
+                                Veranstaltungen u.a.:
+                            </p>
+                            <ul class="foerderverein-liste">
+                                <li>den Betrieb, die Einsatzbereitschaft und die Kameradschaft unterstützen</li>
+                                <li>die Beschaffung von Schutzkleidung und Ausrüstung finanziell ermöglichen</li>
+                                <li>interessierte Einwohner für das Mitwirken bei der Feuerwehr gewinnen</li>
+                                <li>den gemeinnützigen Feuerwehrgedanken pflegen und weiter fördern</li>
+                            </ul>
+                            
+                            <h4 class="foerderverein-subtitle">Warum Mitglied werden?</h4>
+                            <p class="foerderverein-text">
+                                Als Mitglied helfen Sie uns durch ihre Beiträge, Spenden oder Mitarbeit bei den Bemühungen 
+                                die Einsatzbereitschaft und das Fortbestehen der Feuerwehr in ihrer Heimatgemeinde zu 
+                                unterstützen und zu sichern.
+                            </p>
+                            <p class="foerderverein-text">
+                                Wir würden uns freuen, wenn viele Bürgerinnen und Bürger unserer Gemeinde dem Förderverein 
+                                beitreten. Durch Ihre Mitgliedschaft würdigen und erkennen Sie die wichtige und ehrenamtliche 
+                                Arbeit unserer freiwilligen Feuerwehrmänner/frauen für den Brand- und Katastrophenschutz 
+                                sowie für das Gemeinwohl an.
                             </p>
                         </div>
                         
-                        <div class="kontakt-box">
-                            <p class="kontakt-titel">Kontakt Förderverein</p>
+                        <div class="steuervorteil-box">
+                            <p class="steuervorteil-titel">Steuervorteil & Spendenbescheinigungen</p>
+                            <p class="steuervorteil-text">
+                                Sowohl die Mitgliedsbeiträge, wie auch Spenden an den Förderverein der Freiwilligen Feuerwehr 
+                                Esselborn, sind – durch die Anerkennung der Gemeinnützigkeit – steuerlich absetzbar. 
+                                Spendenbescheinigungen können auf Wunsch ausgestellt werden.
+                            </p>
+                        </div>
+                        
+                        <div class="kontakt-box foerderverein-kontakt">
+                            <p class="kontakt-titel">Förderverein der Freiwilligen Feuerwehr Esselborn e.V.</p>
                             <address>
-                                Jan Niklas Best<br>
+                                <strong>Jan Niklas Best</strong><br>
                                 Untergasse 21a<br>
                                 55234 Esselborn<br>
                                 <a href="mailto:feuerwehr@gemeinde-esselborn.de">feuerwehr@gemeinde-esselborn.de</a>
                             </address>
+                            <p class="mitglied-werden-cta">
+                                <strong>Werden Sie Mitglied beim Förderverein – denn die Feuerwehr ist im Notfall auch für SIE da!</strong>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -192,6 +258,16 @@
                         <span class="stat-number">1899</span>
                         <span class="stat-label">gegründet</span>
                     </div>
+                </div>
+                
+                <div class="standort-section">
+                    <h3 class="standort-titel">Unser Standort</h3>
+                    <a href="https://www.google.de/maps/place/49%C2%B042" 
+                       class="btn btn-secondary standort-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        📍 Feuerwehrhaus auf Google Maps anzeigen
+                    </a>
                 </div>
             </div>
         </section>

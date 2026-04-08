@@ -721,3 +721,145 @@ section:nth-child(even) {
 @media (prefers-color-scheme: dark) {
   /* Derzeit nicht aktiviert - bei Bedarf implementieren */
 }
+
+/* === KALENDER-ABO SECTION === */
+.kalender-abo-section {
+  margin-top: var(--space-xl);
+  text-align: center;
+  background: var(--color-background-alt);
+  padding: var(--space-xl);
+  border-radius: var(--radius);
+}
+
+.kalender-abo-titel {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.kalender-hilfetexte {
+  margin-top: var(--space-lg);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.hilfe-details {
+  background: white;
+  border-radius: var(--radius);
+  margin-bottom: var(--space-sm);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.hilfe-summary {
+  padding: var(--space-md);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: background var(--transition-fast);
+  min-height: 44px;
+}
+
+.hilfe-summary:hover,
+.hilfe-summary:focus {
+  background: var(--color-background-alt);
+}
+
+.hilfe-summary:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: -3px;
+}
+
+.hilfe-text {
+  padding: 0 var(--space-md) var(--space-md) var(--space-md);
+  margin: 0;
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+/* === FÖRDERVEREIN-DETAILS === */
+.foerderverein-details {
+  margin: var(--space-md) 0;
+}
+
+.foerderverein-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.foerderverein-text {
+  margin-bottom: var(--space-sm);
+  line-height: 1.7;
+}
+
+.foerderverein-liste {
+  margin: var(--space-sm) 0 var(--space-md) var(--space-md);
+  padding-left: var(--space-md);
+}
+
+.foerderverein-liste li {
+  margin-bottom: var(--space-xs);
+  line-height: 1.6;
+}
+
+.mitglied-intro {
+  font-weight: 500;
+  margin-bottom: var(--space-sm);
+}
+
+.mitglied-text {
+  margin-bottom: var(--space-md);
+}
+
+.mitglied-antrag-hinweis {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-sm);
+  font-style: italic;
+  color: var(--color-text-light);
+}
+
+.mitglied-werden-cta {
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background: rgba(185, 28, 28, 0.05);
+  border-left: 3px solid var(--color-primary);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.foerderverein-kontakt {
+  background: var(--color-background-alt);
+  border: 1px solid var(--color-border);
+}
+
+.foerderverein-kontakt address strong {
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+}
+
+/* === STANDORT SECTION === */
+.standort-section {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.standort-titel {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.standort-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}

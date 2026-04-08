@@ -1,5 +1,5 @@
 {
-  "stand": "2026-04-07",
+  "stand": "2026-04-08",
   "hinweis": "Diese Datei kann mit einem einfachen Texteditor bearbeitet werden.",
   "wiederkehrend": [
     {
@@ -22,5 +22,9 @@
     "name": "Feuerwehr Esselborn - Öffentlicher Kalender",
     "ical_url": "https://calendar.google.com/calendar/ical/862fol2ms73o2mnncd36vdkuus%40group.calendar.google.com/public/basic.ics",
     "beschreibung": "Abonnieren Sie diesen Kalender für aktuelle Einsätze, Übungen und Veranstaltungen"
+  },
+  "hilfetexte": {
+    "outlook": "Kalender → Kalender öffnen → Aus dem Internet... → obigen Link einfügen",
+    "ios": "Einstellungen → Mail, Kontakte, Kalender → Account hinzufügen → Andere → Kalenderabo hinzufügen → obigen Link einfügen"
   }
 }
