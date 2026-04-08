@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Freiwillige Feuerwehr Esselborn - Retten, Löschen, Bergen, Schützen. Informieren Sie sich über unsere Mannschaft, Termine und Mitgliedschaft.">
     <meta name="theme-color" content="#B91C1C">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Freiwillige Feuerwehr Esselborn">
+    <meta property="og:description" content="Retten · Löschen · Bergen · Schützen. Seit 1899 für die Sicherheit unserer Gemeinde im Einsatz.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://feuerwehr-esselborn.de/">
+    <meta property="og:image" content="https://feuerwehr-esselborn.de/img/og-image.jpg">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Freiwillige Feuerwehr Esselborn">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Freiwillige Feuerwehr Esselborn">
+    <meta name="twitter:description" content="Retten · Löschen · Bergen · Schützen. Seit 1899 für die Sicherheit unserer Gemeinde.">
+    
     <title>Freiwillige Feuerwehr Esselborn</title>
     
     <link rel="stylesheet" href="css/style.css">
@@ -95,7 +110,7 @@
                            rel="noopener noreferrer">
                             📅 Kalender abonnieren (iCal)
                         </a>
-                        <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--color-text-light);">
+                        <p class="kalender-hinweis">
                             Kompatibel mit Outlook, iOS, Google Calendar
                         </p>
                     </div>
@@ -117,7 +132,7 @@
                             Unterstützen Sie uns aktiv im Einsatz. Wir suchen motivierte Menschen, 
                             die sich für den Brandschutz und die Hilfeleistung in unserer Gemeinde engagieren möchten.
                         </p>
-                        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <ul class="mitglied-liste">
                             <li>Spannende Aufgaben</li>
                             <li>Kostenlose Ausbildung</li>
                             <li>Kameradschaft</li>
@@ -134,16 +149,16 @@
                             Unterstützen Sie unsere Arbeit auch ohne aktiven Einsatzdienst. 
                             Als Mitglied im Förderverein helfen Sie uns finanziell und ideell.
                         </p>
-                        <div style="background: var(--color-background-alt); padding: 1rem; border-radius: 0.5rem; margin: 1rem 0;">
-                            <p style="margin: 0; font-weight: 600;">Steuervorteil</p>
-                            <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem;">
+                        <div class="steuervorteil-box">
+                            <p class="steuervorteil-titel">Steuervorteil</p>
+                            <p class="steuervorteil-text">
                                 Mitgliedsbeiträge und Spenden sind steuerlich absetzbar.
                             </p>
                         </div>
                         
                         <div class="kontakt-box">
-                            <p style="margin: 0; font-weight: 600;">Kontakt Förderverein</p>
-                            <address style="margin-top: 0.5rem; font-style: normal;">
+                            <p class="kontakt-titel">Kontakt Förderverein</p>
+                            <address>
                                 Jan Niklas Best<br>
                                 Untergasse 21a<br>
                                 55234 Esselborn<br>
@@ -157,9 +172,9 @@
 
         <!-- Jubiläum -->
         <section id="jubilaeum" aria-labelledby="jubilaeum-heading">
-            <div class="container" style="text-align: center;">
+            <div class="container jubilaeum-container">
                 <h2 id="jubilaeum-heading">125 Jahre Feuerwehr Esselborn</h2>
-                <p style="max-width: 600px; margin: 0 auto 2rem; font-size: 1.125rem;">
+                <p class="jubilaeum-text">
                     Seit 1899 stehen wir für die Sicherheit in Esselborn. Über 125 Jahre ehrenamtliches Engagement 
                     für unsere Gemeinde.
                 </p>
@@ -185,9 +200,9 @@
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
-                <div>
-                    <p style="font-weight: 600;">Freiwillige Feuerwehr Esselborn</p>
-                    <p style="font-size: 0.875rem; opacity: 0.8;">Retten · Löschen · Bergen · Schützen</p>
+                <div class="footer-brand">
+                    <p class="footer-name">Freiwillige Feuerwehr Esselborn</p>
+                    <p class="footer-tagline">Retten · Löschen · Bergen · Schützen</p>
                 </div>
                 <nav class="footer-nav" aria-label="Footer-Navigation">
                     <a href="legal/impressum.html">Impressum</a>

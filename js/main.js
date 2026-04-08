@@ -1,11 +1,15 @@
 /**
  * Feuerwehr Esselborn - Hauptskript
  * Lädt Mannschaft und Termine aus JSON-Dateien
+ * WCAG 2.1 AA konform
  */
 
 document.addEventListener('DOMContentLoaded', function() {
     // Aktuelles Jahr im Footer setzen
-    document.getElementById('current-year').textContent = new Date().getFullYear();
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
     
     // Mannschaft laden
     loadMannschaft();
@@ -32,15 +36,20 @@ async function loadMannschaft() {
         const data = await response.json();
         const mannschaft = data.mannschaft || [];
         
-        // Aktive Mitglieder filtern
-        const aktiveMitglieder = mannschaft.filter(mitglied => mitglied.aktiv);
+        // Aktive Mitglieder filtern und sortieren
+        const aktiveMitglieder = mannschaft
+            .filter(mitglied => mitglied.aktiv)
+            .sort((a, b) => (a.reihenfolge || 99) - (b.reihenfolge || 99));
         
         // Mitglieder-Anzahl aktualisieren
-        document.getElementById('mitglieder-count').textContent = aktiveMitglieder.length;
+        const countElement = document.getElementById('mitglieder-count');
+        if (countElement) {
+            countElement.textContent = aktiveMitglieder.length;
+        }
         
         // HTML generieren
         if (aktiveMitglieder.length === 0) {
-            container.innerHTML = '<p>Mannschaftsdaten werden aktualisiert.</p>';
+            container.innerHTML = '<p class="loading-text">Mannschaftsdaten werden aktualisiert.</p>';
             return;
         }
         
@@ -50,7 +59,7 @@ async function loadMannschaft() {
                 : `<div class="mitglied-placeholder" aria-hidden="true">👤</div>`;
             
             return `
-                <article class="mitglied-card" tabindex="0">
+                <article class="mitglied-card" tabindex="0" aria-label="${escapeHtml(mitglied.name)}, ${escapeHtml(mitglied.dienstgrad)}">
                     <div class="mitglied-bild">
                         ${bildHtml}
                     </div>
@@ -65,7 +74,7 @@ async function loadMannschaft() {
         
     } catch (error) {
         console.error('Fehler beim Laden der Mannschaft:', error);
-        container.innerHTML = '<p>Mannschaftsdaten konnten nicht geladen werden.</p>';
+        container.innerHTML = '<p class="error-text">Mannschaftsdaten konnten nicht geladen werden. Bitte versuchen Sie es später erneut.</p>';
     }
 }
 
@@ -85,17 +94,18 @@ async function loadTermine() {
         const termine = data.wiederkehrend || [];
         
         if (termine.length === 0) {
-            container.innerHTML = '<p>Aktuell keine Termine verfügbar.</p>';
+            container.innerHTML = '<p class="loading-text">Aktuell keine Termine verfügbar.</p>';
             return;
         }
         
         container.innerHTML = `
             <h3>Wöchentliche Termine</h3>
             ${termine.map(termin => `
-                <div class="termin-card">
+                <div class="termin-card" role="article" aria-label="${escapeHtml(termin.titel)}">
                     <h4>${escapeHtml(termin.titel)}</h4>
                     <p class="termin-meta">
-                        ${escapeHtml(termin.tag)} um ${escapeHtml(termin.uhrzeit)}<br>
+                        <time datetime="${getWeekdayDate(termin.tag)}">${escapeHtml(termin.tag)}</time> 
+                        um ${escapeHtml(termin.uhrzeit)}<br>
                         ${escapeHtml(termin.ort)}
                     </p>
                     <p>${escapeHtml(termin.beschreibung)}</p>
@@ -105,23 +115,86 @@ async function loadTermine() {
         
     } catch (error) {
         console.error('Fehler beim Laden der Termine:', error);
-        container.innerHTML = '<p>Termine konnten nicht geladen werden.</p>';
+        container.innerHTML = '<p class="error-text">Termine konnten nicht geladen werden. Bitte versuchen Sie es später erneut.</p>';
     }
 }
 
 /**
- * Initialisiert die mobile Navigation
+ * Initialisiert die mobile Navigation mit WCAG-Konformität
  */
 function initMobileNav() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.getElementById('nav-menu');
+    const navLinks = navMenu ? navMenu.querySelectorAll('a') : [];
     
     if (!menuToggle || !navMenu) return;
     
+    let lastFocusedElement = null;
+    
+    function openMenu() {
+        menuToggle.setAttribute('aria-expanded', 'true');
+        navMenu.classList.add('active');
+        menuToggle.setAttribute('aria-label', 'Navigation schließen');
+        lastFocusedElement = document.activeElement;
+        
+        // Fokus auf erstes Element setzen
+        if (navLinks.length > 0) {
+            navLinks[0].focus();
+        }
+        
+        document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('click', handleClickOutside);
+    }
+    
+    function closeMenu() {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('active');
+        menuToggle.setAttribute('aria-label', 'Navigation öffnen');
+        
+        // Fokus zurücksetzen
+        if (lastFocusedElement) {
+            lastFocusedElement.focus();
+        }
+        
+        document.removeEventListener('keydown', handleKeyDown);
+        document.removeEventListener('click', handleClickOutside);
+    }
+    
+    function handleKeyDown(e) {
+        // ESC schließt Menu
+        if (e.key === 'Escape') {
+            closeMenu();
+            return;
+        }
+        
+        // Tab-Navigation im Menu
+        if (e.key === 'Tab' && navMenu.classList.contains('active')) {
+            const firstLink = navLinks[0];
+            const lastLink = navLinks[navLinks.length - 1];
+            
+            if (e.shiftKey && document.activeElement === firstLink) {
+                e.preventDefault();
+                lastLink.focus();
+            } else if (!e.shiftKey && document.activeElement === lastLink) {
+                e.preventDefault();
+                firstLink.focus();
+            }
+        }
+    }
+    
+    function handleClickOutside(e) {
+        if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            closeMenu();
+        }
+    }
+    
     menuToggle.addEventListener('click', function() {
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', !isExpanded);
-        navMenu.classList.toggle('active');
+        if (isExpanded) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     });
 }
 
@@ -133,4 +206,22 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+/**
+ * Hilfsfunktion: Berechnet nächsten Wochentag für datetime Attribut
+ */
+function getWeekdayDate(weekday) {
+    const days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+    const today = new Date();
+    const currentDay = today.getDay();
+    const targetDay = days.indexOf(weekday);
+    
+    if (targetDay === -1) return '';
+    
+    const diff = targetDay - currentDay;
+    const nextDate = new Date(today);
+    nextDate.setDate(today.getDate() + diff + (diff <= 0 ? 7 : 0));
+    
+    return nextDate.toISOString().split('T')[0];
 }
