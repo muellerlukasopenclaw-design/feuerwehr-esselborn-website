@@ -1,19 +1,3 @@
-<?php
-/**
- * Feuerwehr Esselborn - Hauptseite
- * Lädt Mannschaft und Termine aus JSON-Dateien
- */
-
-// Daten laden
-$mannschaftJson = @file_get_contents('data/mannschaft.json');
-$termineJson = @file_get_contents('data/termine.json');
-
-$mannschaftData = $mannschaftJson ? json_decode($mannschaftJson, true) : null;
-$termineData = $termineJson ? json_decode($termineJson, true) : null;
-
-$mannschaft = ($mannschaftData && isset($mannschaftData['mannschaft'])) ? $mannschaftData['mannschaft'] : [];
-$wiederkehrendeTermine = ($termineData && isset($termineData['wiederkehrend'])) ? $termineData['wiederkehrend'] : [];
-?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -31,7 +15,7 @@ $wiederkehrendeTermine = ($termineData && isset($termineData['wiederkehrend'])) 
     <header class="hero" role="banner">
         <nav class="main-nav" aria-label="Hauptnavigation">
             <div class="container">
-                <a href="index.php" class="logo" aria-label="Freiwillige Feuerwehr Esselborn - Startseite">
+                <a href="index.html" class="logo" aria-label="Freiwillige Feuerwehr Esselborn - Startseite">
                     Feuerwehr Esselborn
                 </a>
                 
@@ -79,32 +63,9 @@ $wiederkehrendeTermine = ($termineData && isset($termineData['wiederkehrend'])) 
                     </p>
                 </div>
                 
-                <?php if (!empty($mannschaft)): ?>
-                <div class="mannschaft-grid">
-                    <?php foreach ($mannschaft as $mitglied): ?>
-                    <?php if (!empty($mitglied['aktiv'])): ?>
-                    <article class="mitglied-card" tabindex="0">
-                        <div class="mitglied-bild">
-                            <?php if (!empty($mitglied['bild'])): ?>
-                                <img src="img/<?php echo htmlspecialchars($mitglied['bild']); ?>" 
-                                     alt="<?php echo htmlspecialchars($mitglied['name']); ?>"
-                                     loading="lazy">
-                            <?php else: ?>
-                                <div class="mitglied-placeholder" aria-hidden="true">👤</div>
-                            <?php endif; ?>
-                        </div>
-                        <div class="mitglied-info">
-                            <h3><?php echo htmlspecialchars($mitglied['name']); ?></h3>
-                            <span class="dienstgrad"><?php echo htmlspecialchars($mitglied['dienstgrad']); ?></span>
-                            <p class="funktion"><?php echo htmlspecialchars($mitglied['funktion']); ?></p>
-                        </div>
-                    </article>
-                    <?php endif; ?>
-                    <?php endforeach; ?>
+                <div id="mannschaft-container" class="mannschaft-grid">
+                    <p class="loading-text">Mannschaftsdaten werden geladen...</p>
                 </div>
-                <?php else: ?>
-                <p>Mannschaftsdaten werden aktualisiert.</p>
-                <?php endif; ?>
             </div>
         </section>
 
@@ -119,20 +80,9 @@ $wiederkehrendeTermine = ($termineData && isset($termineData['wiederkehrend'])) 
                 </div>
                 
                 <div class="termine-content">
-                    <?php if (!empty($wiederkehrendeTermine)): ?>
-                    <h3>Wöchentliche Termine</h3>
-                    <?php foreach ($wiederkehrendeTermine as $termin): ?>
-                    <div class="termin-card">
-                        <h4><?php echo htmlspecialchars($termin['titel']); ?></h4>
-                        <p class="termin-meta">
-                            <?php echo htmlspecialchars($termin['tag']); ?> 
-                            um <?php echo htmlspecialchars($termin['uhrzeit']); ?><br>
-                            <?php echo htmlspecialchars($termin['ort']); ?>
-                        </p>
-                        <p><?php echo htmlspecialchars($termin['beschreibung']); ?></p>
+                    <div id="termine-container">
+                        <p class="loading-text">Termine werden geladen...</p>
                     </div>
-                    <?php endforeach; ?>
-                    <?php endif; ?>
                     
                     <div style="margin-top: 2rem; text-align: center;">
                         <a href="https://calendar.google.com/calendar/ical/862fol2ms73o2mnncd36vdkuus%40group.calendar.google.com/public/basic.ics" 
@@ -216,7 +166,7 @@ $wiederkehrendeTermine = ($termineData && isset($termineData['wiederkehrend'])) 
                         <span class="stat-label">Jahre</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number"><?php echo count($mannschaft); ?></span>
+                        <span id="mitglieder-count" class="stat-number">-</span>
                         <span class="stat-label">aktive Mitglieder</span>
                     </div>
                     <div class="stat">
@@ -241,7 +191,7 @@ $wiederkehrendeTermine = ($termineData && isset($termineData['wiederkehrend'])) 
                 </nav>
             </div>
             <p class="copyright">
-                &copy; <?php echo date('Y'); ?> Freiwillige Feuerwehr Esselborn
+                &copy; <span id="current-year">2025</span> Freiwillige Feuerwehr Esselborn
             </p>
         </div>
     </footer>
