@@ -51,10 +51,11 @@ async function loadMannschaft() {
             .filter(mitglied => mitglied.aktiv)
             .sort((a, b) => (a.reihenfolge || 99) - (b.reihenfolge || 99));
         
-        // Mitglieder-Anzahl aktualisieren
+        // Mitglieder-Anzahl immer auf 65 setzen (hartkodiert) und animieren
         const countElement = document.getElementById('mitglieder-count');
         if (countElement) {
-            countElement.textContent = aktiveMitglieder.length;
+            countElement.textContent = '0';
+            animateCounter('mitglieder-count', 65, 2000);
         }
         
         // Animation für 125 Jahre Hochzähl-Effekt
@@ -294,4 +295,105 @@ function getWeekdayDate(weekday) {
     nextDate.setDate(today.getDate() + diff + (diff <= 0 ? 7 : 0));
     
     return nextDate.toISOString().split('T')[0];
+}
+
+/**
+ * Lightbox für Galerie initialisieren
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    initLightbox();
+});
+
+function initLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+    
+    if (!lightbox || !lightboxImg) return;
+    
+    const galerieItems = document.querySelectorAll('.galerie-item img');
+    let currentIndex = 0;
+    
+    // Öffnen bei Klick auf Bild
+    galerieItems.forEach((img, index) => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+            currentIndex = index;
+            openLightbox(img);
+        });
+    });
+    
+    function openLightbox(img) {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        
+        // Caption aus figcaption holen falls vorhanden
+        const figcaption = img.closest('figure')?.querySelector('figcaption');
+        lightboxCaption.textContent = figcaption ? figcaption.textContent : img.alt;
+        
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+    }
+    
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        // Fokus zurück auf das aktuelle Bild
+        if (galerieItems[currentIndex]) {
+            galerieItems[currentIndex].focus();
+        }
+    }
+    
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + galerieItems.length) % galerieItems.length;
+        const img = galerieItems[currentIndex];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        const figcaption = img.closest('figure')?.querySelector('figcaption');
+        lightboxCaption.textContent = figcaption ? figcaption.textContent : img.alt;
+    }
+    
+    function showNext() {
+        currentIndex = (currentIndex + 1) % galerieItems.length;
+        const img = galerieItems[currentIndex];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        const figcaption = img.closest('figure')?.querySelector('figcaption');
+        lightboxCaption.textContent = figcaption ? figcaption.textContent : img.alt;
+    }
+    
+    // Event Listener
+    closeBtn?.addEventListener('click', closeLightbox);
+    prevBtn?.addEventListener('click', showPrev);
+    nextBtn?.addEventListener('click', showNext);
+    
+    // Schließen bei Klick auf Hintergrund
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // Tastatur-Navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        
+        switch(e.key) {
+            case 'Escape':
+                closeLightbox();
+                break;
+            case 'ArrowLeft':
+                showPrev();
+                break;
+            case 'ArrowRight':
+                showNext();
+                break;
+        }
+    });
 }

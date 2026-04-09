@@ -987,4 +987,182 @@ section:nth-child(even) {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.standort-link:hover,
+.standort-link:focus {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: white;
+}
+
+/* === LIGHTBOX === */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  color: var(--color-text);
+  border: none;
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+  background: var(--color-primary);
+  color: white;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  color: var(--color-text);
+  border: none;
+  font-size: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.lightbox-prev:hover,
+.lightbox-prev:focus,
+.lightbox-next:hover,
+.lightbox-next:focus {
+  background: var(--color-primary);
+  color: white;
+}
+
+.lightbox-prev {
+  left: 1rem;
+}
+
+.lightbox-next {
+  right: 1rem;
+}
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+/* === LEGAL PAGES (Impressum/Datenschutz) === */
+.legal-page {
+  background: var(--color-background);
+}
+
+.legal-page .main-nav {
+  position: relative;
+  background: var(--color-primary);
+}
+
+.legal-page .main-nav .logo {
+  color: white;
+}
+
+.legal-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.legal-content h1 {
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.legal-content h2 {
+  color: var(--color-primary);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-xl);
+}
+
+.legal-content h3 {
+  color: var(--color-text);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  font-size: var(--font-size-lg);
+}
+
+.legal-content p {
+  margin-bottom: var(--space-md);
+  line-height: 1.7;
+}
+
+.legal-content section {
+  margin-bottom: var(--space-xl);
+  padding: 0;
+  background: transparent;
+}
+
+.legal-content ul {
+  margin: var(--space-md) 0;
+  padding-left: var(--space-lg);
+}
+
+.legal-content li {
+  margin-bottom: var(--space-xs);
+  line-height: 1.6;
+}
+
+.legal-content address {
+  font-style: normal;
+  line-height: 1.8;
+  margin: var(--space-md) 0;
+}
+
+.legal-content .btn {
+  margin-top: var(--space-lg);
 }
