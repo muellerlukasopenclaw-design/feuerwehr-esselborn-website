@@ -1166,3 +1166,35 @@ section:nth-child(even) {
 .legal-content .btn {
   margin-top: var(--space-lg);
 }
+
+/* === KALENDER BUTTONS === */
+.kalender-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+  margin-bottom: var(--space-md);
+}
+
+/* === TERMINE MONATSÜBERSCHRIFTEN === */
+.termin-monat {
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  margin: var(--space-md) 0 var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.termin-wiederkehrend-titel {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.termin-card-secondary {
+  border-left-color: var(--color-text-light);
+}
+
+.termin-card-secondary h4 {
+  color: var(--color-text);
+}

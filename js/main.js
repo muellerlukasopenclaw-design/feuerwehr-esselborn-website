@@ -105,20 +105,65 @@ async function loadTermine() {
         }
         
         const data = await response.json();
-        const termine = data.wiederkehrend || [];
+        const termine2026 = data.termine_2026 || [];
+        const wiederkehrend = data.wiederkehrend || [];
         
         // Hilfetexte für Kalender-Integration
         const hilfetexte = data.hilfetexte || {};
         
-        if (termine.length === 0) {
+        if (termine2026.length === 0 && wiederkehrend.length === 0) {
             container.innerHTML = '<p class="loading-text">Aktuell keine Termine verfügbar.</p>';
             return;
         }
         
-        let html = `
-            <h3>Wöchentliche Termine</h3>
-            ${termine.map(termin => `
-                <div class="termin-card" role="article" aria-label="${escapeHtml(termin.titel)}">
+        let html = '';
+        
+        // Termine 2026 anzeigen
+        if (termine2026.length > 0) {
+            // Sortiere nach Datum
+            const sortedTermine = [...termine2026].sort((a, b) => new Date(a.datum) - new Date(b.datum));
+            
+            // Gruppiere nach Monat
+            const termineByMonth = {};
+            sortedTermine.forEach(termin => {
+                const date = new Date(termin.datum);
+                const monthKey = date.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
+                if (!termineByMonth[monthKey]) {
+                    termineByMonth[monthKey] = [];
+                }
+                termineByMonth[monthKey].push(termin);
+            });
+            
+            html += '<h3>Termine 2026</h3>';
+            
+            Object.keys(termineByMonth).forEach(month => {
+                html += `<h4 class="termin-monat">${month}</h4>`;
+                html += termineByMonth[month].map(termin => {
+                    const date = new Date(termin.datum);
+                    const tag = date.toLocaleDateString('de-DE', { weekday: 'short', day: '2-digit', month: '2-digit' });
+                    const endDate = new Date(date.getTime() + termin.dauer_stunden * 60 * 60 * 1000);
+                    const zeit = `${termin.uhrzeit} Uhr`;
+                    
+                    return `
+                        <div class="termin-card" role="article" aria-label="${escapeHtml(termin.titel)}">
+                            <h4>${escapeHtml(termin.titel)}</h4>
+                            <p class="termin-meta">
+                                <time datetime="${termin.datum}T${termin.uhrzeit.replace(':', '')}:00">${escapeHtml(tag)}</time> 
+                                um ${escapeHtml(zeit)}<br>
+                                ${escapeHtml(termin.ort)}
+                            </p>
+                            <p>${escapeHtml(termin.beschreibung)}</p>
+                        </div>
+                    `;
+                }).join('');
+            });
+        }
+        
+        // Wiederkehrende Termine (falls vorhanden)
+        if (wiederkehrend.length > 0) {
+            html += '<h3 class="termin-wiederkehrend-titel">Wöchentliche Termine</h3>';
+            html += wiederkehrend.map(termin => `
+                <div class="termin-card termin-card-secondary" role="article" aria-label="${escapeHtml(termin.titel)}">
                     <h4>${escapeHtml(termin.titel)}</h4>
                     <p class="termin-meta">
                         <time datetime="${getWeekdayDate(termin.tag)}">${escapeHtml(termin.tag)}</time> 
@@ -127,8 +172,8 @@ async function loadTermine() {
                     </p>
                     <p>${escapeHtml(termin.beschreibung)}</p>
                 </div>
-            `).join('')}
-        `;
+            `).join('');
+        }
         
         // Hilfetexte aktualisieren falls vorhanden
         if (hilfetexte.outlook) {

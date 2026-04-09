@@ -1,0 +1,240 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Freiwillige Feuerwehr Esselborn//Termine 2026//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Feuerwehr Esselborn 2026
+X-WR-TIMEZONE:Europe/Berlin
+X-WR-CALDESC:Termine der Freiwilligen Feuerwehr Esselborn für das Jahr 2026
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-001@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260111T100000
+DTEND;TZID=Europe/Berlin:20260111T130000
+SUMMARY:Aufräumen Knutfeuer
+DESCRIPTION:Aufräumarbeiten nach dem Knutfeuer
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Arbeitseinsatz
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-002@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260125T090000
+DTEND;TZID=Europe/Berlin:20260125T120000
+SUMMARY:Übung
+DESCRIPTION:Monatliche Übung der Feuerwehr
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Übung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-003@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260220T190000
+DTEND;TZID=Europe/Berlin:20260220T220000
+SUMMARY:Übung
+DESCRIPTION:Monatliche Übung der Feuerwehr
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Übung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-004@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260307T193000
+DTEND;TZID=Europe/Berlin:20260307T223000
+SUMMARY:Kegeln
+DESCRIPTION:Gemeinsames Kegeln (Alternativtermin: 14.03.2026)
+LOCATION:Kegelbahn
+CATEGORIES:Geselligkeit
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-005@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260320T190000
+DTEND;TZID=Europe/Berlin:20260320T220000
+SUMMARY:Übung (Atemschutz)
+DESCRIPTION:Atemschutzübung
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Übung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-006@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260402T183000
+DTEND;TZID=Europe/Berlin:20260402T203000
+SUMMARY:Mitgliederversammlung Förderverein
+DESCRIPTION:Jahreshauptversammlung des Fördervereins
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Versammlung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-007@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260402T193000
+DTEND;TZID=Europe/Berlin:20260402T213000
+SUMMARY:Generalversammlung FW
+DESCRIPTION:Jahreshauptversammlung der Feuerwehr
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Versammlung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-008@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260424T190000
+DTEND;TZID=Europe/Berlin:20260424T220000
+SUMMARY:Übung
+DESCRIPTION:Monatliche Übung der Feuerwehr
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Übung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-009@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260430T170000
+DTEND;TZID=Europe/Berlin:20260430T210000
+SUMMARY:Maifeier mit Maibaum stellen
+DESCRIPTION:Traditionelle Maifeier mit dem Stellen des Maibaums
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Fest
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-010@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260526T180000
+DTEND;TZID=Europe/Berlin:20260526T200000
+SUMMARY:Gerätehaus einräumen (evtl.)
+DESCRIPTION:Voraussichtliches Einräumen des Gerätehauses
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Arbeitseinsatz
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-011@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260529T190000
+DTEND;TZID=Europe/Berlin:20260529T220000
+SUMMARY:Übung
+DESCRIPTION:Monatliche Übung der Feuerwehr
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Übung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-012@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260604T120000
+DTEND;TZID=Europe/Berlin:20260604T160000
+SUMMARY:Grillen an der Fels
+DESCRIPTION:Gemeinsames Grillen
+LOCATION:Fels Esselborn
+CATEGORIES:Geselligkeit
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-013@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260626T190000
+DTEND;TZID=Europe/Berlin:20260626T220000
+SUMMARY:Übung
+DESCRIPTION:Monatliche Übung der Feuerwehr
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Übung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-014@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260724T190000
+DTEND;TZID=Europe/Berlin:20260724T220000
+SUMMARY:Übung
+DESCRIPTION:Monatliche Übung der Feuerwehr
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Übung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-015@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260821T190000
+DTEND;TZID=Europe/Berlin:20260821T220000
+SUMMARY:Übung
+DESCRIPTION:Monatliche Übung der Feuerwehr
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Übung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-016@feuerwehr-esselborn.de
+DTSTART;VALUE=DATE;TZID=Europe/Berlin:20260904
+DTEND;VALUE=DATE;TZID=Europe/Berlin:20260907
+SUMMARY:Feuerwehrfest Gobelsburg
+DESCRIPTION:Internationales Feuerwehrfest in Gobelsburg (Österreich) - Freitag bis Sonntag
+LOCATION:Gobelsburg, Österreich
+CATEGORIES:Fest
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-017@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20260925T190000
+DTEND;TZID=Europe/Berlin:20260925T220000
+SUMMARY:Übung
+DESCRIPTION:Monatliche Übung der Feuerwehr
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Übung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-018@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20261010T180000
+DTEND;TZID=Europe/Berlin:20261010T220000
+SUMMARY:Herbstfest / Bremserabend
+DESCRIPTION:Traditionelles Herbstfest der Feuerwehr
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Fest
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-019@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20261025T090000
+DTEND;TZID=Europe/Berlin:20261025T120000
+SUMMARY:Übung (Hydranten)
+DESCRIPTION:Übung mit Hydranten-Check
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Übung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-020@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20261115T111500
+DTEND;TZID=Europe/Berlin:20261115T121500
+SUMMARY:Gedenkstunde Volkstrauertag
+DESCRIPTION:Gedenkstunde zum Volkstrauertag
+LOCATION:Esselborn
+CATEGORIES:Gedenken
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-021@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20261120T190000
+DTEND;TZID=Europe/Berlin:20261120T220000
+SUMMARY:Übung (Atemschutz)
+DESCRIPTION:Atemschutzübung
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Übung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-022@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20261220T090000
+DTEND;TZID=Europe/Berlin:20261220T120000
+SUMMARY:Übung mit Abschluss
+DESCRIPTION:Letzte Übung des Jahres mit Jahresabschluss
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Übung
+END:VEVENT
+
+BEGIN:VEVENT
+UID:fw-esselborn-2026-023@feuerwehr-esselborn.de
+DTSTART;TZID=Europe/Berlin:20270109T173000
+DTEND;TZID=Europe/Berlin:20270109T213000
+SUMMARY:Knutfeuer (vorbehaltlich)
+DESCRIPTION:Traditionelles Knutfeuer (Termin vorbehaltlich)
+LOCATION:Feuerwehrhaus Esselborn
+CATEGORIES:Fest
+END:VEVENT
+
+END:VCALENDAR

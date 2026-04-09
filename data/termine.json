@@ -1,28 +1,224 @@
 {
-  "stand": "2026-04-08",
-  "hinweis": "Diese Datei kann mit einem einfachen Texteditor bearbeitet werden.",
-  "wiederkehrend": [
+  "stand": "2026-04-09",
+  "hinweis": "Termine der Freiwilligen Feuerwehr Esselborn für 2026",
+  "termine_2026": [
     {
-      "titel": "Wöchentliche Übung",
-      "tag": "Donnerstag",
-      "uhrzeit": "19:30 Uhr",
+      "datum": "2026-01-11",
+      "uhrzeit": "10:00",
+      "dauer_stunden": 3,
+      "titel": "Aufräumen Knutfeuer",
+      "beschreibung": "Aufräumarbeiten nach dem Knutfeuer",
       "ort": "Feuerwehrhaus Esselborn",
-      "beschreibung": "Regelmäßige Übung für alle aktiven Mitglieder"
+      "kategorie": "Arbeitseinsatz"
     },
     {
-      "titel": "Jugendfeuerwehr",
-      "tag": "Freitag",
-      "uhrzeit": "18:00 Uhr",
+      "datum": "2026-01-25",
+      "uhrzeit": "09:00",
+      "dauer_stunden": 3,
+      "titel": "Übung",
+      "beschreibung": "Monatliche Übung der Feuerwehr",
       "ort": "Feuerwehrhaus Esselborn",
-      "beschreibung": "Übung und Ausbildung für unsere Jugendlichen"
+      "kategorie": "Übung"
+    },
+    {
+      "datum": "2026-02-20",
+      "uhrzeit": "19:00",
+      "dauer_stunden": 3,
+      "titel": "Übung",
+      "beschreibung": "Monatliche Übung der Feuerwehr",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Übung"
+    },
+    {
+      "datum": "2026-03-07",
+      "uhrzeit": "19:30",
+      "dauer_stunden": 3,
+      "titel": "Kegeln",
+      "beschreibung": "Gemeinsames Kegeln (Alternativtermin: 14.03.2026)",
+      "ort": "Kegelbahn",
+      "kategorie": "Geselligkeit"
+    },
+    {
+      "datum": "2026-03-20",
+      "uhrzeit": "19:00",
+      "dauer_stunden": 3,
+      "titel": "Übung (Atemschutz)",
+      "beschreibung": "Atemschutzübung",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Übung"
+    },
+    {
+      "datum": "2026-04-02",
+      "uhrzeit": "18:30",
+      "dauer_stunden": 2,
+      "titel": "Mitgliederversammlung Förderverein",
+      "beschreibung": "Jahreshauptversammlung des Fördervereins",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Versammlung"
+    },
+    {
+      "datum": "2026-04-02",
+      "uhrzeit": "19:30",
+      "dauer_stunden": 2,
+      "titel": "Generalversammlung FW",
+      "beschreibung": "Jahreshauptversammlung der Feuerwehr",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Versammlung"
+    },
+    {
+      "datum": "2026-04-24",
+      "uhrzeit": "19:00",
+      "dauer_stunden": 3,
+      "titel": "Übung",
+      "beschreibung": "Monatliche Übung der Feuerwehr",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Übung"
+    },
+    {
+      "datum": "2026-04-30",
+      "uhrzeit": "17:00",
+      "dauer_stunden": 4,
+      "titel": "Maifeier mit Maibaum stellen",
+      "beschreibung": "Traditionelle Maifeier mit dem Stellen des Maibaums",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Fest"
+    },
+    {
+      "datum": "2026-05-26",
+      "uhrzeit": "18:00",
+      "dauer_stunden": 2,
+      "titel": "Gerätehaus einräumen (evtl.)",
+      "beschreibung": "Voraussichtliches Einräumen des Gerätehauses",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Arbeitseinsatz"
+    },
+    {
+      "datum": "2026-05-29",
+      "uhrzeit": "19:00",
+      "dauer_stunden": 3,
+      "titel": "Übung",
+      "beschreibung": "Monatliche Übung der Feuerwehr",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Übung"
+    },
+    {
+      "datum": "2026-06-04",
+      "uhrzeit": "12:00",
+      "dauer_stunden": 4,
+      "titel": "Grillen an der Fels",
+      "beschreibung": "Gemeinsames Grillen",
+      "ort": "Fels Esselborn",
+      "kategorie": "Geselligkeit"
+    },
+    {
+      "datum": "2026-06-26",
+      "uhrzeit": "19:00",
+      "dauer_stunden": 3,
+      "titel": "Übung",
+      "beschreibung": "Monatliche Übung der Feuerwehr",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Übung"
+    },
+    {
+      "datum": "2026-07-24",
+      "uhrzeit": "19:00",
+      "dauer_stunden": 3,
+      "titel": "Übung",
+      "beschreibung": "Monatliche Übung der Feuerwehr",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Übung"
+    },
+    {
+      "datum": "2026-08-21",
+      "uhrzeit": "19:00",
+      "dauer_stunden": 3,
+      "titel": "Übung",
+      "beschreibung": "Monatliche Übung der Feuerwehr",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Übung"
+    },
+    {
+      "datum": "2026-09-04",
+      "uhrzeit": "14:00",
+      "dauer_stunden": 72,
+      "titel": "Feuerwehrfest Gobelsburg",
+      "beschreibung": "Internationales Feuerwehrfest in Gobelsburg (Österreich) - Freitag bis Sonntag",
+      "ort": "Gobelsburg, Österreich",
+      "kategorie": "Fest"
+    },
+    {
+      "datum": "2026-09-25",
+      "uhrzeit": "19:00",
+      "dauer_stunden": 3,
+      "titel": "Übung",
+      "beschreibung": "Monatliche Übung der Feuerwehr",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Übung"
+    },
+    {
+      "datum": "2026-10-10",
+      "uhrzeit": "18:00",
+      "dauer_stunden": 4,
+      "titel": "Herbstfest / Bremserabend",
+      "beschreibung": "Traditionelles Herbstfest der Feuerwehr",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Fest"
+    },
+    {
+      "datum": "2026-10-25",
+      "uhrzeit": "09:00",
+      "dauer_stunden": 3,
+      "titel": "Übung (Hydranten)",
+      "beschreibung": "Übung mit Hydranten-Check",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Übung"
+    },
+    {
+      "datum": "2026-11-15",
+      "uhrzeit": "11:15",
+      "dauer_stunden": 1,
+      "titel": "Gedenkstunde Volkstrauertag",
+      "beschreibung": "Gedenkstunde zum Volkstrauertag",
+      "ort": "Esselborn",
+      "kategorie": "Gedenken"
+    },
+    {
+      "datum": "2026-11-20",
+      "uhrzeit": "19:00",
+      "dauer_stunden": 3,
+      "titel": "Übung (Atemschutz)",
+      "beschreibung": "Atemschutzübung",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Übung"
+    },
+    {
+      "datum": "2026-12-20",
+      "uhrzeit": "09:00",
+      "dauer_stunden": 3,
+      "titel": "Übung mit Abschluss",
+      "beschreibung": "Letzte Übung des Jahres mit Jahresabschluss",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Übung"
+    },
+    {
+      "datum": "2027-01-09",
+      "uhrzeit": "17:30",
+      "dauer_stunden": 4,
+      "titel": "Knutfeuer (vorbehaltlich)",
+      "beschreibung": "Traditionelles Knutfeuer (Termin vorbehaltlich)",
+      "ort": "Feuerwehrhaus Esselborn",
+      "kategorie": "Fest"
     }
   ],
-  "sondertermine": [],
-  "kalender": {
-    "name": "Feuerwehr Esselborn - Öffentlicher Kalender",
-    "ical_url": "https://calendar.google.com/calendar/ical/862fol2ms73o2mnncd36vdkuus%40group.calendar.google.com/public/basic.ics",
-    "beschreibung": "Abonnieren Sie diesen Kalender für aktuelle Einsätze, Übungen und Veranstaltungen"
-  },
+  "wiederkehrend": [
+    {
+      "titel": "Gruppenübung",
+      "tag": "Dienstag",
+      "uhrzeit": "19:00 Uhr",
+      "ort": "Feuerwehrhaus Esselborn",
+      "beschreibung": "Wöchentliche Übung für alle Gruppen"
+    }
+  ],
   "hilfetexte": {
     "outlook": "Kalender → Kalender öffnen → Aus dem Internet... → obigen Link einfügen",
     "ios": "Einstellungen → Mail, Kontakte, Kalender → Account hinzufügen → Andere → Kalenderabo hinzufügen → obigen Link einfügen"
