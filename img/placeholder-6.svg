@@ -6,8 +6,6 @@
     </linearGradient>
   </defs>
   <rect width="200" height="200" fill="url(#bg6)"/>
-  <text x="100" y="85" font-size="55" text-anchor="middle">⛑️</text>
-  <text x="100" y="140" font-size="25" text-anchor="middle" fill="#5c3d00" font-family="system-ui">Helm auf!</text>
-  <text x="100" y="170" font-size="16" text-anchor="middle" fill="#8a5d00" font-family="system-ui">📷 Foto in Arbeit</text>
-  <text x="160" y="50" font-size="25">✨</text>
+  <text x="100" y="125" font-size="80" text-anchor="middle">⛑️</text>
+  <text x="165" y="55" font-size="30">✨</text>
 </svg>

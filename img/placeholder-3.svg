@@ -6,7 +6,5 @@
     </linearGradient>
   </defs>
   <rect width="200" height="200" fill="url(#bg3)"/>
-  <text x="100" y="100" font-size="70" text-anchor="middle">🧑‍🚒</text>
-  <text x="100" y="160" font-size="20" text-anchor="middle" fill="white" font-family="system-ui">Wasser marsch!</text>
-  <text x="100" y="185" font-size="14" text-anchor="middle" fill="#ffe8cc" font-family="system-ui">📸 Coming soon</text>
+  <text x="100" y="120" font-size="80" text-anchor="middle">🧑‍🚒</text>
 </svg>
