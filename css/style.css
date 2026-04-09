@@ -419,6 +419,82 @@ section:nth-child(even) {
   margin-top: 1rem;
   font-size: 0.875rem;
   color: var(--color-text-light);
+  text-align: center;
+}
+
+/* iCal-Link im Kalender-Abo-Bereich - besserer Kontrast */
+.kalender-abo-section .kalender-link {
+  background: white;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+}
+
+.kalender-abo-section .kalender-link:hover,
+.kalender-abo-section .kalender-link:focus {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* Statische Stat-Nummern ohne Animation */
+.stat-number-static {
+  animation: none !important;
+}
+
+/* === BILDERGALERIE === */
+.galerie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.galerie-grid.galerie-small {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.galerie-item {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  background: var(--color-background);
+  margin: 0;
+}
+
+.galerie-item:hover,
+.galerie-item:focus-within {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.galerie-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.galerie-small .galerie-item img {
+  height: 160px;
+}
+
+.galerie-item figcaption {
+  padding: var(--space-sm);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  background: var(--color-background);
+}
+
+.galerie-subtitle {
+  text-align: center;
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  margin: var(--space-xl) 0 var(--space-md);
 }
 
 .mitglied-liste {

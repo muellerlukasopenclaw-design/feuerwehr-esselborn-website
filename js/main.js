@@ -57,6 +57,9 @@ async function loadMannschaft() {
             countElement.textContent = aktiveMitglieder.length;
         }
         
+        // Animation für 125 Jahre Hochzähl-Effekt
+        animateCounter('jahre-count', 125, 2000);
+        
         // HTML generieren
         if (aktiveMitglieder.length === 0) {
             container.innerHTML = '<p class="loading-text">Mannschaftsdaten werden aktualisiert.</p>';
@@ -221,6 +224,48 @@ function initMobileNav() {
             openMenu();
         }
     });
+}
+
+/**
+ * Animiert einen Zähler von 0 bis zum Zielwert
+ */
+function animateCounter(elementId, targetValue, duration = 2000) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    // Intersection Observer zum Starten der Animation wenn sichtbar
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounting();
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    observer.observe(element);
+    
+    function startCounting() {
+        const startTime = performance.now();
+        const startValue = 0;
+        
+        function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing-Funktion für sanftes Auslaufen
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const currentValue = Math.round(startValue + (targetValue - startValue) * easeOutQuart);
+            
+            element.textContent = currentValue;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            }
+        }
+        
+        requestAnimationFrame(updateCounter);
+    }
 }
 
 /**
