@@ -391,6 +391,7 @@ section:nth-child(even) {
 
 .mitglied-info {
   padding: var(--space-md);
+  text-align: center;
 }
 
 .mitglied-info h3 {
@@ -412,6 +413,7 @@ section:nth-child(even) {
 .funktion {
   color: var(--color-text-light);
   font-size: var(--font-size-sm);
+  text-align: center;
 }
 
 /* === Utility Classes (extracted from inline styles) === */
