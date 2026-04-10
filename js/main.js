@@ -208,6 +208,9 @@ function updateCountdown(termine) {
     
     if (!countdownContainer || !tageElement || !terminElement) return;
     
+    // Speichere nächsten Termin für Scroll-Funktion
+    let naechsterTerminDatum = null;
+    
     const heute = new Date();
     heute.setHours(0, 0, 0, 0);
     
@@ -223,6 +226,7 @@ function updateCountdown(termine) {
     }
     
     const naechsterTermin = zukuenftigeTermine[0];
+    naechsterTerminDatum = naechsterTermin.datum;
     const diffZeit = naechsterTermin.dateObj - heute;
     const diffTage = Math.ceil(diffZeit / (1000 * 60 * 60 * 24));
     
@@ -236,6 +240,18 @@ function updateCountdown(termine) {
     
     terminElement.textContent = terminText;
     countdownContainer.style.display = 'block';
+    
+    // Klick-Handler: Scroll zum Termin
+    countdownContainer.style.cursor = 'pointer';
+    countdownContainer.title = 'Zum nächsten Termin scrollen';
+    countdownContainer.addEventListener('click', () => {
+        if (naechsterTerminDatum) {
+            const terminElement = document.querySelector(`time[datetime^="${naechsterTerminDatum}"]`);
+            if (terminElement) {
+                terminElement.closest('.termin-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    });
 }
 
 /**

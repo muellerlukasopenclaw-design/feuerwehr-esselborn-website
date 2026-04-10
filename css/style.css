@@ -1303,6 +1303,7 @@ section:nth-child(even) {
 /* === TERMIN COUNTDOWN === */
 .termin-countdown {
   margin-bottom: var(--space-lg);
+  text-align: center;
 }
 
 .countdown-badge {
