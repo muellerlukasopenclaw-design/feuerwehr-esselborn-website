@@ -5,6 +5,9 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Scroll Progress Bar
+    initScrollProgress();
+    
     // Preloader ausblenden
     const preloader = document.getElementById('preloader');
     if (preloader) {
@@ -480,4 +483,34 @@ function initLightbox() {
                 break;
         }
     });
+}
+
+/**
+ * Scroll Progress Bar initialisieren
+ */
+function initScrollProgress() {
+    const progressBar = document.querySelector('.scroll-progress');
+    if (!progressBar) return;
+    
+    function updateProgress() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+    }
+    
+    // Throttle für Performance
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateProgress();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+    
+    // Initial setzen
+    updateProgress();
 }

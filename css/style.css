@@ -840,6 +840,18 @@ section:nth-child(even) {
   }
 }
 
+/* === Scroll Progress Bar === */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd43b 0%, #ff6b6b 50%, #B91C1C 100%);
+  z-index: 10001;
+  transition: width 0.1s ease-out;
+}
+
 /* === Preloader === */
 .preloader {
   position: fixed;
