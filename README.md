@@ -23,21 +23,23 @@ Modernisierung der bestehenden Feuerwehr-Website mit Fokus auf:
 
 ```
 feuerwehr-esselborn-site/
-├── index.php              # Hauptseite (PHP nur für JSON-Ladung)
+├── index.html             # Hauptseite (statisch)
 ├── css/
-│   └── style.css          # Vollständiges CSS (11.7 KB, kommentiert)
+│   └── style.css          # Vollständiges CSS (kommentiert)
 ├── js/
-│   └── main.js            # Minimales JS (3.2 KB, kommentiert)
-├── img/                   # Bildverzeichnis (derzeit Platzhalter)
-├── downloads/             # PDFs, Dokumente (vorbereitet)
+│   └── main.js            # Minimales JS (kommentiert)
+├── img/                   # Bildverzeichnis
+│   ├── feuerwehr-*.jpg    # Galerie-Bilder
+│   ├── 125/               # Jubiläums-Bilder
+│   └── placeholder-*.svg  # Platzhalter für Mitglieder
 ├── data/
-│   ├── mannschaft.json    # ✅ Pflegbare Mitgliederliste
-│   └── termine.json       # ✅ Pflegbare Termine
+│   ├── mannschaft.json    # ✅ Pflegbare Mitgliederliste (16 Mitglieder)
+│   ├── termine.json       # ✅ Termine 2026 (23 Termine)
+│   └── termine-2026.ics   # 📅 iCal-Datei zum Download
 ├── legal/
 │   ├── impressum.html     # Impressum
 │   └── datenschutz.html   # Datenschutzerklärung
-├── MIGRATION.md           # Dokumentation der Migration
-└── README.md            # Diese Datei
+└── README.md              # Diese Datei
 ```
 
 ---
@@ -52,7 +54,7 @@ feuerwehr-esselborn-site/
 {
   "name": "Max Mustermann",
   "dienstgrad": "Oberbrandmeister",
-  "funktion": "Wehrführer",
+  "funktion": "Wehrführer, AGT",
   "bild": "foto.jpg",
   "aktiv": true,
   "reihenfolge": 1
@@ -66,15 +68,15 @@ feuerwehr-esselborn-site/
 4. Fertig – keine Programmierkenntnisse nötig
 
 **Hinweise:**
-- `bild`: Leer lassen = Platzhalter wird angezeigt
+- `bild`: `placeholder-X.svg` = bunter Platzhalter, `"foto.jpg"` = echtes Foto
 - `aktiv`: Auf `false` setzen = Mitglied wird ausgeblendet
-- `reihenfolge`: Bestimmt die Reihenfolge in der Anzeige
+- `reihenfolge`: Bestimmt die Reihenfolge in der Anzeige (1-16)
 
 ### Termine aktualisieren
 
 **Datei:** `data/termine.json`
 
-Wiederkehrende Termine und Sondertermine getrennt pflegen.
+Alle Termine für 2026 sind dort hinterlegt – einfach Datum, Uhrzeit oder Titel ändern. Die iCal-Datei (`termine-2026.ics`) wird manuell aus den JSON-Daten erstellt.
 
 ### Design anpassen
 
@@ -91,25 +93,22 @@ Wiederkehrende Termine und Sondertermine getrennt pflegen.
 
 ### Voraussetzungen
 
-- PHP 7.4+ (nur für `file_get_contents()`)
-- Webspace mit PHP-Unterstützung
-- Optional: SSL-Zertifikat (HTTPS)
+- Statischer Webspace (kein PHP nötig!)
+- Optional: SSL-Zertifikat (HTTPS empfohlen)
 
 ### Schritte
 
 1. **Alle Dateien hochladen** per FTP/SFTP
-2. **Rechte prüfen:** Dateien lesbar, bei Bedarf schreibbar für Uploads
-3. **Fertig** – keine Installation, keine Datenbank
+2. **Fertig** – keine Installation, keine Datenbank
 
 ### Empfohlene Ordnerstruktur auf Server
 
 ```
 /public_html/  oder  /www/
-  ├── index.php
+  ├── index.html
   ├── css/
   ├── js/
   ├── img/
-  ├── downloads/
   ├── data/
   └── legal/
 ```
@@ -120,12 +119,13 @@ Wiederkehrende Termine und Sondertermine getrennt pflegen.
 
 | Aspekt | Implementierung | Begründung |
 |--------|-----------------|------------|
-| **Architektur** | Statisch + PHP JSON-Loader | Wartungsarm, keine DB |
+| **Architektur** | 100% Statisch | Kein Server nötig, GitHub Pages kompatibel |
 | **CSS** | Vanilla CSS mit Variablen | Kein Build-Prozess nötig |
-| **JS** | Vanilla JS (3.2 KB) | Keine Framework-Abhängigkeit |
-| **Bilder** | Lazy Loading vorbereitet | Performance |
+| **JS** | Vanilla JS (~5 KB) | Keine Framework-Abhängigkeit |
+| **Bilder** | Lazy Loading + SVG-Platzhalter | Performance |
 | **Accessibility** | WCAG 2.1 AA | Screenreader, Tastatur, Kontrast |
 | **SEO** | Semantic HTML, Meta-Tags | Auffindbarkeit |
+| **Karte** | OpenStreetMap Link | Datenschutzfreundlich (kein automatisches Tracking) |
 
 ---
 
@@ -135,11 +135,11 @@ Wiederkehrende Termine und Sondertermine getrennt pflegen.
 
 | Inhalt | Umsetzung |
 |--------|-----------|
-| **17 Mitglieder** | Vollständig übernommen, jetzt in JSON pflegbar |
-| **Kalender-Link** | Übernommen, visuell aufbereitet |
+| **16 Mitglieder** | Vollständig übernommen, jetzt in JSON pflegbar |
+| **Kalender** | iCal-Datei zum Download, OpenStreetMap statt Google |
 | **Förderverein-Infos** | Strukturiert aufbereitet |
 | **Kontaktdaten** | Zentralisiert |
-| **125-Jahre-Jubiläum** | Eigener Bereich mit Statistiken |
+| **125-Jahre-Jubiläum** | Eigener Bereich mit Statistiken + 11 Jubiläumsbildern |
 
 ### Verbesserungen
 
@@ -148,15 +148,17 @@ Wiederkehrende Termine und Sondertermine getrennt pflegen.
 | Mobile Optimierung | ❌ Nicht vorhanden | ✅ Mobile-first |
 | Barrierearmut | ❌ Grundlegend | ✅ WCAG 2.1 AA |
 | SEO | ❌ Keine Meta-Tags | ✅ Vollständig |
-| Performance | ❌ Unoptimiert | ✅ 11 KB CSS, 3 KB JS |
+| Performance | ❌ Unoptimiert | ✅ ~15 KB CSS+JS |
 | Pflegbarkeit | ❌ HTML-Editierung | ✅ JSON-Dateien |
+| Bildergalerie | ❌ Veraltet | ✅ Moderne Lightbox |
+| Datenschutz | ❌ Google Maps | ✅ OpenStreetMap + DSGVO-konform |
 
 ### Entfernte Altlasten
 
-- Veraltete Bildergalerie (keine aktuellen Bilder)
-- Überflüssige externe Skripte
-- Tabellen-Layout (ersetzt durch CSS Grid)
+- Veraltete Tabellen-Layout (ersetzt durch CSS Grid)
 - Inline-Styles (alles in CSS ausgelagert)
+- Überflüssige externe Skripte
+- PHP-Abhängigkeit (jetzt 100% statisch)
 
 ---
 
@@ -166,31 +168,30 @@ Die folgenden Inhalte sollten manuell überprüft und ergänzt werden:
 
 ### 🔴 Priorität: Hoch
 
-- [ ] **Mannschaftsfotos** - Derzeit Platzhalter (👤), echte Fotos einfügen
-- [ ] **Aktuelle Termine** - Derzeit nur wiederkehrende Übungen, Sondertermine ergänzen
+- [ ] **Mannschaftsfotos** - Derzeit bunte SVG-Platzhalter, echte Fotos einfügen
+  - Fotos in `/img/` hochladen
+  - `data/mannschaft.json` aktualisieren (`bild: "name.jpg"`)
 
 ### 🟡 Priorität: Mittel
 
 - [ ] **Downloads** - Bereich vorbereitet, aber leer:
   - Mitgliedsanträge als PDF
   - Informationsblätter
-  - Pressemitteilungen
-- [ ] **Einsatzberichte** - Nicht in alter Seite vorhanden, neu erstellen?
+- [ ] **Einsatzberichte** - Neue Rubrik möglich
 
 ### 🟢 Priorität: Niedrig
 
 - [ ] **Historie 125 Jahre** - Derzeit nur Statistiken, detaillierte Historie möglich
-- [ ] **Bildergalerie** - Modernes System vorbereitet, Bilder fehlen
 - [ ] **Social Media Links** - Falls vorhanden
 
 ### 📋 Prüf-Workflow
 
 ```
-1. Fotos von aktiven Mitgliedern sammeln
-2. In /img/ hochladen
-3. data/mannschaft.json aktualisieren (bild: "dateiname.jpg")
-4. Termine prüfen und in data/termine.json ergänzen
-5. Im Browser testen
+1. Aktuelle Mitgliederliste von Wehrführer anfordern
+2. Fotos von aktiven Mitgliedern sammeln (Einheitlicher Hintergrund)
+3. Bilder in /img/ hochladen (empfohlen: 400x400px, JPG)
+4. data/mannschaft.json aktualisieren
+5. Git commit & push
 ```
 
 ---
@@ -206,6 +207,13 @@ Die folgenden Inhalte sollten manuell überprüft und ergänzt werden:
 - ✅ **Alt-Texte:** Für alle Bilder vorgesehen
 - ✅ **Fokus-Indikatoren:** Deutlich sichtbar
 
+### Datenschutz
+
+- ✅ Keine externen Tracking-Skripte
+- ✅ Keine Cookies (außer technisch notwendige)
+- ✅ OpenStreetMap erst bei Klick (kein automatisches IP-Tracking)
+- ✅ Statisches Hosting möglich (kein Server-Processing)
+
 ### Performance
 
 - Keine externen Requests (kein CDN, keine Fonts)
@@ -217,7 +225,7 @@ Die folgenden Inhalte sollten manuell überprüft und ergänzt werden:
 
 ## 📄 Lizenz & Rechte
 
-© 2024 Freiwillige Feuerwehr Esselborn
+© 2026 Freiwillige Feuerwehr Esselborn
 
 Diese Website wurde für die Feuerwehr Esselborn erstellt und ist für deren exklusive Nutzung bestimmt.
 
@@ -226,14 +234,21 @@ Diese Website wurde für die Feuerwehr Esselborn erstellt und ist für deren exk
 ## 🔧 Entwickler-Notizen
 
 **Migration durchgeführt von:** OpenClaw  
-**Datum:** 7. April 2026  
-**Version:** 1.0 (Production Ready)  
+**Letzte Aktualisierung:** April 2026  
+**Version:** 1.0 (Production Ready)
 
 **Technische Entscheidungen:**
 - Kein CSS-Framework (Bootstrap etc.) → Zu viel Overhead
 - Kein JavaScript-Framework → Nicht notwendig für diese Seite
 - JSON statt Datenbank → Einfachere Pflege
-- PHP nur für file_get_contents → Könnte auch JS-fetch sein, aber PHP robuster
+- 100% statisch → GitHub Pages kompatibel, kein PHP nötig
+
+**Features:**
+- Bildergalerie mit Lightbox (15 Bilder von alter Seite übernommen)
+- Animationen für Statistiken (Hochzählen)
+- Responsive Navigation mit Burger-Menü
+- Termine 2026 mit iCal-Download
+- Platzhalter-System für Mitglieder ohne Foto
 
 **Zukunftssicherheit:**
 - CSS-Variablen für einfaches Rebranding
