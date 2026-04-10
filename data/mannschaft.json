@@ -5,7 +5,7 @@
     {
       "name": "Michael Förster",
       "dienstgrad": "Oberbrandmeister",
-      "funktion": "Wehrführer, ATG",
+      "funktion": "Wehrführer, AGT",
       "bild": "placeholder-1.svg",
       "aktiv": true,
       "reihenfolge": 1
@@ -13,7 +13,7 @@
     {
       "name": "Torsten Lehmann",
       "dienstgrad": "Brandmeister",
-      "funktion": "stv. Wehrführer, ATG",
+      "funktion": "stv. Wehrführer, AGT",
       "bild": "placeholder-2.svg",
       "aktiv": true,
       "reihenfolge": 2
@@ -21,7 +21,7 @@
     {
       "name": "Markus Pinger",
       "dienstgrad": "Brandmeister",
-      "funktion": "Gruppenführer, ATG",
+      "funktion": "Gruppenführer, AGT",
       "bild": "placeholder-3.svg",
       "aktiv": true,
       "reihenfolge": 3
@@ -61,7 +61,7 @@
     {
       "name": "Olaf Schwizow",
       "dienstgrad": "Hauptfeuerwehrmann",
-      "funktion": "ATG, Ma",
+      "funktion": "AGT, Ma",
       "bild": "placeholder-8.svg",
       "aktiv": true,
       "reihenfolge": 8
@@ -69,7 +69,7 @@
     {
       "name": "Simon Müller-Oswald",
       "dienstgrad": "Hauptfeuerwehrmann",
-      "funktion": "ATG, Ma",
+      "funktion": "AGT, Ma",
       "bild": "placeholder-1.svg",
       "aktiv": true,
       "reihenfolge": 9
@@ -77,7 +77,7 @@
     {
       "name": "Jan Niklas Best",
       "dienstgrad": "Hauptfeuerwehrmann",
-      "funktion": "ATG, Ma",
+      "funktion": "AGT, Ma",
       "bild": "placeholder-2.svg",
       "aktiv": true,
       "reihenfolge": 10
