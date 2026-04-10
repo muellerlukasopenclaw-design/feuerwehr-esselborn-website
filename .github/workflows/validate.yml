@@ -1,0 +1,57 @@
+name: Validate Website
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    
+    - name: Install HTMLHint
+      run: npm install -g htmlhint
+    
+    - name: Validate HTML
+      run: |
+        htmlhint index.html
+        htmlhint legal/impressum.html
+        htmlhint legal/datenschutz.html
+      continue-on-error: true
+    
+    - name: Validate CSS with Stylelint
+      run: |
+        npm install -g stylelint stylelint-config-standard
+        echo '{"extends": "stylelint-config-standard"}' > .stylelintrc.json
+        stylelint css/style.css || true
+      continue-on-error: true
+    
+    - name: Check JSON Validity
+      run: |
+        node -e "JSON.parse(require('fs').readFileSync('data/mannschaft.json'))" && echo "✅ mannschaft.json valid"
+        node -e "JSON.parse(require('fs').readFileSync('data/termine.json'))" && echo "✅ termine.json valid"
+    
+    - name: Check Links
+      run: |
+        npm install -g broken-link-checker
+        blc file://$(pwd)/index.html --recursive --exclude-external || true
+      continue-on-error: true
+    
+    - name: Check File Structure
+      run: |
+        test -f index.html && echo "✅ index.html exists"
+        test -f css/style.css && echo "✅ style.css exists"
+        test -f js/main.js && echo "✅ main.js exists"
+        test -f data/mannschaft.json && echo "✅ mannschaft.json exists"
+        test -f data/termine.json && echo "✅ termine.json exists"
+        test -f legal/impressum.html && echo "✅ impressum.html exists"
+        test -f legal/datenschutz.html && echo "✅ datenschutz.html exists"
