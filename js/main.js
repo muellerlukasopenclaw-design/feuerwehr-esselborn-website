@@ -530,3 +530,101 @@ function initScrollProgress() {
     // Initial setzen
     updateProgress();
 }
+/**
+ * Schema.org Structured Data als JSON-LD einfügen
+ */
+function insertSchemaOrgData() {
+    const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Freiwillige Feuerwehr Esselborn",
+        "url": "https://feuerwehr.gemeinde-esselborn.de/",
+        "logo": "https://feuerwehr.gemeinde-esselborn.de/img/og-image.svg",
+        "foundingDate": "1899",
+        "description": "Freiwillige Feuerwehr Esselborn - Retten, Löschen, Bergen, Schützen seit 1899",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Obergasse 11",
+            "addressLocality": "Esselborn",
+            "postalCode": "55234",
+            "addressCountry": "DE"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "feuerwehr@gemeinde-esselborn.de",
+            "contactType": "Wehrführung"
+        }
+    };
+    
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(schemaData);
+    document.head.appendChild(script);
+}
+
+/**
+ * Service Worker registrieren
+ */
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                    console.log('[SW] Registriert:', registration.scope);
+                })
+                .catch((error) => {
+                    console.log('[SW] Registrierung fehlgeschlagen:', error);
+                });
+        });
+    }
+}
+
+
+/**
+ * Schema.org Structured Data als JSON-LD einfügen
+ */
+function insertSchemaOrgData() {
+    const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Freiwillige Feuerwehr Esselborn",
+        "url": "https://feuerwehr.gemeinde-esselborn.de/",
+        "logo": "https://feuerwehr.gemeinde-esselborn.de/img/og-image.svg",
+        "foundingDate": "1899",
+        "description": "Freiwillige Feuerwehr Esselborn - Retten, Löschen, Bergen, Schützen seit 1899",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Obergasse 11",
+            "addressLocality": "Esselborn",
+            "postalCode": "55234",
+            "addressCountry": "DE"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "feuerwehr@gemeinde-esselborn.de",
+            "contactType": "Wehrführung"
+        }
+    };
+    
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(schemaData);
+    document.head.appendChild(script);
+}
+
+/**
+ * Service Worker registrieren
+ */
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                    console.log('[SW] Registriert:', registration.scope);
+                })
+                .catch((error) => {
+                    console.log('[SW] Registrierung fehlgeschlagen:', error);
+                });
+        });
+    }
+}

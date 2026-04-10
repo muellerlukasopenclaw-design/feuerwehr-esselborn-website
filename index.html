@@ -29,31 +29,6 @@
     <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Freiwillige Feuerwehr Esselborn",
-      "url": "https://feuerwehr.gemeinde-esselborn.de/",
-      "logo": "https://feuerwehr.gemeinde-esselborn.de/img/og-image.svg",
-      "foundingDate": "1899",
-      "description": "Freiwillige Feuerwehr Esselborn - Retten, Löschen, Bergen, Schützen seit 1899",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Obergasse 11",
-        "addressLocality": "Esselborn",
-        "postalCode": "55234",
-        "addressCountry": "DE"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "feuerwehr@gemeinde-esselborn.de",
-        "contactType": "Wehrführung"
-      }
-    }
-    </script>
-    
     <!-- Security/Privacy Meta-Tags -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -400,7 +375,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
     
     <!-- Lightbox für Galerie -->
     <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Bild vergrößert">
@@ -411,19 +385,6 @@
         <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
     
-    <!-- Service Worker Registration -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then((registration) => {
-                        console.log('[SW] Registriert:', registration.scope);
-                    })
-                    .catch((error) => {
-                        console.log('[SW] Registrierung fehlgeschlagen:', error);
-                    });
-            });
-        }
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
