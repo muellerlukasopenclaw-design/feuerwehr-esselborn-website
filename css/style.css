@@ -722,13 +722,6 @@ section:nth-child(even) {
   font-size: var(--font-size-sm);
 }
 
-.last-updated {
-  text-align: center;
-  color: rgba(255,255,255,0.6);
-  font-size: 0.75rem;
-  margin-top: var(--space-xs);
-}
-
 /* === Impressum & Datenschutz === */
 .legal-page {
   padding-top: 100px;
