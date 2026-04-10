@@ -977,6 +977,7 @@ section:nth-child(even) {
   margin-top: var(--space-xl);
   padding-top: var(--space-xl);
   border-top: 1px solid rgba(0,0,0,0.1);
+  text-align: center;
 }
 
 .standort-titel {
@@ -1006,6 +1007,7 @@ section:nth-child(even) {
   color: var(--color-text);
   margin-bottom: var(--space-md);
   line-height: 1.6;
+  text-align: center;
 }
 
 .standort-hinweis {
@@ -1013,6 +1015,7 @@ section:nth-child(even) {
   color: var(--color-text-light);
   margin-top: var(--space-sm);
   font-style: italic;
+  text-align: center;
 }
 
 /* === LIGHTBOX === */
