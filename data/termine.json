@@ -210,15 +210,7 @@
       "kategorie": "Fest"
     }
   ],
-  "wiederkehrend": [
-    {
-      "titel": "Gruppenübung",
-      "tag": "Dienstag",
-      "uhrzeit": "19:00 Uhr",
-      "ort": "Feuerwehrhaus Esselborn",
-      "beschreibung": "Wöchentliche Übung für alle Gruppen"
-    }
-  ],
+  "wiederkehrend": [],
   "hilfetexte": {
     "outlook": "Kalender → Kalender öffnen → Aus dem Internet... → obigen Link einfügen",
     "ios": "Einstellungen → Mail, Kontakte, Kalender → Account hinzufügen → Andere → Kalenderabo hinzufügen → obigen Link einfügen"

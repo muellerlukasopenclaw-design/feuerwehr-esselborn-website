@@ -159,21 +159,7 @@ async function loadTermine() {
             });
         }
         
-        // Wiederkehrende Termine (falls vorhanden)
-        if (wiederkehrend.length > 0) {
-            html += '<h3 class="termin-wiederkehrend-titel">Wöchentliche Termine</h3>';
-            html += wiederkehrend.map(termin => `
-                <div class="termin-card termin-card-secondary" role="article" aria-label="${escapeHtml(termin.titel)}">
-                    <h4>${escapeHtml(termin.titel)}</h4>
-                    <p class="termin-meta">
-                        <time datetime="${getWeekdayDate(termin.tag)}">${escapeHtml(termin.tag)}</time> 
-                        um ${escapeHtml(termin.uhrzeit)}<br>
-                        ${escapeHtml(termin.ort)}
-                    </p>
-                    <p>${escapeHtml(termin.beschreibung)}</p>
-                </div>
-            `).join('');
-        }
+
         
         // Hilfetexte aktualisieren falls vorhanden
         if (hilfetexte.outlook) {
