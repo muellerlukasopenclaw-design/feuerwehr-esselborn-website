@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Scroll Progress Bar
     initScrollProgress();
     
+    // Lazy Loading mit Blur-Up Effekt
+    initLazyLoading();
+    
     // Preloader ausblenden
     const preloader = document.getElementById('preloader');
     if (preloader) {
@@ -513,4 +516,40 @@ function initScrollProgress() {
     
     // Initial setzen
     updateProgress();
+}
+
+/**
+ * Lazy Loading mit Blur-Up Effekt für Bilder
+ */
+function initLazyLoading() {
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    
+                    // Wenn Bild bereits geladen (aus Cache)
+                    if (img.complete) {
+                        img.classList.add('loaded');
+                    } else {
+                        // Warte auf Load-Event
+                        img.addEventListener('load', () => {
+                            img.classList.add('loaded');
+                        });
+                    }
+                    
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px'
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback: Alle Bilder sofort laden
+        lazyImages.forEach(img => img.classList.add('loaded'));
+    }
 }

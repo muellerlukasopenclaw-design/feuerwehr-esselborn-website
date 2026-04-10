@@ -446,15 +446,21 @@ section:nth-child(even) {
 }
 
 /* === BILDERGALERIE === */
-.galerie-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--space-md);
-  margin-bottom: var(--space-xl);
+.galerie-item img,
+.mitglied-card img {
+  transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
-.galerie-grid.galerie-small {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+.galerie-item img[loading="lazy"],
+.mitglied-card img[loading="lazy"] {
+  opacity: 0;
+  filter: blur(10px);
+}
+
+.galerie-item img.loaded,
+.mitglied-card img.loaded {
+  opacity: 1;
+  filter: blur(0);
 }
 
 .galerie-item {
