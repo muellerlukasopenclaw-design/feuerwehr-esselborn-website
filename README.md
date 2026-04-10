@@ -1,8 +1,10 @@
 # Feuerwehr Esselborn - Moderne Website
 
-🌐 **Live-Version:** https://muellerlukasopenclaw-design.github.io/feuerwehr-esselborn-website/
+🌐 **Live-Version:** https://feuerwehr.gemeinde-esselborn.de/ (voraussichtlich ab April 2026)
 
-**Status:** ✅ Abgeschlossen | **Version:** 1.0 | **Datum:** April 2024
+🖼️ **Demo-Version:** https://muellerlukasopenclaw-design.github.io/feuerwehr-esselborn-website/
+
+**Status:** ✅ Abgeschlossen | **Version:** 1.0 | **Datum:** April 2026
 
 ---
 
