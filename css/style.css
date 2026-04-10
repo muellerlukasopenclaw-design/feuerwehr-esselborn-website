@@ -887,6 +887,49 @@ section:nth-child(even) {
   /* Derzeit nicht aktiviert - bei Bedarf implementieren */
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #1a1a1a;
+    --color-background-alt: #2d2d2d;
+    --color-text: #e5e5e5;
+    --color-text-light: #a3a3a3;
+    --color-border: #404040;
+  }
+  
+  .hero {
+    background: linear-gradient(135deg, #7F1D1D 0%, #B91C1C 100%);
+  }
+  
+  .mitglied-card,
+  .termin-card,
+  .mitglied-art {
+    background: #2d2d2d;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+  
+  .galerie-item {
+    background: #2d2d2d;
+  }
+  
+  .hilfe-details {
+    background: #1a1a1a;
+    border-color: #404040;
+  }
+  
+  .main-nav {
+    background: rgba(26,26,26,0.98);
+  }
+  
+  .nav-links a {
+    color: #e5e5e5;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background: rgba(185,28,28,0.1);
+  }
+}
+
 /* === KALENDER-ABO SECTION === */
 .kalender-abo-section {
   margin-top: var(--space-xl);
@@ -1222,6 +1265,51 @@ section:nth-child(even) {
 
 .legal-content .btn {
   margin-top: var(--space-lg);
+}
+
+/* === TERMIN COUNTDOWN === */
+.termin-countdown {
+  margin-bottom: var(--space-lg);
+}
+
+.countdown-badge {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: white;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: var(--font-size-lg);
+}
+
+.countdown-icon {
+  font-size: 1.5em;
+}
+
+.countdown-text strong {
+  font-size: 1.3em;
+  font-weight: 800;
+}
+
+.countdown-termin {
+  display: block;
+  width: 100%;
+  font-size: var(--font-size-base);
+  opacity: 0.95;
+  margin-top: var(--space-xs);
+}
+
+@media (min-width: 640px) {
+  .countdown-termin {
+    display: inline;
+    width: auto;
+    margin-top: 0;
+    margin-left: var(--space-sm);
+  }
 }
 
 /* === KALENDER BUTTONS === */

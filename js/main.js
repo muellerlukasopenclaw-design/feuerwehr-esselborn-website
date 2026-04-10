@@ -61,15 +61,25 @@ async function loadMannschaft() {
         // Animation für 125 Jahre Hochzähl-Effekt
         animateCounter('jahre-count', 125, 2000);
         
+        // Zufällige Platzhalter zuweisen wenn nötig
+        const platzhalterPool = ['placeholder-1.svg', 'placeholder-2.svg', 'placeholder-3.svg', 
+                                  'placeholder-4.svg', 'placeholder-5.svg', 'placeholder-6.svg',
+                                  'placeholder-7.svg', 'placeholder-8.svg'];
+        
         // HTML generieren
         if (aktiveMitglieder.length === 0) {
             container.innerHTML = '<p class="loading-text">Mannschaftsdaten werden aktualisiert.</p>';
             return;
         }
         
-        container.innerHTML = aktiveMitglieder.map(mitglied => {
-            const bildHtml = mitglied.bild 
-                ? `<img src="img/${escapeHtml(mitglied.bild)}" alt="${escapeHtml(mitglied.name)}" loading="lazy">`
+        container.innerHTML = aktiveMitglieder.map((mitglied, index) => {
+            let bildDatei = mitglied.bild;
+            // Wenn Platzhalter, wähle zufällig aus Pool (aber konsistent pro Mitglied via Index)
+            if (!bildDatei || bildDatei.includes('placeholder')) {
+                bildDatei = platzhalterPool[index % platzhalterPool.length];
+            }
+            const bildHtml = bildDatei 
+                ? `<img src="img/${escapeHtml(bildDatei)}" alt="${escapeHtml(mitglied.name)}" loading="lazy">`
                 : `<div class="mitglied-placeholder" aria-hidden="true">👤</div>`;
             
             return `
@@ -173,10 +183,53 @@ async function loadTermine() {
         
         container.innerHTML = html;
         
+        // Countdown zum nächsten Termin berechnen
+        updateCountdown(termine2026);
+        
     } catch (error) {
         console.error('Fehler beim Laden der Termine:', error);
         container.innerHTML = '<p class="error-text">Termine konnten nicht geladen werden. Bitte versuchen Sie es später erneut.</p>';
     }
+}
+
+/**
+ * Zeigt Countdown zum nächsten Termin an
+ */
+function updateCountdown(termine) {
+    const countdownContainer = document.getElementById('termin-countdown');
+    const tageElement = document.getElementById('countdown-tage');
+    const terminElement = document.getElementById('countdown-termin');
+    
+    if (!countdownContainer || !tageElement || !terminElement) return;
+    
+    const heute = new Date();
+    heute.setHours(0, 0, 0, 0);
+    
+    // Finde den nächsten Termin
+    const zukuenftigeTermine = termine
+        .map(t => ({ ...t, dateObj: new Date(t.datum) }))
+        .filter(t => t.dateObj >= heute)
+        .sort((a, b) => a.dateObj - b.dateObj);
+    
+    if (zukuenftigeTermine.length === 0) {
+        countdownContainer.style.display = 'none';
+        return;
+    }
+    
+    const naechsterTermin = zukuenftigeTermine[0];
+    const diffZeit = naechsterTermin.dateObj - heute;
+    const diffTage = Math.ceil(diffZeit / (1000 * 60 * 60 * 24));
+    
+    tageElement.textContent = diffTage;
+    
+    const terminText = diffTage === 0 
+        ? 'Heute: ' + naechsterTermin.titel
+        : diffTage === 1 
+            ? 'Morgen: ' + naechsterTermin.titel
+            : naechsterTermin.titel + ' am ' + naechsterTermin.dateObj.toLocaleDateString('de-DE', { weekday: 'short', day: 'numeric', month: 'numeric' });
+    
+    terminElement.textContent = terminText;
+    countdownContainer.style.display = 'block';
 }
 
 /**
