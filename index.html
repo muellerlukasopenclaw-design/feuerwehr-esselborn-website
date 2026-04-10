@@ -11,7 +11,7 @@
     <meta property="og:description" content="Retten · Löschen · Bergen · Schützen. Seit 1899 für die Sicherheit unserer Gemeinde im Einsatz.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://feuerwehr-esselborn.de/">
-    <meta property="og:image" content="https://feuerwehr-esselborn.de/img/og-image.jpg">
+    <meta property="og:image" content="https://feuerwehr-esselborn.de/img/og-image.svg">
     <meta property="og:locale" content="de_DE">
     <meta property="og:site_name" content="Freiwillige Feuerwehr Esselborn">
     
@@ -26,7 +26,33 @@
     <link rel="alternate icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
+    <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Freiwillige Feuerwehr Esselborn",
+      "url": "https://feuerwehr.gemeinde-esselborn.de/",
+      "logo": "https://feuerwehr.gemeinde-esselborn.de/img/og-image.svg",
+      "foundingDate": "1899",
+      "description": "Freiwillige Feuerwehr Esselborn - Retten, Löschen, Bergen, Schützen seit 1899",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Obergasse 11",
+        "addressLocality": "Esselborn",
+        "postalCode": "55234",
+        "addressCountry": "DE"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "feuerwehr@gemeinde-esselborn.de",
+        "contactType": "Wehrführung"
+      }
+    }
+    </script>
     
     <!-- Security/Privacy Meta-Tags -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
@@ -360,6 +386,9 @@
             </div>
             <p class="copyright">
                 &copy; <span id="current-year">2025</span> Freiwillige Feuerwehr Esselborn
+            </p>
+            <p class="last-updated">
+                Zuletzt aktualisiert: 11.04.2026
             </p>
         </div>
     </footer>
