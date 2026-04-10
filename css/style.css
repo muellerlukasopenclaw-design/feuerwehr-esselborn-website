@@ -1001,6 +1001,20 @@ section:nth-child(even) {
   color: white;
 }
 
+.standort-adresse {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+  line-height: 1.6;
+}
+
+.standort-hinweis {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin-top: var(--space-sm);
+  font-style: italic;
+}
+
 /* === LIGHTBOX === */
 .lightbox {
   display: none;
