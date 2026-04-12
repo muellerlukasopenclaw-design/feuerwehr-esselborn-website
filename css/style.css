@@ -266,6 +266,11 @@ a:focus-visible {
     display: block;
   }
   
+  .theme-toggle {
+    margin-left: auto;
+    margin-right: var(--space-sm);
+  }
+  
   .nav-links {
     display: none;
     position: absolute;
@@ -276,10 +281,27 @@ a:focus-visible {
     flex-direction: column;
     padding: var(--space-md);
     box-shadow: var(--shadow-lg);
+    border-top: 1px solid var(--color-border);
   }
   
   .nav-links.active {
     display: flex;
+  }
+  
+  [data-theme="dark"] .nav-links {
+    background: #1a1a1a;
+    border-color: #404040;
+  }
+  
+  [data-theme="dark"] .nav-links a {
+    color: #e5e5e5;
+    border-bottom: 1px solid #404040;
+  }
+  
+  [data-theme="dark"] .nav-links a:hover,
+  [data-theme="dark"] .nav-links a:focus {
+    background: rgba(185, 28, 28, 0.2);
+    color: #fff;
   }
 }
 
@@ -918,6 +940,19 @@ section:nth-child(even) {
 [data-theme="dark"] .nav-links a:hover,
 [data-theme="dark"] .nav-links a:focus {
   background: rgba(185, 28, 28, 0.1);
+}
+
+[data-theme="dark"] .main-footer {
+  background: #111;
+}
+
+[data-theme="dark"] .footer-nav a {
+  color: rgba(255,255,255,0.9);
+}
+
+[data-theme="dark"] .footer-nav a:hover,
+[data-theme="dark"] .footer-nav a:focus {
+  color: white;
 }
 
 /* === High-Contrast Mode Unterstützung === */
