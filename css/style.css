@@ -747,8 +747,9 @@ section:nth-child(even) {
 
 .standort-adresse {
   font-style: normal;
-  color: #1f2937;
+  color: #111827;
   line-height: 1.6;
+  font-weight: 500;
 }
 
 .external-link-icon {
