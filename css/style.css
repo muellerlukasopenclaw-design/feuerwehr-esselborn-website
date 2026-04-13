@@ -739,13 +739,13 @@ section:nth-child(even) {
 .standort-name {
   font-weight: 700;
   font-size: var(--font-size-lg);
-  color: var(--color-text);
+  color: #111827;
   margin-bottom: var(--space-xs);
 }
 
 .standort-adresse {
   font-style: normal;
-  color: var(--color-text-light);
+  color: #374151;
   line-height: 1.6;
 }
 
