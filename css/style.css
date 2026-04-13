@@ -202,13 +202,16 @@ a:focus-visible {
 /* Mobile Menu Toggle */
 .menu-toggle {
   display: none;
-  background: none;
-  border: 2px solid var(--color-border);
+  background: var(--color-background);
+  border: 2px solid var(--color-text);
+  color: var(--color-text);
   padding: var(--space-xs);
   border-radius: var(--radius);
   cursor: pointer;
   min-height: 44px;
   min-width: 44px;
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
 .menu-toggle:focus-visible {
@@ -218,7 +221,8 @@ a:focus-visible {
 
 .menu-toggle[aria-expanded="true"] {
   border-color: var(--color-primary);
-  background: rgba(185, 28, 28, 0.05);
+  background: rgba(185, 28, 28, 0.1);
+  color: var(--color-primary);
 }
 
 @media (max-width: 768px) {
@@ -241,22 +245,6 @@ a:focus-visible {
   
   .nav-links.active {
     display: flex;
-  }
-  
-  [data-theme="dark"] .nav-links {
-    background: #1a1a1a;
-    border-color: #404040;
-  }
-  
-  [data-theme="dark"] .nav-links a {
-    color: #e5e5e5;
-    border-bottom: 1px solid #404040;
-  }
-  
-  [data-theme="dark"] .nav-links a:hover,
-  [data-theme="dark"] .nav-links a:focus {
-    background: rgba(185, 28, 28, 0.2);
-    color: #fff;
   }
 }
 
