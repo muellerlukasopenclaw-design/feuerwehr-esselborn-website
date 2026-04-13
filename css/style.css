@@ -766,9 +766,9 @@ section:nth-child(even) {
 /* === Jubiläum === */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: var(--space-xl);
-  max-width: 700px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-lg);
+  max-width: 800px;
   margin: var(--space-xl) auto 0;
 }
 

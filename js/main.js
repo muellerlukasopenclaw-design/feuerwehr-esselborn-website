@@ -54,11 +54,21 @@ async function loadMannschaft() {
             .filter(mitglied => mitglied.aktiv)
             .sort((a, b) => (a.reihenfolge || 99) - (b.reihenfolge || 99));
         
-        // Mitglieder-Anzahl immer auf 65 setzen (hartkodiert) und animieren
+        // Aktive Mitglieder zählen (nur mit aktiv=true)
+        const aktiveMitgliederCount = mannschaft.filter(m => m.aktiv === true).length;
+        
+        // Mitglieder-Anzahl aus JSON oder Fallback
         const countElement = document.getElementById('mitglieder-count');
         if (countElement) {
             countElement.textContent = '0';
-            animateCounter('mitglieder-count', 65, 2000);
+            animateCounter('mitglieder-count', aktiveMitgliederCount, 2000);
+        }
+        
+        // Anzahl Aktive anzeigen
+        const aktiveCountElement = document.getElementById('aktive-count');
+        if (aktiveCountElement) {
+            aktiveCountElement.textContent = '0';
+            animateCounter('aktive-count', aktiveMitgliederCount, 2000);
         }
         
         // Animation für 125 Jahre Hochzähl-Effekt
