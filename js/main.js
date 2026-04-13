@@ -57,14 +57,14 @@ async function loadMannschaft() {
         // Aktive Mitglieder zählen (nur mit aktiv=true)
         const aktiveMitgliederCount = mannschaft.filter(m => m.aktiv === true).length;
         
-        // Mitglieder-Anzahl aus JSON oder Fallback
+        // Mitglieder-Anzahl fix bei 65 (Vereinsmitglieder)
         const countElement = document.getElementById('mitglieder-count');
         if (countElement) {
             countElement.textContent = '0';
-            animateCounter('mitglieder-count', aktiveMitgliederCount, 2000);
+            animateCounter('mitglieder-count', 65, 2000);
         }
         
-        // Anzahl Aktive anzeigen
+        // Anzahl aktive Wehr (Einsatzkräfte) anzeigen
         const aktiveCountElement = document.getElementById('aktive-count');
         if (aktiveCountElement) {
             aktiveCountElement.textContent = '0';
