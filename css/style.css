@@ -368,6 +368,12 @@ a:focus-visible {
   transform: translateY(-2px);
 }
 
+.btn-large {
+  padding: var(--space-sm) var(--space-xl);
+  font-size: var(--font-size-lg);
+  min-height: 56px;
+}
+
 /* === Sections === */
 section {
   padding: var(--space-xl) 0;

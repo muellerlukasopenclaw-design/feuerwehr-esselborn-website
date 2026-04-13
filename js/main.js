@@ -71,8 +71,12 @@ async function loadMannschaft() {
             animateCounter('aktive-count', aktiveMitgliederCount, 2000);
         }
         
-        // Animation für 125 Jahre Hochzähl-Effekt
-        animateCounter('jahre-count', 125, 2000);
+        // Aktuelles Jahr berechnen für dynamische Jahreszahl
+        const currentYear = new Date().getFullYear();
+        const yearsSinceFounding = currentYear - 1899;
+        
+        // Animation für Jahre seit Gründung (dynamisch berechnet)
+        animateCounter('jahre-count', yearsSinceFounding, 2000);
         
         // HTML generieren
         if (aktiveMitglieder.length === 0) {
