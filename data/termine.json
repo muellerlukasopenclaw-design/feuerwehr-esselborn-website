@@ -1,70 +1,7 @@
 {
-  "stand": "2026-04-09",
+  "stand": "2026-04-13",
   "hinweis": "Termine der Freiwilligen Feuerwehr Esselborn für 2026",
   "termine_2026": [
-    {
-      "datum": "2026-01-11",
-      "uhrzeit": "10:00",
-      "dauer_stunden": 3,
-      "titel": "Aufräumen Knutfeuer",
-      "beschreibung": "Aufräumarbeiten nach dem Knutfeuer",
-      "ort": "Feuerwehrhaus Esselborn",
-      "kategorie": "Arbeitseinsatz"
-    },
-    {
-      "datum": "2026-01-25",
-      "uhrzeit": "09:00",
-      "dauer_stunden": 3,
-      "titel": "Übung",
-      "beschreibung": "Monatliche Übung der Feuerwehr",
-      "ort": "Feuerwehrhaus Esselborn",
-      "kategorie": "Übung"
-    },
-    {
-      "datum": "2026-02-20",
-      "uhrzeit": "19:00",
-      "dauer_stunden": 3,
-      "titel": "Übung",
-      "beschreibung": "Monatliche Übung der Feuerwehr",
-      "ort": "Feuerwehrhaus Esselborn",
-      "kategorie": "Übung"
-    },
-    {
-      "datum": "2026-03-07",
-      "uhrzeit": "19:30",
-      "dauer_stunden": 3,
-      "titel": "Kegeln",
-      "beschreibung": "Gemeinsames Kegeln (Alternativtermin: 14.03.2026)",
-      "ort": "Kegelbahn",
-      "kategorie": "Geselligkeit"
-    },
-    {
-      "datum": "2026-03-20",
-      "uhrzeit": "19:00",
-      "dauer_stunden": 3,
-      "titel": "Übung (Atemschutz)",
-      "beschreibung": "Atemschutzübung",
-      "ort": "Feuerwehrhaus Esselborn",
-      "kategorie": "Übung"
-    },
-    {
-      "datum": "2026-04-02",
-      "uhrzeit": "18:30",
-      "dauer_stunden": 2,
-      "titel": "Mitgliederversammlung Förderverein",
-      "beschreibung": "Jahreshauptversammlung des Fördervereins",
-      "ort": "Feuerwehrhaus Esselborn",
-      "kategorie": "Versammlung"
-    },
-    {
-      "datum": "2026-04-02",
-      "uhrzeit": "19:30",
-      "dauer_stunden": 2,
-      "titel": "Generalversammlung FW",
-      "beschreibung": "Jahreshauptversammlung der Feuerwehr",
-      "ort": "Feuerwehrhaus Esselborn",
-      "kategorie": "Versammlung"
-    },
     {
       "datum": "2026-04-24",
       "uhrzeit": "19:00",
