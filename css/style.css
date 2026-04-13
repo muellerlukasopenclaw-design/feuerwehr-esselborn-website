@@ -800,9 +800,10 @@ section:nth-child(even) {
 }
 
 .termin-card h3 {
-  color: var(--color-primary);
+  color: #7F1D1D;
   margin-bottom: var(--space-xs);
   font-size: var(--font-size-lg);
+  font-weight: 700;
 }
 
 .termin-meta {
