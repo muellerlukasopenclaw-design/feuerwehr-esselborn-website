@@ -307,6 +307,8 @@ a:focus-visible {
   margin-bottom: var(--space-sm);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  text-align: center;
+  width: 100%;
 }
 
 .hero-text {
