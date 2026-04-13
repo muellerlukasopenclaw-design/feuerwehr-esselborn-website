@@ -511,7 +511,7 @@ section:nth-child(even) {
   font-size: var(--font-size-lg);
   font-weight: 700;
   margin-bottom: var(--space-xs);
-  color: var(--color-text);
+  color: #111827;
 }
 
 .dienstgrad {
