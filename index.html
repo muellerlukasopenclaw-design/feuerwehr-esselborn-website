@@ -132,17 +132,22 @@
                     </div>
                     
                     <div class="kalender-abo-section">
-                        <h3 class="kalender-abo-titel">Kalender herunterladen</h3>
-                        <div class="kalender-buttons">
+                        <div class="kalender-card">
+                            <div class="kalender-icon">📅</div>
+                            <h3 class="kalender-abo-titel">Termine im Kalender</h3>
+                            <p class="kalender-beschreibung">
+                                Laden Sie alle Feuerwehr-Termine 2026 direkt in Ihren Kalender.
+                                Unterstützt Outlook, Google Calendar und Apple Kalender.
+                            </p>
                             <a href="data/termine-2026.ics" 
-                               class="btn btn-secondary kalender-link"
+                               class="btn btn-primary kalender-link"
                                download="Feuerwehr-Esselborn-2026.ics">
-                                📅 Termine 2026 herunterladen (.ics)
+                                📥 Termine 2026 herunterladen
                             </a>
+                            <p class="kalender-hinweis">
+                                Dateiformat: iCalendar (.ics)
+                            </p>
                         </div>
-                        <p class="kalender-hinweis">
-                            Kompatibel mit Outlook, iOS, Google Calendar
-                        </p>
                     </div>
                 </div>
             </div>
@@ -190,35 +195,23 @@
                         <div class="foerderverein-details">
                             <h4 class="foerderverein-subtitle">Was ist der Förderverein?</h4>
                             <p class="foerderverein-text">
-                                Der Verein wurde am 15. April 2011 in Esselborn von Esselborner Bürgern und Feuerwehrkameraden 
-                                gegründet und ist als gemeinnütziger Verein e.V. in das Vereinsregister beim Amtsgericht Mainz 
-                                eingetragen.
+                                Der Förderverein wurde 2011 von Esselborner Bürgern und Feuerwehrkameraden gegründet. 
+                                Als gemeinnütziger Verein unterstützen wir die Feuerwehr materiell und ideell.
                             </p>
                             
-                            <h4 class="foerderverein-subtitle">Was will der Förderverein?</h4>
-                            <p class="foerderverein-text">
-                                Sinn und Zweck des Fördervereins ist die materielle und ideelle Förderung und Unterstützung 
-                                unserer Freiwilligen Feuerwehr Esselborn. Der Verein will durch sein Wirken und durch 
-                                Veranstaltungen u.a.:
-                            </p>
+                            <h4 class="foerderverein-subtitle">Unsere Ziele</h4>
                             <ul class="foerderverein-liste">
-                                <li>den Betrieb, die Einsatzbereitschaft und die Kameradschaft unterstützen</li>
-                                <li>die Beschaffung von Schutzkleidung und Ausrüstung finanziell ermöglichen</li>
-                                <li>interessierte Einwohner für das Mitwirken bei der Feuerwehr gewinnen</li>
-                                <li>den gemeinnützigen Feuerwehrgedanken pflegen und weiter fördern</li>
+                                <li>Einsatzbereitschaft und Kameradschaft stärken</li>
+                                <li>Beschaffung von Schutzkleidung und Ausrüstung ermöglichen</li>
+                                <li>Neue Mitglieder für die Feuerwehr gewinnen</li>
+                                <li>Den Feuerwehrgedanken pflegen und fördern</li>
                             </ul>
                             
                             <h4 class="foerderverein-subtitle">Warum Mitglied werden?</h4>
                             <p class="foerderverein-text">
-                                Als Mitglied helfen Sie uns durch ihre Beiträge, Spenden oder Mitarbeit bei den Bemühungen 
-                                die Einsatzbereitschaft und das Fortbestehen der Feuerwehr in ihrer Heimatgemeinde zu 
-                                unterstützen und zu sichern.
-                            </p>
-                            <p class="foerderverein-text">
-                                Wir würden uns freuen, wenn viele Bürgerinnen und Bürger unserer Gemeinde dem Förderverein 
-                                beitreten. Durch Ihre Mitgliedschaft würdigen und erkennen Sie die wichtige und ehrenamtliche 
-                                Arbeit unserer freiwilligen Feuerwehrmänner/frauen für den Brand- und Katastrophenschutz 
-                                sowie für das Gemeinwohl an.
+                                Mit Ihrem Beitrag unterstützen Sie die Einsatzbereitschaft und das Fortbestehen 
+                                der Feuerwehr in Esselborn. Sie würdigen damit die ehrenamtliche Arbeit 
+                                unserer Feuerwehrfrauen und -männer für den Brandschutz und das Gemeinwohl.
                             </p>
                         </div>
                         
@@ -345,20 +338,25 @@
                 </div>
                 
                 <div class="standort-section">
-                    <h3 class="standort-titel">Unser Standort</h3>
-                    <p class="standort-adresse">
-                        Feuerwehrhaus Esselborn<br>
-                        Obergasse 11, 55234 Esselborn
-                    </p>
-                    <a href="https://www.openstreetmap.org/?mlat=49.714445&mlon=8.118250#map=19/49.714445/8.118250" 
-                       class="btn btn-secondary standort-link"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        📍 Auf OpenStreetMap anzeigen
-                    </a>
-                    <p class="standort-hinweis">
-                        Klicken öffnet die Karte in einem neuen Tab
-                    </p>
+                    <h3 class="standort-titel">📍 Unser Standort</h3>
+                    <div class="standort-card">
+                        <div class="standort-icon">🚒</div>
+                        <div class="standort-details">
+                            <p class="standort-name">Feuerwehrhaus Esselborn</p>
+                            <address class="standort-adresse">
+                                Obergasse 11<br>
+                                55234 Esselborn
+                            </address>
+                        </div>
+                        <a href="https://www.openstreetmap.org/?mlat=49.714445&mlon=8.118250#map=19/49.714445/8.118250" 
+                           class="btn btn-primary standort-link"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Standort auf OpenStreetMap anzeigen (öffnet in neuem Tab)">
+                            🗺️ Karte anzeigen
+                            <span class="external-link-icon" aria-hidden="true">↗</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -368,17 +366,24 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <p class="footer-name">Freiwillige Feuerwehr Esselborn</p>
+                    <p class="footer-name">🚒 Freiwillige Feuerwehr Esselborn</p>
                     <p class="footer-tagline">Retten · Löschen · Bergen · Schützen</p>
+                    <p class="footer-address">Obergasse 11, 55234 Esselborn</p>
                 </div>
                 <nav class="footer-nav" aria-label="Footer-Navigation">
                     <a href="legal/impressum.html">Impressum</a>
                     <a href="legal/datenschutz.html">Datenschutz</a>
+                    <a href="mailto:feuerwehr@gemeinde-esselborn.de">Kontakt</a>
                 </nav>
             </div>
-            <p class="copyright">
-                &copy; <span id="current-year">2026</span> Freiwillige Feuerwehr Esselborn · Zuletzt aktualisiert: 11.04.2026
-            </p>
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © <span id="current-year">2026</span> Freiwillige Feuerwehr Esselborn
+                </p>
+                <p class="last-updated">
+                    Zuletzt aktualisiert: <span id="last-updated-date">11.04.2026</span>
+                </p>
+            </div>
         </div>
     </footer>
 
