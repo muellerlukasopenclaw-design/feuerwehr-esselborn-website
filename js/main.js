@@ -36,12 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Aktuelles Jahr im Footer setzen
-    const yearElement = document.getElementById('current-year');
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-    }
-    
     // Mannschaft laden
     loadMannschaft();
     
