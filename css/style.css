@@ -434,7 +434,7 @@ section:nth-child(even) {
 
 .section-intro {
   text-align: center;
-  color: var(--color-text-light);
+  color: #4b5563;
   max-width: 600px;
   margin: 0 auto var(--space-xl);
   font-size: var(--font-size-lg);
@@ -530,7 +530,7 @@ section:nth-child(even) {
 }
 
 .funktion {
-  color: var(--color-text-light);
+  color: #4b5563;
   font-size: var(--font-size-sm);
   text-align: center;
   font-weight: 500;
@@ -540,7 +540,7 @@ section:nth-child(even) {
 .kalender-hinweis {
   margin-top: 1rem;
   font-size: 0.875rem;
-  color: var(--color-text-light);
+  color: #4b5563;
   text-align: center;
 }
 
@@ -831,7 +831,7 @@ section:nth-child(even) {
 }
 
 .termin-meta {
-  color: var(--color-text-light);
+  color: #4b5563;
   font-size: var(--font-size-sm);
   margin-bottom: var(--space-xs);
   font-weight: 500;
