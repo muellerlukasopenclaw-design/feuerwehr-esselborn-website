@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#f3f4f6"/>
+  <circle cx="100" cy="70" r="35" fill="#9ca3af" opacity="0.3"/>
+  <circle cx="100" cy="70" r="30" fill="#9ca3af" opacity="0.4"/>
+  <circle cx="100" cy="70" r="25" fill="#6b7280"/>
+  <text x="100" y="80" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">FMA</text>
+  <text x="100" y="140" font-family="system-ui, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">in Ausbildung</text>
+</svg>

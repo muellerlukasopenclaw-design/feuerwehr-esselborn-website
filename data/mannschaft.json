@@ -1,12 +1,12 @@
 {
   "stand": "2026-04-10",
-  "hinweis": "Diese Datei kann mit einem einfachen Texteditor bearbeitet werden. Reihenfolge bestimmt die Darstellung. Foto: Dateiname eingeben, sonst wird Platzhalter angezeigt.",
+  "hinweis": "Diese Datei kann mit einem einfachen Texteditor bearbeitet werden. Reihenfolge bestimmt die Darstellung. Foto: Dateiname eingeben, sonst wird Rang-Icon angezeigt.",
   "mannschaft": [
     {
       "name": "Michael Förster",
       "dienstgrad": "Oberbrandmeister",
       "funktion": "Wehrführer, AGT",
-      "bild": "placeholder-1.svg",
+      "bild": "rank-obm.svg",
       "aktiv": true,
       "reihenfolge": 1
     },
@@ -14,7 +14,7 @@
       "name": "Torsten Lehmann",
       "dienstgrad": "Brandmeister",
       "funktion": "stv. Wehrführer, AGT",
-      "bild": "placeholder-2.svg",
+      "bild": "rank-bm.svg",
       "aktiv": true,
       "reihenfolge": 2
     },
@@ -22,7 +22,7 @@
       "name": "Markus Pinger",
       "dienstgrad": "Brandmeister",
       "funktion": "Gruppenführer, AGT",
-      "bild": "placeholder-3.svg",
+      "bild": "rank-bm.svg",
       "aktiv": true,
       "reihenfolge": 3
     },
@@ -30,7 +30,7 @@
       "name": "Thomas Unger",
       "dienstgrad": "Oberlöschmeister",
       "funktion": "Maschinist",
-      "bild": "placeholder-4.svg",
+      "bild": "rank-olm.svg",
       "aktiv": true,
       "reihenfolge": 4
     },
@@ -38,7 +38,7 @@
       "name": "Rüdiger Reßler",
       "dienstgrad": "Oberlöschmeister",
       "funktion": "Truppführer",
-      "bild": "placeholder-5.svg",
+      "bild": "rank-olm.svg",
       "aktiv": true,
       "reihenfolge": 5
     },
@@ -46,7 +46,7 @@
       "name": "Volker Wernersbach",
       "dienstgrad": "Oberlöschmeister",
       "funktion": "Truppführer",
-      "bild": "placeholder-6.svg",
+      "bild": "rank-olm.svg",
       "aktiv": true,
       "reihenfolge": 6
     },
@@ -54,7 +54,7 @@
       "name": "Stefanie Mühl",
       "dienstgrad": "Löschmeisterin",
       "funktion": "Truppführerin",
-      "bild": "placeholder-7.svg",
+      "bild": "rank-lm.svg",
       "aktiv": true,
       "reihenfolge": 7
     },
@@ -62,7 +62,7 @@
       "name": "Olaf Schwizow",
       "dienstgrad": "Hauptfeuerwehrmann",
       "funktion": "AGT, Ma",
-      "bild": "placeholder-8.svg",
+      "bild": "rank-hfm.svg",
       "aktiv": true,
       "reihenfolge": 8
     },
@@ -70,7 +70,7 @@
       "name": "Simon Müller-Oswald",
       "dienstgrad": "Hauptfeuerwehrmann",
       "funktion": "AGT, Ma",
-      "bild": "placeholder-1.svg",
+      "bild": "rank-hfm.svg",
       "aktiv": true,
       "reihenfolge": 9
     },
@@ -78,7 +78,7 @@
       "name": "Jan Niklas Best",
       "dienstgrad": "Hauptfeuerwehrmann",
       "funktion": "AGT, Ma",
-      "bild": "placeholder-2.svg",
+      "bild": "rank-hfm.svg",
       "aktiv": true,
       "reihenfolge": 10
     },
@@ -86,7 +86,7 @@
       "name": "Malte Best",
       "dienstgrad": "Feuerwehrmann",
       "funktion": "AGT",
-      "bild": "placeholder-3.svg",
+      "bild": "rank-fm.svg",
       "aktiv": true,
       "reihenfolge": 11
     },
@@ -94,7 +94,7 @@
       "name": "Lukas Müller",
       "dienstgrad": "Oberfeuerwehrmann",
       "funktion": "AGT",
-      "bild": "placeholder-4.svg",
+      "bild": "rank-ofm.svg",
       "aktiv": true,
       "reihenfolge": 12
     },
@@ -102,7 +102,7 @@
       "name": "Jan-Peter Reßler",
       "dienstgrad": "Oberfeuerwehrmann",
       "funktion": "AGT, Ma",
-      "bild": "placeholder-5.svg",
+      "bild": "rank-ofm.svg",
       "aktiv": true,
       "reihenfolge": 13
     },
@@ -110,7 +110,7 @@
       "name": "Sven Wernersbach",
       "dienstgrad": "Oberfeuerwehrmann",
       "funktion": "Truppmann",
-      "bild": "placeholder-6.svg",
+      "bild": "rank-ofm.svg",
       "aktiv": true,
       "reihenfolge": 14
     },
@@ -118,7 +118,7 @@
       "name": "Linus Pinger",
       "dienstgrad": "Feuerwehrmann",
       "funktion": "Truppmann",
-      "bild": "placeholder-7.svg",
+      "bild": "rank-fm.svg",
       "aktiv": true,
       "reihenfolge": 15
     },
@@ -126,7 +126,7 @@
       "name": "Julian Pinger",
       "dienstgrad": "Feuerwehrmannanwärter",
       "funktion": "in Ausbildung",
-      "bild": "placeholder-8.svg",
+      "bild": "rank-fma.svg",
       "aktiv": true,
       "reihenfolge": 16
     }

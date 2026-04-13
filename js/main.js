@@ -5,9 +5,6 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Theme Toggle initialisieren
-    initThemeToggle();
-    
     // Scroll Progress Bar
     initScrollProgress();
     
@@ -67,26 +64,18 @@ async function loadMannschaft() {
         // Animation für 125 Jahre Hochzähl-Effekt
         animateCounter('jahre-count', 125, 2000);
         
-        // Zufällige Platzhalter zuweisen wenn nötig
-        const platzhalterPool = ['placeholder-1.svg', 'placeholder-2.svg', 'placeholder-3.svg', 
-                                  'placeholder-4.svg', 'placeholder-5.svg', 'placeholder-6.svg',
-                                  'placeholder-7.svg', 'placeholder-8.svg'];
-        
         // HTML generieren
         if (aktiveMitglieder.length === 0) {
             container.innerHTML = '<p class="loading-text">Mannschaftsdaten werden aktualisiert.</p>';
             return;
         }
         
-        container.innerHTML = aktiveMitglieder.map((mitglied, index) => {
-            let bildDatei = mitglied.bild;
-            // Wenn Platzhalter, wähle zufällig aus Pool (aber konsistent pro Mitglied via Index)
-            if (!bildDatei || bildDatei.includes('placeholder')) {
-                bildDatei = platzhalterPool[index % platzhalterPool.length];
-            }
-            const bildHtml = bildDatei 
-                ? `<img src="img/${escapeHtml(bildDatei)}" alt="${escapeHtml(mitglied.name)}" loading="lazy">`
-                : `<div class="mitglied-placeholder" aria-hidden="true">👤</div>`;
+        container.innerHTML = aktiveMitglieder.map((mitglied) => {
+            const bildDatei = mitglied.bild || 'rank-fm.svg';
+            const isRankIcon = bildDatei.startsWith('rank-');
+            const bildHtml = isRankIcon 
+                ? `<img src="img/${escapeHtml(bildDatei)}" alt="Dienstgrad ${escapeHtml(mitglied.dienstgrad)}" loading="lazy" class="rank-icon">`
+                : `<img src="img/${escapeHtml(bildDatei)}" alt="${escapeHtml(mitglied.name)}" loading="lazy">`;
             
             return `
                 <article class="mitglied-card" tabindex="0" aria-label="${escapeHtml(mitglied.name)}, ${escapeHtml(mitglied.dienstgrad)}">
@@ -601,39 +590,5 @@ function initLightbox() {
                 showNext();
                 break;
         }
-    });
-}
-
-/**
- * Theme Toggle initialisieren
- */
-function initThemeToggle() {
-    const themeToggle = document.getElementById('theme-toggle');
-    if (!themeToggle) return;
-    
-    // Prüfe gespeicherte Präferenz oder Systemeinstellung
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-    }
-    
-    // Toggle-Handler
-    themeToggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Visuelles Feedback
-        themeToggle.style.transform = 'scale(0.95)';
-        setTimeout(function() {
-            themeToggle.style.transform = 'scale(1)';
-        }, 150);
     });
 }

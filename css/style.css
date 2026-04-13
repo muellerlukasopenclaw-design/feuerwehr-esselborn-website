@@ -199,72 +199,6 @@ a:focus-visible {
   font-weight: 600;
 }
 
-/* Theme Toggle */
-.theme-toggle {
-  background: none;
-  border: 2px solid var(--color-border);
-  padding: var(--space-xs);
-  border-radius: var(--radius);
-  cursor: pointer;
-  min-height: 44px;
-  min-width: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  margin-left: var(--space-sm);
-  transition: all var(--transition-fast);
-  z-index: 1001;
-}
-
-.theme-toggle:hover,
-.theme-toggle:focus {
-  border-color: var(--color-primary);
-  background: rgba(185, 28, 28, 0.05);
-}
-
-.theme-toggle:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-/* Mobile: Theme Toggle sichtbar */
-@media (max-width: 768px) {
-  .theme-toggle {
-    display: inline-flex;
-    margin-left: auto;
-    margin-right: var(--space-sm);
-    order: 1;
-  }
-  
-  .menu-toggle {
-    order: 2;
-  }
-}
-
-.theme-toggle:hover,
-.theme-toggle:focus {
-  border-color: var(--color-primary);
-  background: rgba(185, 28, 28, 0.05);
-}
-
-.theme-toggle:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-.theme-icon-dark {
-  display: none;
-}
-
-[data-theme="dark"] .theme-icon-light {
-  display: none;
-}
-
-[data-theme="dark"] .theme-icon-dark {
-  display: inline;
-}
-
 /* Mobile Menu Toggle */
 .menu-toggle {
   display: none;
@@ -582,6 +516,12 @@ section:nth-child(even) {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.mitglied-card img.rank-icon {
+  object-fit: contain;
+  padding: 1rem;
+  background: #f9fafb;
 }
 
 .galerie-small .galerie-item img {
@@ -922,58 +862,6 @@ section:nth-child(even) {
   .last-updated::before {
     content: "Stand: ";
   }
-}
-
-/* === Dark Mode via data-theme === */
-[data-theme="dark"] {
-  --color-background: #1a1a1a;
-  --color-background-alt: #2d2d2d;
-  --color-text: #e5e5e5;
-  --color-text-light: #a3a3a3;
-  --color-border: #404040;
-}
-
-[data-theme="dark"] .hero {
-  background: linear-gradient(135deg, #7F1D1D 0%, #B91C1C 100%);
-}
-
-[data-theme="dark"] .main-nav {
-  background: rgba(26,26,26,0.98);
-}
-
-[data-theme="dark"] .mitglied-card,
-[data-theme="dark"] .termin-card,
-[data-theme="dark"] .mitglied-art,
-[data-theme="dark"] .galerie-item {
-  background: #2d2d2d;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-
-[data-theme="dark"] .hilfe-details {
-  background: #1a1a1a;
-  border-color: #404040;
-}
-
-[data-theme="dark"] .nav-links a {
-  color: #e5e5e5;
-}
-
-[data-theme="dark"] .nav-links a:hover,
-[data-theme="dark"] .nav-links a:focus {
-  background: rgba(185, 28, 28, 0.1);
-}
-
-[data-theme="dark"] .main-footer {
-  background: #111;
-}
-
-[data-theme="dark"] .footer-nav a {
-  color: rgba(255,255,255,0.9);
-}
-
-[data-theme="dark"] .footer-nav a:hover,
-[data-theme="dark"] .footer-nav a:focus {
-  color: white;
 }
 
 /* === High-Contrast Mode Unterstützung === */
