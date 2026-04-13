@@ -620,11 +620,20 @@ function initThemeToggle() {
     }
     
     // Toggle-Handler
-    themeToggle.addEventListener('click', function() {
+    themeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
+        
+        // Visuelles Feedback
+        themeToggle.style.transform = 'scale(0.95)';
+        setTimeout(function() {
+            themeToggle.style.transform = 'scale(1)';
+        }, 150);
     });
 }
