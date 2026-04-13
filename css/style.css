@@ -459,8 +459,11 @@ section:nth-child(even) {
 
 .mitglied-bild img.rank-icon {
   object-fit: contain;
-  padding: 1.5rem;
+  padding: 0;
   background: transparent;
+  height: 85%;
+  width: auto;
+  max-width: 85%;
 }
 
 .mitglied-placeholder {
