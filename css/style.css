@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 { font-size: var(--font-size-3xl); color: #111827; }
 h2 { font-size: var(--font-size-2xl); color: #111827; }
 h3 { font-size: var(--font-size-xl); color: #111827; }
-h4 { font-size: var(--font-size-lg); color: #1f2937; }
+h4 { font-size: var(--font-size-lg); color: #111827; }
 
 /* Responsive Typography */
 @media (max-width: 640px) {
