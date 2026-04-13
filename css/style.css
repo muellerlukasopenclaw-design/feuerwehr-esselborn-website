@@ -715,9 +715,10 @@ section:nth-child(even) {
 
 /* === Footer === */
 .main-footer {
-  background: var(--color-text);
-  color: white;
+  background: var(--color-background-alt);
+  color: var(--color-text);
   padding: var(--space-xl) 0 var(--space-md);
+  border-top: 1px solid var(--color-border);
 }
 
 .footer-content {
@@ -735,7 +736,7 @@ section:nth-child(even) {
 }
 
 .footer-nav a {
-  color: rgba(255,255,255,0.9);
+  color: var(--color-text);
   text-decoration: none;
   padding: var(--space-xs) 0;
   min-height: 44px;
@@ -745,9 +746,9 @@ section:nth-child(even) {
 
 .footer-nav a:hover,
 .footer-nav a:focus-visible {
-  color: white;
+  color: var(--color-primary);
   text-decoration: underline;
-  outline: 2px solid white;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -755,8 +756,8 @@ section:nth-child(even) {
 .copyright {
   text-align: center;
   padding-top: var(--space-md);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.85);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-light);
   font-size: var(--font-size-sm);
 }
 

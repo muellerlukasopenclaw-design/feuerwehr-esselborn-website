@@ -73,9 +73,7 @@ async function loadMannschaft() {
         container.innerHTML = aktiveMitglieder.map((mitglied) => {
             const bildDatei = mitglied.bild || 'rank-fm.svg';
             const isRankIcon = bildDatei.startsWith('rank-');
-            const bildHtml = isRankIcon 
-                ? `<img src="img/${escapeHtml(bildDatei)}" alt="Dienstgrad ${escapeHtml(mitglied.dienstgrad)}" loading="lazy" class="rank-icon">`
-                : `<img src="img/${escapeHtml(bildDatei)}" alt="${escapeHtml(mitglied.name)}" loading="lazy">`;
+            const bildHtml = `<img src="img/${escapeHtml(bildDatei)}" alt="${isRankIcon ? 'Dienstgrad ' + escapeHtml(mitglied.dienstgrad) : escapeHtml(mitglied.name)}" loading="lazy"${isRankIcon ? ' class="rank-icon"' : ''} onerror="this.src='img/rank-fm.svg'; this.alt='Dienstgrad ' + '${escapeHtml(mitglied.dienstgrad)}';">`;
             
             return `
                 <article class="mitglied-card" tabindex="0" aria-label="${escapeHtml(mitglied.name)}, ${escapeHtml(mitglied.dienstgrad)}">
