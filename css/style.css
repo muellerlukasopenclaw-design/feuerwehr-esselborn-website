@@ -1636,3 +1636,49 @@ section:nth-child(even) {
 .termin-card-secondary h4 {
   color: var(--color-text);
 }
+
+/* === Verbesserte Hover- und Fokus-Zustände === */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.galerie-item:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.mitglied-card:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.termin-card:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+/* Touch-Optimierung für mobile Geräte */
+@media (hover: none) {
+  .btn:hover {
+    transform: none;
+  }
+  
+  .mitglied-card:hover {
+    transform: none;
+  }
+  
+  .galerie-item:hover {
+    transform: none;
+  }
+  
+  .galerie-item:hover img {
+    transform: none;
+  }
+}

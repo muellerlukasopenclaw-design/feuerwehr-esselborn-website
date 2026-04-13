@@ -5,6 +5,24 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Aktuelles Jahr im Footer setzen
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+    
+    // Letztes Aktualisierungsdatum setzen (heute)
+    const lastUpdatedElement = document.getElementById('last-updated-date');
+    if (lastUpdatedElement) {
+        const today = new Date();
+        const formattedDate = today.toLocaleDateString('de-DE', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+        lastUpdatedElement.textContent = formattedDate;
+    }
+    
     // Scroll Progress Bar
     initScrollProgress();
     
