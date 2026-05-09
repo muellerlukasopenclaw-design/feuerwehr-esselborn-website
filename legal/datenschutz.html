@@ -12,7 +12,7 @@
     
     <nav class="main-nav">
         <div class="container">
-            <a href="../index.php" class="logo">← Zurück zur Startseite</a>
+            <a href="../index.html" class="logo">← Zurück zur Startseite</a>
         </div>
     </nav>
 
@@ -23,8 +23,9 @@
             <section aria-labelledby="verantwortlicher-heading">
                 <h2 id="verantwortlicher-heading">Verantwortlicher</h2>
                 <p>
-                    Freiwillige Feuerwehr Esselborn<br>
-                    Vertreten durch den Wehrführer Michael Förster<br>
+                    Förderverein der Freiwilligen Feuerwehr Esselborn e.V.<br>
+                    Vertreten durch den 1. Vorsitzenden Jan Niklas Best<br>
+                    Untergasse 21a, 55234 Esselborn<br>
                     E-Mail: <a href="mailto:feuerwehr@gemeinde-esselborn.de">feuerwehr@gemeinde-esselborn.de</a>
                 </p>
             </section>
@@ -40,8 +41,8 @@
             <section aria-labelledby="hosting-heading">
                 <h2 id="hosting-heading">Hosting</h2>
                 <p>
-                    Diese Website wird auf einem Server der Gemeinde Esselborn gehostet. Der Hoster erhebt 
-                    in sogenannten Logfiles folgende Daten, die Ihr Browser übermittelt:
+                    Diese Website wird auf einem privaten Server eines Feuerwehrmitglieds gehostet. 
+                    Der Hoster erhebt in sogenannten Logfiles folgende Daten, die Ihr Browser übermittelt:
                 </p>
                 <ul>
                     <li>IP-Adresse (anonymisiert)</li>
@@ -63,10 +64,12 @@
             </section>
             
             <section aria-labelledby="kalender-heading">
-                <h2 id="kalender-heading">Kalender-Abonnement</h2>
+                <h2 id="kalender-heading">Kalender-Download</h2>
                 <p>
-                    Der Google Calendar Link ist ein öffentlicher iCal-Feed. Beim Abonnieren dieses Kalenders 
-                    gelten die <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Datenschutzbestimmungen von Google</a>.
+                    Die Termine können als iCalendar-Datei (.ics) heruntergeladen werden. 
+                    Diese Datei kann in gängige Kalender-Anwendungen wie Outlook, Google Calendar 
+                    oder Apple Kalender importiert werden. Es werden dabei keine Daten an 
+                    Dritte übermittelt.
                 </p>
             </section>
             
@@ -97,16 +100,33 @@
             </section>
             
             <p style="margin-top: 3rem;">
-                <a href="../index.php" class="btn btn-secondary">← Zurück zur Startseite</a>
+                <a href="../index.html" class="btn btn-secondary">← Zurück zur Startseite</a>
             </p>
         </div>
     </main>
 
     <footer class="main-footer">
         <div class="container">
-            <p class="copyright">
-                &copy; 2024 Freiwillige Feuerwehr Esselborn
-            </p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <p class="footer-name">🚒 Freiwillige Feuerwehr Esselborn</p>
+                    <p class="footer-tagline">Retten · Löschen · Bergen · Schützen</p>
+                    <p class="footer-address">Obergasse 11, 55234 Esselborn</p>
+                </div>
+                <nav class="footer-nav" aria-label="Footer-Navigation">
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                    <a href="mailto:feuerwehr@gemeinde-esselborn.de">Kontakt</a>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © <span id="current-year">2026</span> Freiwillige Feuerwehr Esselborn
+                </p>
+                <p class="last-updated">
+                    Zuletzt aktualisiert: <span id="last-updated-date">11.04.2026</span>
+                </p>
+            </div>
         </div>
     </footer>
 </body>

@@ -1,174 +1,134 @@
 {
-  "stand": "2026-05-09",
-  "hinweis": "Diese Datei kann mit einem einfachen Texteditor bearbeitet werden. Reihenfolge bestimmt die Darstellung.",
+  "stand": "2026-04-10",
+  "hinweis": "Diese Datei kann mit einem einfachen Texteditor bearbeitet werden. Reihenfolge bestimmt die Darstellung. Foto: Dateiname eingeben, sonst wird Rang-Icon angezeigt.",
   "mannschaft": [
     {
-      "name": "Förster Michael",
-      "dienstgrad": "Oberbrandmeister (OBM)",
+      "name": "Michael Förster",
+      "dienstgrad": "Oberbrandmeister",
       "funktion": "Wehrführer, AGT",
-      "bild": "",
+      "bild": "rank-obm.svg",
       "aktiv": true,
       "reihenfolge": 1
     },
     {
-      "name": "Lehmann Torsten",
-      "dienstgrad": "Brandmeister (BM)",
-      "funktion": "stellv. Wehrführer, AGT + Gerätewart",
-      "bild": "",
+      "name": "Torsten Lehmann",
+      "dienstgrad": "Brandmeister",
+      "funktion": "stv. Wehrführer, AGT",
+      "bild": "rank-bm.svg",
       "aktiv": true,
       "reihenfolge": 2
     },
     {
-      "name": "Pinger Markus",
-      "dienstgrad": "Brandmeister (BM)",
-      "funktion": "Gruppenführer (GF), AGT",
-      "bild": "",
+      "name": "Markus Pinger",
+      "dienstgrad": "Brandmeister",
+      "funktion": "Gruppenführer, AGT",
+      "bild": "rank-bm.svg",
       "aktiv": true,
       "reihenfolge": 3
     },
     {
-      "name": "Unger Thomas",
+      "name": "Thomas Unger",
       "dienstgrad": "Oberlöschmeister",
       "funktion": "Maschinist",
-      "bild": "",
+      "bild": "rank-olm.svg",
       "aktiv": true,
       "reihenfolge": 4
     },
     {
-      "name": "Reßler Rüdiger",
-      "dienstgrad": "Oberlöschmeister (OLM)",
-      "funktion": "Truppführer (TF)",
-      "bild": "",
+      "name": "Rüdiger Reßler",
+      "dienstgrad": "Oberlöschmeister",
+      "funktion": "Truppführer",
+      "bild": "rank-olm.svg",
       "aktiv": true,
       "reihenfolge": 5
     },
     {
-      "name": "Wernersbach Volker",
-      "dienstgrad": "Oberlöschmeister (OLM)",
-      "funktion": "Truppführer (TF)",
-      "bild": "",
+      "name": "Volker Wernersbach",
+      "dienstgrad": "Oberlöschmeister",
+      "funktion": "Truppführer",
+      "bild": "rank-olm.svg",
       "aktiv": true,
       "reihenfolge": 6
     },
     {
-      "name": "Mühl Stefanie",
-      "dienstgrad": "Oberlöschmeisterin (OLM)",
-      "funktion": "Truppführer (TF)",
-      "bild": "",
+      "name": "Stefanie Mühl",
+      "dienstgrad": "Löschmeisterin",
+      "funktion": "Truppführerin",
+      "bild": "rank-lm.svg",
       "aktiv": true,
       "reihenfolge": 7
     },
     {
-      "name": "Schwizow Olaf",
-      "dienstgrad": "Löschmeister (LM)",
-      "funktion": "Maschinist",
-      "bild": "",
+      "name": "Olaf Schwizow",
+      "dienstgrad": "Hauptfeuerwehrmann",
+      "funktion": "AGT, Ma",
+      "bild": "rank-hfm.svg",
       "aktiv": true,
       "reihenfolge": 8
     },
     {
-      "name": "Müller-Oswald Simon",
-      "dienstgrad": "Hauptfeuerwehrmann (HFM)",
-      "funktion": "Maschinist",
-      "bild": "",
+      "name": "Simon Müller-Oswald",
+      "dienstgrad": "Hauptfeuerwehrmann",
+      "funktion": "AGT, Ma",
+      "bild": "rank-hfm.svg",
       "aktiv": true,
       "reihenfolge": 9
     },
     {
-      "name": "Best Malte",
-      "dienstgrad": "Hauptfeuerwehrmann (HFM)",
-      "funktion": "Maschinist + AGT",
-      "bild": "",
+      "name": "Jan Niklas Best",
+      "dienstgrad": "Hauptfeuerwehrmann",
+      "funktion": "AGT, Ma",
+      "bild": "rank-hfm.svg",
       "aktiv": true,
       "reihenfolge": 10
     },
     {
-      "name": "Best Jan-Niklas",
-      "dienstgrad": "Hauptfeuerwehrmann (HFM)",
-      "funktion": "Maschinist + AGT",
-      "bild": "",
+      "name": "Malte Best",
+      "dienstgrad": "Feuerwehrmann",
+      "funktion": "AGT",
+      "bild": "rank-fm.svg",
       "aktiv": true,
       "reihenfolge": 11
     },
     {
-      "name": "Reßler Jan-Peter",
-      "dienstgrad": "Hauptfeuerwehrmann (HFM)",
-      "funktion": "Maschinist + AGT",
-      "bild": "",
+      "name": "Lukas Müller",
+      "dienstgrad": "Oberfeuerwehrmann",
+      "funktion": "AGT",
+      "bild": "rank-ofm.svg",
       "aktiv": true,
       "reihenfolge": 12
     },
     {
-      "name": "Müller Lukas",
-      "dienstgrad": "Oberfeuerwehrmann (OFM)",
-      "funktion": "AGT",
-      "bild": "",
+      "name": "Jan-Peter Reßler",
+      "dienstgrad": "Oberfeuerwehrmann",
+      "funktion": "AGT, Ma",
+      "bild": "rank-ofm.svg",
       "aktiv": true,
       "reihenfolge": 13
     },
     {
-      "name": "Laubenheimer Ralf",
-      "dienstgrad": "Oberfeuerwehrmann (OFM)",
-      "funktion": "Maschinist",
-      "bild": "",
+      "name": "Sven Wernersbach",
+      "dienstgrad": "Oberfeuerwehrmann",
+      "funktion": "Truppmann",
+      "bild": "rank-ofm.svg",
       "aktiv": true,
       "reihenfolge": 14
     },
     {
-      "name": "Wernersbach Sven",
-      "dienstgrad": "Oberfeuerwehrmann (OFM)",
-      "funktion": "Truppmann (TM)",
-      "bild": "",
+      "name": "Linus Pinger",
+      "dienstgrad": "Feuerwehrmann",
+      "funktion": "Truppmann",
+      "bild": "rank-fm.svg",
       "aktiv": true,
       "reihenfolge": 15
     },
     {
-      "name": "Pinger Linus",
-      "dienstgrad": "Feuerwehrmann (FM)",
-      "funktion": "Truppmann (TM)",
-      "bild": "",
+      "name": "Julian Pinger",
+      "dienstgrad": "Feuerwehrmannanwärter",
+      "funktion": "in Ausbildung",
+      "bild": "rank-fma.svg",
       "aktiv": true,
       "reihenfolge": 16
-    },
-    {
-      "name": "Pinger Julian",
-      "dienstgrad": "Feuerwehrmann (FM)",
-      "funktion": "Truppmann (TM)",
-      "bild": "",
-      "aktiv": true,
-      "reihenfolge": 17
-    },
-    {
-      "name": "Förster Robin",
-      "dienstgrad": "Feuerwehrmann (FM)",
-      "funktion": "Truppmann (TM)",
-      "bild": "",
-      "aktiv": true,
-      "reihenfolge": 18
-    },
-    {
-      "name": "Lehmann Paul",
-      "dienstgrad": "Feuerwehrmann (FM)",
-      "funktion": "Truppmann (TM)",
-      "bild": "",
-      "aktiv": true,
-      "reihenfolge": 19
-    },
-    {
-      "name": "Neumann Julian",
-      "dienstgrad": "Feuerwehrmannanwärter (FWA)",
-      "funktion": "in Ausbildung",
-      "bild": "",
-      "aktiv": true,
-      "reihenfolge": 20
-    },
-    {
-      "name": "Förster Julia",
-      "dienstgrad": "Feuerwehrmannanwärterin (FWA)",
-      "funktion": "in Ausbildung",
-      "bild": "",
-      "aktiv": true,
-      "reihenfolge": 21
     }
   ]
 }

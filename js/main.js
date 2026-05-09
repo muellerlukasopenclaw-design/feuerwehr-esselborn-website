@@ -1,11 +1,40 @@
 /**
  * Feuerwehr Esselborn - Hauptskript
  * Lädt Mannschaft und Termine aus JSON-Dateien
+ * WCAG 2.1 AA konform
  */
 
 document.addEventListener('DOMContentLoaded', function() {
     // Aktuelles Jahr im Footer setzen
-    document.getElementById('current-year').textContent = new Date().getFullYear();
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+    
+    // Letztes Aktualisierungsdatum setzen (heute)
+    const lastUpdatedElement = document.getElementById('last-updated-date');
+    if (lastUpdatedElement) {
+        const today = new Date();
+        const formattedDate = today.toLocaleDateString('de-DE', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+        lastUpdatedElement.textContent = formattedDate;
+    }
+    
+    // Scroll Progress Bar
+    initScrollProgress();
+    
+    // Preloader ausblenden
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 500);
+        });
+    }
     
     // Mannschaft laden
     loadMannschaft();
@@ -13,14 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Termine laden
     loadTermine();
     
-    // Newsletter laden
-    loadNewsletter();
-    
     // Mobile Navigation
     initMobileNav();
-    
-    // Dark Mode
-    initDarkMode();
 });
 
 /**
@@ -38,25 +61,48 @@ async function loadMannschaft() {
         const data = await response.json();
         const mannschaft = data.mannschaft || [];
         
-        // Aktive Mitglieder filtern
-        const aktiveMitglieder = mannschaft.filter(mitglied => mitglied.aktiv);
+        // Aktive Mitglieder filtern und sortieren
+        const aktiveMitglieder = mannschaft
+            .filter(mitglied => mitglied.aktiv)
+            .sort((a, b) => (a.reihenfolge || 99) - (b.reihenfolge || 99));
         
-        // Mitglieder-Anzahl aktualisieren
-        document.getElementById('mitglieder-count').textContent = aktiveMitglieder.length;
+        // Aktive Mitglieder zählen (nur mit aktiv=true)
+        const aktiveMitgliederCount = mannschaft.filter(m => m.aktiv === true).length;
+        
+        // Mitglieder-Anzahl fix bei 65 (Vereinsmitglieder)
+        const countElement = document.getElementById('mitglieder-count');
+        if (countElement) {
+            countElement.textContent = '0';
+            animateCounter('mitglieder-count', 65, 2000);
+        }
+        
+        // Anzahl aktive Wehr (Einsatzkräfte) anzeigen
+        const aktiveCountElement = document.getElementById('aktive-count');
+        if (aktiveCountElement) {
+            aktiveCountElement.textContent = '0';
+            animateCounter('aktive-count', aktiveMitgliederCount, 2000);
+        }
+        
+        // Aktuelles Jahr berechnen für dynamische Jahreszahl
+        const currentYear = new Date().getFullYear();
+        const yearsSinceFounding = currentYear - 1899;
+        
+        // Animation für Jahre seit Gründung (dynamisch berechnet)
+        animateCounter('jahre-count', yearsSinceFounding, 2000);
         
         // HTML generieren
         if (aktiveMitglieder.length === 0) {
-            container.innerHTML = '<p>Mannschaftsdaten werden aktualisiert.</p>';
+            container.innerHTML = '<p class="loading-text">Mannschaftsdaten werden aktualisiert.</p>';
             return;
         }
         
-        container.innerHTML = aktiveMitglieder.map(mitglied => {
-            const bildHtml = mitglied.bild 
-                ? `<img src="img/${escapeHtml(mitglied.bild)}" alt="${escapeHtml(mitglied.name)}" loading="lazy">`
-                : `<div class="mitglied-placeholder" aria-hidden="true">👤</div>`;
+        container.innerHTML = aktiveMitglieder.map((mitglied) => {
+            const bildDatei = mitglied.bild || 'rank-fm.svg';
+            const isRankIcon = bildDatei.startsWith('rank-');
+            const bildHtml = `<img src="img/${escapeHtml(bildDatei)}" alt="${isRankIcon ? 'Dienstgrad ' + escapeHtml(mitglied.dienstgrad) : escapeHtml(mitglied.name)}" loading="lazy"${isRankIcon ? ' class="rank-icon"' : ''} onerror="this.src='img/rank-fm.svg'; this.alt='Dienstgrad ' + '${escapeHtml(mitglied.dienstgrad)}';">`;
             
             return `
-                <article class="mitglied-card" tabindex="0">
+                <article class="mitglied-card" tabindex="0" aria-label="${escapeHtml(mitglied.name)}, ${escapeHtml(mitglied.dienstgrad)}">
                     <div class="mitglied-bild">
                         ${bildHtml}
                     </div>
@@ -71,7 +117,7 @@ async function loadMannschaft() {
         
     } catch (error) {
         console.error('Fehler beim Laden der Mannschaft:', error);
-        container.innerHTML = '<p>Mannschaftsdaten konnten nicht geladen werden.</p>';
+        container.innerHTML = '<p class="error-text">Mannschaftsdaten konnten nicht geladen werden. Bitte versuchen Sie es später erneut.</p>';
     }
 }
 
@@ -88,153 +134,256 @@ async function loadTermine() {
         }
         
         const data = await response.json();
-        const termine = data.wiederkehrend || [];
+        const termine2026 = data.termine_2026 || [];
+        const wiederkehrend = data.wiederkehrend || [];
         
-        if (termine.length === 0) {
-            container.innerHTML = '<p>Aktuell keine Termine verfügbar.</p>';
+        // Hilfetexte für Kalender-Integration
+        const hilfetexte = data.hilfetexte || {};
+        
+        if (termine2026.length === 0 && wiederkehrend.length === 0) {
+            container.innerHTML = '<p class="loading-text">Aktuell keine Termine verfügbar.</p>';
             return;
         }
         
-        container.innerHTML = `
-            <h3>Wöchentliche Termine</h3>
-            ${termine.map(termin => `
-                <div class="termin-card">
-                    <h4>${escapeHtml(termin.titel)}</h4>
-                    <p class="termin-meta">
-                        ${escapeHtml(termin.tag)} um ${escapeHtml(termin.uhrzeit)}<br>
-                        ${escapeHtml(termin.ort)}
-                    </p>
-                    <p>${escapeHtml(termin.beschreibung)}</p>
-                </div>
-            `).join('')}
-        `;
+        let html = '';
+        
+        // Termine 2026 anzeigen
+        if (termine2026.length > 0) {
+            // Sortiere nach Datum
+            const sortedTermine = [...termine2026].sort((a, b) => new Date(a.datum) - new Date(b.datum));
+            
+            // Gruppiere nach Monat
+            const termineByMonth = {};
+            sortedTermine.forEach(termin => {
+                const date = new Date(termin.datum);
+                const monthKey = date.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
+                if (!termineByMonth[monthKey]) {
+                    termineByMonth[monthKey] = [];
+                }
+                termineByMonth[monthKey].push(termin);
+            });
+            
+            html += '<h3>Termine 2026</h3>';
+            
+            Object.keys(termineByMonth).forEach(month => {
+                html += `<h4 class="termin-monat">${month}</h4>`;
+                html += termineByMonth[month].map(termin => {
+                    const date = new Date(termin.datum);
+                    const tag = date.toLocaleDateString('de-DE', { weekday: 'short', day: '2-digit', month: '2-digit' });
+                    const endDate = new Date(date.getTime() + termin.dauer_stunden * 60 * 60 * 1000);
+                    const zeit = `${termin.uhrzeit} Uhr`;
+                    
+                    return `
+                        <div class="termin-card" role="article" aria-label="${escapeHtml(termin.titel)}">
+                            <h4>${escapeHtml(termin.titel)}</h4>
+                            <p class="termin-meta">
+                                <time datetime="${termin.datum}T${termin.uhrzeit.replace(':', '')}:00">${escapeHtml(tag)}</time> 
+                                um ${escapeHtml(zeit)}<br>
+                                ${escapeHtml(termin.ort)}
+                            </p>
+                            <p>${escapeHtml(termin.beschreibung)}</p>
+                        </div>
+                    `;
+                }).join('');
+            });
+        }
+        
+        // Hilfetexte aktualisieren falls vorhanden
+        if (hilfetexte.outlook) {
+            const outlookHilfe = document.getElementById('outlook-hilfe');
+            if (outlookHilfe) outlookHilfe.textContent = hilfetexte.outlook;
+        }
+        if (hilfetexte.ios) {
+            const iosHilfe = document.getElementById('ios-hilfe');
+            if (iosHilfe) iosHilfe.textContent = hilfetexte.ios;
+        }
+        
+        container.innerHTML = html;
+        
+        // Countdown zum nächsten Termin berechnen
+        updateCountdown(termine2026);
         
     } catch (error) {
         console.error('Fehler beim Laden der Termine:', error);
-        container.innerHTML = '<p>Termine konnten nicht geladen werden.</p>';
+        container.innerHTML = '<p class="error-text">Termine konnten nicht geladen werden. Bitte versuchen Sie es später erneut.</p>';
     }
 }
 
 /**
- * Initialisiert die mobile Navigation
+ * Zeigt Countdown zum nächsten Termin an
+ */
+function updateCountdown(termine) {
+    const countdownContainer = document.getElementById('termin-countdown');
+    const tageElement = document.getElementById('countdown-tage');
+    const terminElement = document.getElementById('countdown-termin');
+    
+    if (!countdownContainer || !tageElement || !terminElement) return;
+    
+    // Speichere nächsten Termin für Scroll-Funktion
+    let naechsterTerminDatum = null;
+    
+    const heute = new Date();
+    heute.setHours(0, 0, 0, 0);
+    
+    // Finde den nächsten Termin
+    const zukuenftigeTermine = termine
+        .map(t => ({ ...t, dateObj: new Date(t.datum) }))
+        .filter(t => t.dateObj >= heute)
+        .sort((a, b) => a.dateObj - b.dateObj);
+    
+    if (zukuenftigeTermine.length === 0) {
+        countdownContainer.style.display = 'none';
+        return;
+    }
+    
+    const naechsterTermin = zukuenftigeTermine[0];
+    naechsterTerminDatum = naechsterTermin.datum;
+    const diffZeit = naechsterTermin.dateObj - heute;
+    const diffTage = Math.ceil(diffZeit / (1000 * 60 * 60 * 24));
+    
+    tageElement.textContent = diffTage;
+    
+    const terminText = diffTage === 0 
+        ? 'Heute: ' + naechsterTermin.titel
+        : diffTage === 1 
+            ? 'Morgen: ' + naechsterTermin.titel
+            : naechsterTermin.titel + ' am ' + naechsterTermin.dateObj.toLocaleDateString('de-DE', { weekday: 'short', day: 'numeric', month: 'numeric' });
+    
+    terminElement.textContent = terminText;
+    countdownContainer.style.display = 'block';
+    
+    // Klick-Handler: Scroll zum Termin
+    countdownContainer.style.cursor = 'pointer';
+    countdownContainer.title = 'Zum nächsten Termin scrollen';
+    countdownContainer.addEventListener('click', () => {
+        if (naechsterTerminDatum) {
+            const terminElement = document.querySelector(`time[datetime^="${naechsterTerminDatum}"]`);
+            if (terminElement) {
+                terminElement.closest('.termin-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    });
+}
+
+/**
+ * Initialisiert die mobile Navigation mit WCAG-Konformität
  */
 function initMobileNav() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.getElementById('nav-menu');
+    const navLinks = navMenu ? navMenu.querySelectorAll('a') : [];
     
     if (!menuToggle || !navMenu) return;
     
-    menuToggle.addEventListener('click', function() {
-        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', !isExpanded);
-        navMenu.classList.toggle('active');
-    });
-}
-
-/**
- * Lädt die Newsletter-/Aktuelles-Daten aus JSON
- */
-async function loadNewsletter() {
-    const container = document.getElementById('newsletter-container');
-    if (!container) return;
+    let lastFocusedElement = null;
     
-    try {
-        const response = await fetch('data/news.json');
-        if (!response.ok) {
-            throw new Error('Netzwerkfehler beim Laden der News');
+    function openMenu() {
+        menuToggle.setAttribute('aria-expanded', 'true');
+        navMenu.classList.add('active');
+        menuToggle.setAttribute('aria-label', 'Navigation schließen');
+        lastFocusedElement = document.activeElement;
+        
+        // Fokus auf erstes Element setzen
+        if (navLinks.length > 0) {
+            navLinks[0].focus();
         }
         
-        const data = await response.json();
-        const beitraege = data.beitraege || [];
+        document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('click', handleClickOutside);
+    }
+    
+    function closeMenu() {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('active');
+        menuToggle.setAttribute('aria-label', 'Navigation öffnen');
         
-        // Nur aktive Beiträge anzeigen
-        const aktiveBeitraege = beitraege.filter(b => b.aktiv);
+        // Fokus zurücksetzen
+        if (lastFocusedElement) {
+            lastFocusedElement.focus();
+        }
         
-        if (aktiveBeitraege.length === 0) {
-            container.innerHTML = `
-                <div style="grid-column: 1 / -1; text-align: center; padding: var(--space-xl) 0;">
-                    <p style="font-size: var(--font-size-lg); margin-bottom: var(--space-md);">
-                        📷 Folge uns auf Instagram für aktuelle Bilder und Berichte!
-                    </p>
-                    <a href="https://www.instagram.com/feuerwehr_esselborn" 
-                       class="btn btn-primary"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        @feuerwehr_esselborn
-                    </a>
-                </div>
-            `;
+        document.removeEventListener('keydown', handleKeyDown);
+        document.removeEventListener('click', handleClickOutside);
+    }
+    
+    function handleKeyDown(e) {
+        // ESC schließt Menu
+        if (e.key === 'Escape') {
+            closeMenu();
             return;
         }
         
-        container.innerHTML = aktiveBeitraege.map(beitrag => {
-            const bildHtml = beitrag.bild 
-                ? `<img src="img/${escapeHtml(beitrag.bild)}" alt="${escapeHtml(beitrag.titel)}" loading="lazy">`
-                : `<div class="newsletter-placeholder" aria-hidden="true">📷</div>`;
+        // Tab-Navigation im Menu
+        if (e.key === 'Tab' && navMenu.classList.contains('active')) {
+            const firstLink = navLinks[0];
+            const lastLink = navLinks[navLinks.length - 1];
             
-            const datum = beitrag.datum 
-                ? new Date(beitrag.datum).toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' })
-                : '';
-            
-            return `
-                <article class="newsletter-card">
-                    <div class="newsletter-bild">
-                        ${bildHtml}
-                    </div>
-                    <div class="newsletter-content">
-                        <h3>${escapeHtml(beitrag.titel)}</h3>
-                        <p class="newsletter-meta">${escapeHtml(datum)}</p>
-                        <p class="newsletter-text">${escapeHtml(beitrag.text)}</p>
-                    </div>
-                </article>
-            `;
-        }).join('');
-        
-    } catch (error) {
-        console.error('Fehler beim Laden der News:', error);
-        container.innerHTML = `
-            <div style="grid-column: 1 / -1; text-align: center;">
-                <p>Beiträge konnten nicht geladen werden.</p>
-                <a href="https://www.instagram.com/feuerwehr_esselborn" 
-                   class="btn btn-primary"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    📷 Instagram
-                </a>
-            </div>
-        `;
+            if (e.shiftKey && document.activeElement === firstLink) {
+                e.preventDefault();
+                lastLink.focus();
+            } else if (!e.shiftKey && document.activeElement === lastLink) {
+                e.preventDefault();
+                firstLink.focus();
+            }
+        }
     }
+    
+    function handleClickOutside(e) {
+        if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            closeMenu();
+        }
+    }
+    
+    menuToggle.addEventListener('click', function() {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
 }
 
 /**
- * Initialisiert den Dark Mode mit Toggle-Button
+ * Animiert einen Zähler von 0 bis zum Zielwert
  */
-function initDarkMode() {
-    const navContainer = document.querySelector('.main-nav .container');
-    if (!navContainer) return;
+function animateCounter(elementId, targetValue, duration = 2000) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
     
-    // Prüfe gespeicherte Präferenz
-    const savedMode = localStorage.getItem('darkMode');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Intersection Observer zum Starten der Animation wenn sichtbar
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounting();
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.5 });
     
-    if (savedMode === 'true' || (savedMode === null && prefersDark)) {
-        document.body.classList.add('dark-mode');
+    observer.observe(element);
+    
+    function startCounting() {
+        const startTime = performance.now();
+        const startValue = 0;
+        
+        function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing-Funktion für sanftes Auslaufen
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const currentValue = Math.round(startValue + (targetValue - startValue) * easeOutQuart);
+            
+            element.textContent = currentValue;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            }
+        }
+        
+        requestAnimationFrame(updateCounter);
     }
-    
-    // Statischen Toggle-Button aus HTML verwenden
-    const toggle = document.querySelector('.dark-mode-toggle');
-    if (!toggle) return;
-    
-    // Initialen Zustand setzen
-    toggle.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-    toggle.setAttribute('aria-label', document.body.classList.contains('dark-mode') ? 'Light Mode umschalten' : 'Dark Mode umschalten');
-    
-    toggle.addEventListener('click', function() {
-        const isDark = document.body.classList.toggle('dark-mode');
-        localStorage.setItem('darkMode', isDark);
-        this.innerHTML = isDark ? '☀️' : '🌙';
-        this.setAttribute('aria-label', isDark ? 'Light Mode umschalten' : 'Dark Mode umschalten');
-    });
 }
 
 /**
@@ -245,4 +394,225 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+/**
+ * Hilfsfunktion: Berechnet nächsten Wochentag für datetime Attribut
+ */
+function getWeekdayDate(weekday) {
+    const days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+    const today = new Date();
+    const currentDay = today.getDay();
+    const targetDay = days.indexOf(weekday);
+    
+    if (targetDay === -1) return '';
+    
+    const diff = targetDay - currentDay;
+    const nextDate = new Date(today);
+    nextDate.setDate(today.getDate() + diff + (diff <= 0 ? 7 : 0));
+    
+    return nextDate.toISOString().split('T')[0];
+}
+
+/**
+ * Scroll Progress Bar initialisieren
+ */
+function initScrollProgress() {
+    const progressBar = document.querySelector('.scroll-progress');
+    if (!progressBar) return;
+    
+    function updateProgress() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
+    }
+    
+    // Throttle für Performance
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateProgress();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+    
+    // Initial setzen
+    updateProgress();
+}
+
+/**
+ * Schema.org Structured Data als JSON-LD einfügen
+ */
+function insertSchemaOrgData() {
+    const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Freiwillige Feuerwehr Esselborn",
+        "url": "https://feuerwehr.gemeinde-esselborn.de/",
+        "logo": "https://feuerwehr.gemeinde-esselborn.de/img/og-image.svg",
+        "foundingDate": "1899",
+        "description": "Freiwillige Feuerwehr Esselborn - Retten, Löschen, Bergen, Schützen seit 1899",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Obergasse 11",
+            "addressLocality": "Esselborn",
+            "postalCode": "55234",
+            "addressCountry": "DE"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "feuerwehr@gemeinde-esselborn.de",
+            "contactType": "Wehrführung"
+        }
+    };
+    
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(schemaData);
+    document.head.appendChild(script);
+}
+
+/**
+ * Service Worker registrieren
+ */
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                    console.log('[SW] Registriert:', registration.scope);
+                })
+                .catch((error) => {
+                    console.log('[SW] Registrierung fehlgeschlagen:', error);
+                });
+        });
+    }
+}
+
+/**
+ * Theme Toggle initialisieren
+ */
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) return;
+    
+    // Prüfe gespeicherte Präferenz oder Systemeinstellung
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    
+    // Toggle-Handler
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+}
+
+// Lightbox für Galerie initialisieren
+document.addEventListener('DOMContentLoaded', function() {
+    initLightbox();
+});
+
+function initLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+    
+    if (!lightbox || !lightboxImg) return;
+    
+    const galerieItems = document.querySelectorAll('.galerie-item img');
+    let currentIndex = 0;
+    
+    // Öffnen bei Klick auf Bild
+    galerieItems.forEach((img, index) => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+            currentIndex = index;
+            openLightbox(img);
+        });
+    });
+    
+    function openLightbox(img) {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        
+        // Caption aus figcaption holen falls vorhanden
+        const figcaption = img.closest('figure')?.querySelector('figcaption');
+        lightboxCaption.textContent = figcaption ? figcaption.textContent : img.alt;
+        
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+    }
+    
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        // Fokus zurück auf das aktuelle Bild
+        if (galerieItems[currentIndex]) {
+            galerieItems[currentIndex].focus();
+        }
+    }
+    
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + galerieItems.length) % galerieItems.length;
+        const img = galerieItems[currentIndex];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        const figcaption = img.closest('figure')?.querySelector('figcaption');
+        lightboxCaption.textContent = figcaption ? figcaption.textContent : img.alt;
+    }
+    
+    function showNext() {
+        currentIndex = (currentIndex + 1) % galerieItems.length;
+        const img = galerieItems[currentIndex];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        const figcaption = img.closest('figure')?.querySelector('figcaption');
+        lightboxCaption.textContent = figcaption ? figcaption.textContent : img.alt;
+    }
+    
+    // Event Listener
+    closeBtn?.addEventListener('click', closeLightbox);
+    prevBtn?.addEventListener('click', showPrev);
+    nextBtn?.addEventListener('click', showNext);
+    
+    // Schließen bei Klick auf Hintergrund
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // Tastatur-Navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        
+        switch(e.key) {
+            case 'Escape':
+                closeLightbox();
+                break;
+            case 'ArrowLeft':
+                showPrev();
+                break;
+            case 'ArrowRight':
+                showNext();
+                break;
+        }
+    });
 }

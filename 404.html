@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seite nicht gefunden | Feuerwehr Esselborn</title>
+  <meta name="robots" content="noindex, follow">
+  <style>
+    :root {
+      --color-primary: #B91C1C;
+      --color-primary-dark: #7F1D1D;
+      --color-text: #1F2937;
+      --color-background: #F9FAFB;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--color-background);
+      color: var(--color-text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .error-container {
+      text-align: center;
+      max-width: 500px;
+    }
+    .error-code {
+      font-size: 6rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .error-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .error-text {
+      color: #6B7280;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--color-primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: var(--color-primary-dark);
+    }
+    .fire-emoji {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <div class="fire-emoji" role="img" aria-label="Feuerwehr">🚒</div>
+    <div class="error-code">404</div>
+    <h1 class="error-title">Seite nicht gefunden</h1>
+    <p class="error-text">
+      Die gesuchte Seite existiert nicht oder wurde verschoben.<br>
+      Keine Sorge – wir löschen das für dich! 🔥
+    </p>
+    <a href="/" class="btn">
+      ← Zurück zur Startseite
+    </a>
+  </div>
+</body>
+</html>

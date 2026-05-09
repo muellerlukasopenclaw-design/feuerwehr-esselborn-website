@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://feuerwehr.gemeinde-esselborn.de/sitemap.xml
+
+# Don't crawl these directories
+Disallow: /data/
+
+# Crawl-delay
+Crawl-delay: 10
