@@ -1692,6 +1692,223 @@ button:focus-visible,
   border-radius: 12px;
 }
 
+/* === Dark Mode Toggle === */
+.dark-mode-toggle {
+  background: none;
+  border: 2px solid var(--color-border);
+  padding: var(--space-xs);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1.25rem;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode-toggle:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* === Dark Mode Styles === */
+[data-theme="dark"] {
+  --color-text: #F3F4F6;
+  --color-text-light: #9CA3AF;
+  --color-background: #111827;
+  --color-background-alt: #1F2937;
+  --color-border: #374151;
+}
+
+[data-theme="dark"] .main-nav {
+  background: rgba(17, 24, 39, 0.95);
+}
+
+[data-theme="dark"] .nav-links {
+  background: var(--color-background);
+}
+
+[data-theme="dark"] .mitglied-card,
+[data-theme="dark"] .termin-card,
+[data-theme="dark"] .mitglied-art,
+[data-theme="dark"] .newsletter-card {
+  background: var(--color-background-alt);
+}
+
+[data-theme="dark"] .newsletter-placeholder {
+  background: #374151;
+}
+
+[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, #7F1D1D 0%, #B91C1C 100%);
+}
+
+/* === Newsletter / Aktuelles === */
+.newsletter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-lg);
+}
+
+.newsletter-card {
+  background: var(--color-background);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.newsletter-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.newsletter-bild {
+  aspect-ratio: 4 / 3;
+  background: var(--color-background-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.newsletter-bild img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.newsletter-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+.newsletter-content {
+  padding: var(--space-md);
+}
+
+.newsletter-content h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-xs);
+  color: var(--color-primary);
+}
+
+.newsletter-meta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin-bottom: var(--space-sm);
+}
+
+.newsletter-text {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.instagram-link-section {
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* === Mobile Fixes === */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 120px var(--space-sm) var(--space-xl);
+  }
+  
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-size-lg);
+  }
+  
+  .hero-text {
+    font-size: var(--font-size-base);
+  }
+  
+  .mannschaft-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .newsletter-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .mitglied-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-nav {
+    justify-content: center;
+  }
+  
+  section {
+    padding: var(--space-lg) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-xs);
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+  }
+}
+
 /* Touch-Optimierung für mobile Geräte */
 @media (hover: none) {
   .btn:hover {

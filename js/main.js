@@ -42,8 +42,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Termine laden
     loadTermine();
     
+    // Newsletter laden
+    loadNewsletter();
+    
     // Mobile Navigation
     initMobileNav();
+    
+    // Dark Mode
+    initThemeToggle();
 });
 
 /**
@@ -85,7 +91,7 @@ async function loadMannschaft() {
         
         // Aktuelles Jahr berechnen für dynamische Jahreszahl
         const currentYear = new Date().getFullYear();
-        const yearsSinceFounding = currentYear - 1899;
+        const yearsSinceFounding = currentYear - 1891;
         
         // Animation für Jahre seit Gründung (dynamisch berechnet)
         animateCounter('jahre-count', yearsSinceFounding, 2000);
@@ -387,6 +393,110 @@ function animateCounter(elementId, targetValue, duration = 2000) {
 }
 
 /**
+ * Lädt die Newsletter-/Aktuelles-Daten aus JSON
+ */
+async function loadNewsletter() {
+    const container = document.getElementById('newsletter-container');
+    if (!container) return;
+    
+    try {
+        const response = await fetch('data/news.json');
+        if (!response.ok) {
+            throw new Error('Netzwerkfehler beim Laden der News');
+        }
+        
+        const data = await response.json();
+        const beitraege = data.beitraege || [];
+        
+        // Nur aktive Beiträge anzeigen
+        const aktiveBeitraege = beitraege.filter(b => b.aktiv);
+        
+        if (aktiveBeitraege.length === 0) {
+            container.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: var(--space-xl) 0;">
+                    <p style="font-size: var(--font-size-lg); margin-bottom: var(--space-md);">
+                        📷 Folge uns auf Instagram für aktuelle Bilder und Berichte!
+                    </p>
+                    <a href="https://www.instagram.com/feuerwehr_esselborn" 
+                       class="btn btn-primary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        @feuerwehr_esselborn
+                    </a>
+                </div>
+            `;
+            return;
+        }
+        
+        container.innerHTML = aktiveBeitraege.map(beitrag => {
+            const bildHtml = beitrag.bild 
+                ? `<img src="img/${escapeHtml(beitrag.bild)}" alt="${escapeHtml(beitrag.titel)}" loading="lazy">`
+                : `<div class="newsletter-placeholder" aria-hidden="true">📷</div>`;
+            
+            const datum = beitrag.datum 
+                ? new Date(beitrag.datum).toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' })
+                : '';
+            
+            return `
+                <article class="newsletter-card">
+                    <div class="newsletter-bild">
+                        ${bildHtml}
+                    </div>
+                    <div class="newsletter-content">
+                        <h3>${escapeHtml(beitrag.titel)}</h3>
+                        <p class="newsletter-meta">${escapeHtml(datum)}</p>
+                        <p class="newsletter-text">${escapeHtml(beitrag.text)}</p>
+                    </div>
+                </article>
+            `;
+        }).join('');
+        
+    } catch (error) {
+        console.error('Fehler beim Laden der News:', error);
+        container.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center;">
+                <p>Beiträge konnten nicht geladen werden.</p>
+                <a href="https://www.instagram.com/feuerwehr_esselborn" 
+                   class="btn btn-primary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    📷 Instagram
+                </a>
+            </div>
+        `;
+    }
+}
+
+/**
+ * Theme Toggle initialisieren (Dark Mode)
+ */
+function initThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) return;
+    
+    // Prüfe gespeicherte Präferenz oder Systemeinstellung
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.innerHTML = '☀️';
+        themeToggle.setAttribute('aria-label', 'Light Mode umschalten');
+    }
+    
+    // Toggle-Handler
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggle.innerHTML = newTheme === 'dark' ? '☀️' : '🌙';
+        themeToggle.setAttribute('aria-label', newTheme === 'dark' ? 'Light Mode umschalten' : 'Dark Mode umschalten');
+    });
+}
+
+/**
  * Hilfsfunktion: Escapes HTML-Sonderzeichen
  */
 function escapeHtml(text) {
@@ -454,7 +564,7 @@ function insertSchemaOrgData() {
         "name": "Freiwillige Feuerwehr Esselborn",
         "url": "https://feuerwehr.gemeinde-esselborn.de/",
         "logo": "https://feuerwehr.gemeinde-esselborn.de/img/og-image.svg",
-        "foundingDate": "1899",
+        "foundingDate": "1891",
         "description": "Freiwillige Feuerwehr Esselborn - Retten, Löschen, Bergen, Schützen seit 1899",
         "address": {
             "@type": "PostalAddress",

@@ -8,7 +8,7 @@
     
     <!-- Open Graph / Social -->
     <meta property="og:title" content="Freiwillige Feuerwehr Esselborn">
-    <meta property="og:description" content="Retten · Löschen · Bergen · Schützen. Seit 1899 für die Sicherheit unserer Gemeinde im Einsatz.">
+    <meta property="og:description" content="Retten · Löschen · Bergen · Schützen. Seit 1891 für die Sicherheit unserer Gemeinde im Einsatz.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://feuerwehr-esselborn.de/">
     <meta property="og:image" content="https://feuerwehr-esselborn.de/img/og-image.svg">
@@ -18,7 +18,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Freiwillige Feuerwehr Esselborn">
-    <meta name="twitter:description" content="Retten · Löschen · Bergen · Schützen. Seit 1899 für die Sicherheit unserer Gemeinde.">
+    <meta name="twitter:description" content="Retten · Löschen · Bergen · Schützen. Seit 1891 für die Sicherheit unserer Gemeinde.">
     
     <title>Freiwillige Feuerwehr Esselborn</title>
     
@@ -53,17 +53,21 @@
                     Feuerwehr Esselborn
                 </a>
                 
-                <button class="menu-toggle" 
-                        aria-label="Navigation öffnen" 
-                        aria-expanded="false"
-                        aria-controls="nav-menu">
-                    <span aria-hidden="true">☰</span>
-                </button>
+                <div class="nav-actions">
+                    <button class="dark-mode-toggle" id="theme-toggle" aria-label="Dark Mode umschalten">🌙</button>
+                    <button class="menu-toggle" 
+                            aria-label="Navigation öffnen" 
+                            aria-expanded="false"
+                            aria-controls="nav-menu">
+                        <span aria-hidden="true">☰</span>
+                    </button>
+                </div>
                 
                 <ul class="nav-links" id="nav-menu" role="menubar" aria-label="Hauptnavigation">
                     <li role="none"><a href="#mannschaft" role="menuitem" tabindex="0">Mannschaft</a></li>
                     <li role="none"><a href="#termine" role="menuitem" tabindex="0">Termine</a></li>
                     <li role="none"><a href="#galerie" role="menuitem" tabindex="0">Galerie</a></li>
+                    <li role="none"><a href="#aktuelles" role="menuitem" tabindex="0">Aktuelles</a></li>
                     <li role="none"><a href="#mitglied" role="menuitem" tabindex="0">Mitglied werden</a></li>
                     <li role="none"><a href="#jubilaeum" role="menuitem" tabindex="0">125 Jahre</a></li>
                     <li role="none"><a href="legal/impressum.html" role="menuitem" tabindex="0">Impressum</a></li>
@@ -78,7 +82,7 @@
                     Retten · Löschen · Bergen · Schützen
                 </p>
                 <p class="hero-text">
-                    Seit 1899 für die Sicherheit unserer Gemeinde im Einsatz. 
+                    Seit 1891 für die Sicherheit unserer Gemeinde im Einsatz. 
                     Wir sind Ihre Freiwillige Feuerwehr in Esselborn.
                 </p>
                 <div class="hero-buttons">
@@ -310,12 +314,37 @@
             </div>
         </section>
 
+        <!-- Aktuelles / Newsletter -->
+        <section id="aktuelles" aria-labelledby="aktuelles-heading">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="aktuelles-heading">Aktuelles</h2>
+                    <p class="section-intro">
+                        Berichte, Bilder und Neuigkeiten aus der Feuerwehr Esselborn
+                    </p>
+                </div>
+                
+                <div class="newsletter-grid" id="newsletter-container">
+                    <p class="loading-text">Beiträge werden geladen...</p>
+                </div>
+                
+                <div class="instagram-link-section">
+                    <a href="https://www.instagram.com/feuerwehr_esselborn" 
+                       class="btn btn-primary instagram-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        📷 Mehr auf Instagram
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Jubiläum -->
         <section id="jubilaeum" aria-labelledby="jubilaeum-heading">
             <div class="container jubilaeum-container">
                 <h2 id="jubilaeum-heading">125 Jahre Feuerwehr Esselborn</h2>
                 <p class="jubilaeum-text">
-                    Seit 1899 stehen wir für die Sicherheit in Esselborn. Über 125 Jahre ehrenamtliches Engagement 
+                    Seit 1891 stehen wir für die Sicherheit in Esselborn. Über 135 Jahre ehrenamtliches Engagement 
                     für unsere Gemeinde.
                 </p>
                 
@@ -333,7 +362,7 @@
                         <span class="stat-label">aktive Wehr</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number stat-number-static">1899</span>
+                        <span class="stat-number stat-number-static">1891</span>
                         <span class="stat-label">gegründet</span>
                     </div>
                 </div>
