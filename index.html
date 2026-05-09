@@ -19,16 +19,20 @@
                     Feuerwehr Esselborn
                 </a>
                 
-                <button class="menu-toggle" 
-                        aria-label="Navigation öffnen" 
-                        aria-expanded="false"
-                        aria-controls="nav-menu">
-                    <span aria-hidden="true">☰</span>
-                </button>
+                <div class="nav-actions" style="display: flex; align-items: center; gap: var(--space-xs);">
+                    <button class="dark-mode-toggle" aria-label="Dark Mode umschalten">🌙</button>
+                    <button class="menu-toggle" 
+                            aria-label="Navigation öffnen" 
+                            aria-expanded="false"
+                            aria-controls="nav-menu">
+                        <span aria-hidden="true">☰</span>
+                    </button>
+                </div>
                 
                 <ul class="nav-links" id="nav-menu" role="menubar">
                     <li role="none"><a href="#mannschaft" role="menuitem">Mannschaft</a></li>
                     <li role="none"><a href="#termine" role="menuitem">Termine</a></li>
+                    <li role="none"><a href="#aktuelles" role="menuitem">Aktuelles</a></li>
                     <li role="none"><a href="#mitglied" role="menuitem">Mitglied werden</a></li>
                     <li role="none"><a href="legal/impressum.html" role="menuitem">Impressum</a></li>
                 </ul>
@@ -42,7 +46,7 @@
                     Retten · Löschen · Bergen · Schützen
                 </p>
                 <p class="hero-text">
-                    Seit 1899 für die Sicherheit unserer Gemeinde im Einsatz. 
+                    Seit 1891 für die Sicherheit unserer Gemeinde im Einsatz. 
                     Wir sind Ihre Freiwillige Feuerwehr in Esselborn.
                 </p>
                 <a href="#mitglied" class="btn btn-primary">
@@ -151,12 +155,37 @@
             </div>
         </section>
 
+        <!-- Aktuelles / Newsletter -->
+        <section id="aktuelles" aria-labelledby="aktuelles-heading">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="aktuelles-heading">Aktuelles</h2>
+                    <p class="section-intro">
+                        Berichte, Bilder und Neuigkeiten aus der Feuerwehr Esselborn
+                    </p>
+                </div>
+                
+                <div class="newsletter-grid" id="newsletter-container">
+                    <p class="loading-text">Beiträge werden geladen...</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="https://www.instagram.com/feuerwehr_esselborn" 
+                       class="btn btn-primary instagram-link"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        📷 Mehr auf Instagram
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Jubiläum -->
         <section id="jubilaeum" aria-labelledby="jubilaeum-heading">
             <div class="container" style="text-align: center;">
                 <h2 id="jubilaeum-heading">125 Jahre Feuerwehr Esselborn</h2>
                 <p style="max-width: 600px; margin: 0 auto 2rem; font-size: 1.125rem;">
-                    Seit 1899 stehen wir für die Sicherheit in Esselborn. Über 125 Jahre ehrenamtliches Engagement 
+                    Seit 1891 stehen wir für die Sicherheit in Esselborn. Über 135 Jahre ehrenamtliches Engagement 
                     für unsere Gemeinde.
                 </p>
                 
@@ -170,7 +199,7 @@
                         <span class="stat-label">aktive Mitglieder</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">1899</span>
+                        <span class="stat-number">1891</span>
                         <span class="stat-label">gegründet</span>
                     </div>
                 </div>

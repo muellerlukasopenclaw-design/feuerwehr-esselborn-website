@@ -1,0 +1,14 @@
+{
+  "stand": "2026-05-09",
+  "hinweis": "Diese Datei kann mit einem einfachen Texteditor bearbeitet werden. Neue Beiträge werden oben angezeigt.",
+  "beitraege": [
+    {
+      "id": "beispiel-1",
+      "datum": "2026-05-01",
+      "titel": "Übung im Ortskern",
+      "text": "Heute fand eine erfolgreiche Übung im Ortskern statt. Alle Mannschaften waren pünktlich und motiviert.",
+      "bild": "",
+      "aktiv": false
+    }
+  ]
+}

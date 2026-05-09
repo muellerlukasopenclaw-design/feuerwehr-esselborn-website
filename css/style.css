@@ -142,6 +142,7 @@ a:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -179,6 +180,10 @@ a:focus-visible {
   padding: var(--space-xs);
   border-radius: var(--radius);
   cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu-toggle:focus-visible {
@@ -187,7 +192,7 @@ a:focus-visible {
 
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;
+    display: flex;
   }
   
   .nav-links {
@@ -200,10 +205,16 @@ a:focus-visible {
     flex-direction: column;
     padding: var(--space-md);
     box-shadow: var(--shadow-lg);
+    z-index: 999;
   }
   
   .nav-links.active {
     display: flex;
+  }
+  
+  .dark-mode-toggle {
+    margin-left: auto;
+    margin-right: var(--space-xs);
   }
 }
 
@@ -595,7 +606,206 @@ section:nth-child(even) {
   }
 }
 
-/* === Dark Mode (optional, falls gewünscht) === */
-@media (prefers-color-scheme: dark) {
-  /* Derzeit nicht aktiviert - bei Bedarf implementieren */
+/* === Dark Mode Toggle === */
+.dark-mode-toggle {
+  background: none;
+  border: 2px solid var(--color-border);
+  padding: var(--space-xs);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1.25rem;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode-toggle:focus-visible {
+  outline: 3px solid var(--color-primary);
+}
+
+/* === Dark Mode Styles === */
+body.dark-mode {
+  --color-text: #F3F4F6;
+  --color-text-light: #9CA3AF;
+  --color-background: #111827;
+  --color-background-alt: #1F2937;
+  --color-border: #374151;
+}
+
+body.dark-mode .main-nav {
+  background: rgba(17, 24, 39, 0.95);
+}
+
+body.dark-mode .nav-links {
+  background: var(--color-background);
+}
+
+body.dark-mode .mitglied-card,
+body.dark-mode .termin-card,
+body.dark-mode .mitglied-art {
+  background: var(--color-background-alt);
+}
+
+body.dark-mode .newsletter-card {
+  background: var(--color-background-alt);
+}
+
+body.dark-mode .newsletter-placeholder {
+  background: #374151;
+}
+
+body.dark-mode .kalender-link {
+  color: var(--color-text);
+}
+
+/* === Newsletter / Aktuelles === */
+.newsletter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-lg);
+}
+
+.newsletter-card {
+  background: var(--color-background);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.newsletter-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.newsletter-bild {
+  aspect-ratio: 4 / 3;
+  background: var(--color-background-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.newsletter-bild img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.newsletter-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+.newsletter-content {
+  padding: var(--space-md);
+}
+
+.newsletter-content h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-xs);
+  color: var(--color-primary);
+}
+
+.newsletter-meta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin-bottom: var(--space-sm);
+}
+
+.newsletter-text {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* === Mobile Fixes === */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 120px var(--space-sm) var(--space-xl);
+  }
+  
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-size-lg);
+  }
+  
+  .hero-text {
+    font-size: var(--font-size-base);
+  }
+  
+  .mannschaft-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .newsletter-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .mitglied-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-nav {
+    justify-content: center;
+  }
+  
+  section {
+    padding: var(--space-lg) 0;
+  }
+  
+  .dark-mode-toggle {
+    margin-left: 0;
+    margin-top: var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-xs);
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
