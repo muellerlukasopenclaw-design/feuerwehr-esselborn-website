@@ -3,12 +3,12 @@
   "hinweis": "Diese Datei kann mit einem einfachen Texteditor bearbeitet werden. Neue Beiträge werden oben angezeigt.",
   "beitraege": [
     {
-      "id": "beispiel-1",
-      "datum": "2026-05-01",
-      "titel": "Übung im Ortskern",
-      "text": "Heute fand eine erfolgreiche Übung im Ortskern statt. Alle Mannschaften waren pünktlich und motiviert.",
-      "bild": "",
-      "aktiv": false
+      "id": "generalversammlung-2026",
+      "datum": "2026-02-20",
+      "titel": "Generalversammlung 2026",
+      "text": "Wehrführer Förster begrüßte zu Beginn alle Aktiven, Alterskameraden und Fördermitglieder. Sein besonderer Gruß galt VG-Bürgermeister Unger, dem 1. Beigeordneten Dieter Mann und der Wehrleitung Uwe König und Marcel Scheid.\n\nIm Rückblick auf das Jahr 2025 fanden 36 Zusammenkünfte statt, darunter 12 Übungen und 6 Einsätze. Zudem gab es mehrere Arbeitseinsätze, bei denen auch die Gemeinde unterstützt wurde, sowie gesellschaftliche Veranstaltungen wie die Maifeier, das Herbstfest und ein Kegelabend. Zudem nahm man an einer Baumpflanzchallenge teil und beteiligte sich an der Absicherung beim VG-Weinfest. Auf Kreisebene konnten drei Kameraden einen Grundlehrgang erfolgreich absolvieren. Außerdem konnte sich die Wehr wieder mit zwei neuen Kräften, darunter eine Frau, verstärken. Zurzeit zählt die Wehr 21 Aktive.\n\nDieter Mann und Ortsbürgermeister Becker sprachen Grußworte und dankten den Wehrleuten für ihren Einsatz und das Engagement in der Gemeinde. Auch Wehrleiter Uwe König bedankte sich bei den Wehrleuten für die geleistete Arbeit und informierte über die anstehende Ersatzbeschaffung eines neuen MZF. Danach nahm Dezernent Dieter Mann die Neuverpflichtung von Julia Förster und Ralf Laubenheimer in den aktiven Feuerwehrdienst vor und beförderte Robin Förster, Paul Lehmann und Julian Pinger zu Feuerwehrmännern.\n\nZuletzt bedankte sich Förster bei allen Aktiven sowie der Verwaltung für die gute Zusammenarbeit und lud alle Anwesenden noch zum Essen ein.",
+      "bild": "generalversammlung-2026.jpg",
+      "aktiv": true
     }
   ]
 }
