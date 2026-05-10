@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Freiwillige Feuerwehr Esselborn - Retten, Löschen, Bergen, Schützen. Informieren Sie sich über unsere Mannschaft, Termine und Mitgliedschaft.">
-    <meta name="theme-color" content="#B91C1C">
-    
+    <meta name="theme-color" content="#991b1b">
+
     <!-- Open Graph / Social -->
     <meta property="og:title" content="Freiwillige Feuerwehr Esselborn">
     <meta property="og:description" content="Retten · Löschen · Bergen · Schützen. Seit 1891 für die Sicherheit unserer Gemeinde im Einsatz.">
@@ -14,28 +14,69 @@
     <meta property="og:image" content="https://feuerwehr-esselborn.de/img/og-image.svg">
     <meta property="og:locale" content="de_DE">
     <meta property="og:site_name" content="Freiwillige Feuerwehr Esselborn">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Freiwillige Feuerwehr Esselborn">
     <meta name="twitter:description" content="Retten · Löschen · Bergen · Schützen. Seit 1891 für die Sicherheit unserer Gemeinde.">
-    
+
     <title>Freiwillige Feuerwehr Esselborn</title>
-    
+
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-    
+    <link rel="canonical" href="https://feuerwehr-esselborn.de/">
+
     <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Security/Privacy Meta-Tags -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Freiwillige Feuerwehr Esselborn",
+        "url": "https://feuerwehr-esselborn.de/",
+        "logo": "https://feuerwehr-esselborn.de/img/og-image.svg",
+        "foundingDate": "1891",
+        "description": "Freiwillige Feuerwehr Esselborn - Retten, Löschen, Bergen, Schützen seit 1891",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Obergasse 11",
+            "addressLocality": "Esselborn",
+            "postalCode": "55234",
+            "addressCountry": "DE"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "feuerwehr@gemeinde-esselborn.de",
+            "contactType": "Wehrführung"
+        },
+        "sameAs": [
+            "https://www.instagram.com/feuerwehr_esselborn"
+        ]
+    }
+    </script>
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Startseite",
+                "item": "https://feuerwehr-esselborn.de/"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" aria-hidden="true"></div>
-    
+
     <!-- Preloader -->
     <div id="preloader" class="preloader" aria-hidden="true">
         <div class="preloader-content">
@@ -43,38 +84,39 @@
             <span class="preloader-text">Wird geladen...</span>
         </div>
     </div>
-    
+
     <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
-    
+
     <header class="hero">
         <nav class="main-nav" aria-label="Hauptnavigation">
             <div class="container">
                 <a href="index.html" class="logo" aria-label="Freiwillige Feuerwehr Esselborn - Startseite">
                     Feuerwehr Esselborn
                 </a>
-                
+
                 <div class="nav-actions">
-                    <button class="dark-mode-toggle" id="theme-toggle" aria-label="Dark Mode umschalten">🌙</button>
-                    <button class="menu-toggle" 
-                            aria-label="Navigation öffnen" 
+                    <button class="dark-mode-toggle" id="theme-toggle" aria-label="Dark Mode umschalten" type="button">🌙</button>
+                    <button class="menu-toggle"
+                            aria-label="Navigation öffnen"
                             aria-expanded="false"
-                            aria-controls="nav-menu">
+                            aria-controls="nav-menu"
+                            type="button">
                         <span aria-hidden="true">☰</span>
                     </button>
                 </div>
-                
-                <ul class="nav-links" id="nav-menu" role="menubar" aria-label="Hauptnavigation">
-                    <li role="none"><a href="#mannschaft" role="menuitem" tabindex="0">Mannschaft</a></li>
-                    <li role="none"><a href="#termine" role="menuitem" tabindex="0">Termine</a></li>
-                    <li role="none"><a href="#galerie" role="menuitem" tabindex="0">Galerie</a></li>
-                    <li role="none"><a href="#aktuelles" role="menuitem" tabindex="0">Aktuelles</a></li>
-                    <li role="none"><a href="#mitglied" role="menuitem" tabindex="0">Mitglied werden</a></li>
-                    <li role="none"><a href="#jubilaeum" role="menuitem" tabindex="0">125 Jahre</a></li>
-                    <li role="none"><a href="legal/impressum.html" role="menuitem" tabindex="0">Impressum</a></li>
+
+                <ul class="nav-links" id="nav-menu">
+                    <li><a href="#mannschaft">Mannschaft</a></li>
+                    <li><a href="#termine">Termine</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#aktuelles">Aktuelles</a></li>
+                    <li><a href="#mitglied">Mitglied werden</a></li>
+                    <li><a href="#jubilaeum">125 Jahre</a></li>
+                    <li><a href="legal/impressum.html">Impressum</a></li>
                 </ul>
             </div>
         </nav>
-        
+
         <div class="hero-content">
             <div class="container">
                 <h1>Freiwillige Feuerwehr Esselborn</h1>
@@ -82,15 +124,15 @@
                     Retten · Löschen · Bergen · Schützen
                 </p>
                 <p class="hero-text">
-                    Seit 1891 für die Sicherheit unserer Gemeinde im Einsatz. 
+                    Seit 1891 für die Sicherheit unserer Gemeinde im Einsatz.
                     Wir sind Ihre Freiwillige Feuerwehr in Esselborn.
                 </p>
                 <div class="hero-buttons">
                     <a href="#mitglied" class="btn btn-primary btn-large">
-                        ✨ Mitglied werden
+                        <span class="icon" aria-hidden="true">✨</span> Mitglied werden
                     </a>
                     <a href="#termine" class="btn btn-secondary">
-                        📅 Termine
+                        <span class="icon" aria-hidden="true">📅</span> Termine
                     </a>
                 </div>
             </div>
@@ -107,9 +149,30 @@
                         Engagierte Feuerwehrmänner und -frauen für Ihre Sicherheit
                     </p>
                 </div>
-                
+
                 <div id="mannschaft-container" class="mannschaft-grid">
-                    <p class="loading-text">Mannschaftsdaten werden geladen...</p>
+                    <!-- Skeleton Loader -->
+                    <div class="mitglied-card skeleton skeleton-card" aria-hidden="true">
+                        <div class="mitglied-bild skeleton" style="height:180px"></div>
+                        <div class="mitglied-info">
+                            <div class="skeleton skeleton-text skeleton-text-medium" style="margin:0 auto 0.5rem;width:70%"></div>
+                            <div class="skeleton skeleton-text skeleton-text-short" style="margin:0 auto;width:50%"></div>
+                        </div>
+                    </div>
+                    <div class="mitglied-card skeleton skeleton-card" aria-hidden="true">
+                        <div class="mitglied-bild skeleton" style="height:180px"></div>
+                        <div class="mitglied-info">
+                            <div class="skeleton skeleton-text skeleton-text-medium" style="margin:0 auto 0.5rem;width:70%"></div>
+                            <div class="skeleton skeleton-text skeleton-text-short" style="margin:0 auto;width:50%"></div>
+                        </div>
+                    </div>
+                    <div class="mitglied-card skeleton skeleton-card" aria-hidden="true">
+                        <div class="mitglied-bild skeleton" style="height:180px"></div>
+                        <div class="mitglied-info">
+                            <div class="skeleton skeleton-text skeleton-text-medium" style="margin:0 auto 0.5rem;width:70%"></div>
+                            <div class="skeleton skeleton-text skeleton-text-short" style="margin:0 auto;width:50%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -123,31 +186,43 @@
                         Alle geplanten Übungen, Feste und Veranstaltungen der Feuerwehr Esselborn auf einen Blick
                     </p>
                 </div>
-                
+
                 <div class="termine-content">
                     <div id="termin-countdown" class="termin-countdown" style="display: none;">
-                        <div class="countdown-badge">
-                            <span class="countdown-icon">📅</span>
+                        <div class="countdown-badge" role="button" tabindex="0">
+                            <span class="countdown-icon" aria-hidden="true">📅</span>
                             <span class="countdown-text">Nächster Termin in <strong id="countdown-tage">0</strong> Tagen</span>
                             <span id="countdown-termin" class="countdown-termin"></span>
                         </div>
                     </div>
                     <div id="termine-container">
-                        <p class="loading-text">Termine werden geladen...</p>
+                        <!-- Skeleton Loader -->
+                        <div class="termin-card skeleton" aria-hidden="true">
+                            <div class="skeleton skeleton-text skeleton-text-medium" style="width:60%;margin-bottom:0.5rem"></div>
+                            <div class="skeleton skeleton-text skeleton-text-short" style="width:40%"></div>
+                        </div>
+                        <div class="termin-card skeleton" aria-hidden="true">
+                            <div class="skeleton skeleton-text skeleton-text-medium" style="width:55%;margin-bottom:0.5rem"></div>
+                            <div class="skeleton skeleton-text skeleton-text-short" style="width:35%"></div>
+                        </div>
+                        <div class="termin-card skeleton" aria-hidden="true">
+                            <div class="skeleton skeleton-text skeleton-text-medium" style="width:65%;margin-bottom:0.5rem"></div>
+                            <div class="skeleton skeleton-text skeleton-text-short" style="width:45%"></div>
+                        </div>
                     </div>
-                    
+
                     <div class="kalender-abo-section">
                         <div class="kalender-card">
-                            <div class="kalender-icon">📅</div>
+                            <div class="kalender-icon" aria-hidden="true">📅</div>
                             <h3 class="kalender-abo-titel">Termine im Kalender</h3>
                             <p class="kalender-beschreibung">
                                 Laden Sie alle Feuerwehr-Termine 2026 direkt in Ihren Kalender.
                                 Unterstützt Outlook, Google Calendar und Apple Kalender.
                             </p>
-                            <a href="data/termine-2026.ics" 
+                            <a href="data/termine-2026.ics"
                                class="btn btn-primary kalender-link"
                                download="Feuerwehr-Esselborn-2026.ics">
-                                📥 Termine 2026 herunterladen
+                                <span class="icon" aria-hidden="true">📥</span> Termine 2026 herunterladen
                             </a>
                             <p class="kalender-hinweis">
                                 Dateiformat: iCalendar (.ics)
@@ -164,16 +239,16 @@
                 <div class="section-title">
                     <h2 id="mitglied-heading">Mitglied werden</h2>
                 </div>
-                
+
                 <div class="mitglied-grid">
                     <div class="mitglied-art">
                         <h3>Als Feuerwehrmann/-frau</h3>
                         <p class="mitglied-intro">
-                            Jeder, der daran interessiert ist, uns aktiv zu unterstützen, ist herzlich eingeladen 
+                            Jeder, der daran interessiert ist, uns aktiv zu unterstützen, ist herzlich eingeladen
                             im Rahmen einer Übung unsere Feuerwehr kennenzulernen.
                         </p>
                         <p class="mitglied-text">
-                            Wir suchen motivierte Menschen, die sich für den Brandschutz und die Hilfeleistung 
+                            Wir suchen motivierte Menschen, die sich für den Brandschutz und die Hilfeleistung
                             in unserer Gemeinde engagieren möchten.
                         </p>
                         <ul class="mitglied-liste">
@@ -186,24 +261,24 @@
                             Um Mitglied zu werden, füllen Sie bitte den Mitgliedsantrag aus und senden Sie ihn an den Verein:
                         </p>
                         <a href="mailto:feuerwehr@gemeinde-esselborn.de?subject=Mitgliedsanfrage%20aktive%20Feuerwehr" class="btn btn-primary">
-                            ✉️ E-Mail senden
+                            <span class="icon" aria-hidden="true">✉️</span> E-Mail senden
                         </a>
                     </div>
-                    
+
                     <div class="mitglied-art">
                         <h3>Förderverein</h3>
                         <p class="foerderverein-intro">
-                            Unterstützen Sie unsere Arbeit auch ohne aktiven Einsatzdienst. 
+                            Unterstützen Sie unsere Arbeit auch ohne aktiven Einsatzdienst.
                             Als Mitglied im Förderverein helfen Sie uns finanziell und ideell.
                         </p>
-                        
+
                         <div class="foerderverein-details">
                             <h4 class="foerderverein-subtitle">Was ist der Förderverein?</h4>
                             <p class="foerderverein-text">
-                                Der Förderverein wurde 2011 von Esselborner Bürgern und Feuerwehrkameraden gegründet. 
+                                Der Förderverein wurde 2011 von Esselborner Bürgern und Feuerwehrkameraden gegründet.
                                 Als gemeinnütziger Verein unterstützen wir die Feuerwehr materiell und ideell.
                             </p>
-                            
+
                             <h4 class="foerderverein-subtitle">Unsere Ziele</h4>
                             <ul class="foerderverein-liste">
                                 <li>Einsatzbereitschaft und Kameradschaft stärken</li>
@@ -211,24 +286,24 @@
                                 <li>Neue Mitglieder für die Feuerwehr gewinnen</li>
                                 <li>Den Feuerwehrgedanken pflegen und fördern</li>
                             </ul>
-                            
+
                             <h4 class="foerderverein-subtitle">Warum Mitglied werden?</h4>
                             <p class="foerderverein-text">
-                                Mit Ihrem Beitrag unterstützen Sie die Einsatzbereitschaft und das Fortbestehen 
-                                der Feuerwehr in Esselborn. Sie würdigen damit die ehrenamtliche Arbeit 
+                                Mit Ihrem Beitrag unterstützen Sie die Einsatzbereitschaft und das Fortbestehen
+                                der Feuerwehr in Esselborn. Sie würdigen damit die ehrenamtliche Arbeit
                                 unserer Feuerwehrfrauen und -männer für den Brandschutz und das Gemeinwohl.
                             </p>
                         </div>
-                        
+
                         <div class="steuervorteil-box">
                             <p class="steuervorteil-titel">Steuervorteil & Spendenbescheinigungen</p>
                             <p class="steuervorteil-text">
-                                Sowohl die Mitgliedsbeiträge, wie auch Spenden an den Förderverein der Freiwilligen Feuerwehr 
-                                Esselborn, sind – durch die Anerkennung der Gemeinnützigkeit – steuerlich absetzbar. 
+                                Sowohl die Mitgliedsbeiträge, wie auch Spenden an den Förderverein der Freiwilligen Feuerwehr
+                                Esselborn, sind – durch die Anerkennung der Gemeinnützigkeit – steuerlich absetzbar.
                                 Spendenbescheinigungen können auf Wunsch ausgestellt werden.
                             </p>
                         </div>
-                        
+
                         <div class="kontakt-box foerderverein-kontakt">
                             <p class="kontakt-titel">Förderverein der Freiwilligen Feuerwehr Esselborn e.V.</p>
                             <address>
@@ -255,60 +330,120 @@
                         Impressionen aus dem Feuerwehralltag in Esselborn
                     </p>
                 </div>
-                
+
                 <div class="galerie-grid">
                     <figure class="galerie-item">
-                        <img src="img/feuerwehr-maibaumstellen.jpg" alt="Feuerwehrkameraden beim traditionellen Maibaumstellen in Esselborn" loading="lazy" tabindex="0">
+                        <img src="img/feuerwehr-maibaumstellen.jpg"
+                             alt="Feuerwehrkameraden beim traditionellen Maibaumstellen in Esselborn"
+                             loading="lazy"
+                             width="400"
+                             height="220">
                         <figcaption>Maibaumstellen</figcaption>
                     </figure>
                     <figure class="galerie-item">
-                        <img src="img/feuerwehr-autos-geraetehaus.jpg" alt="Feuerwehrfahrzeuge vor dem Gerätehaus in Esselborn" loading="lazy" tabindex="0">
+                        <img src="img/feuerwehr-autos-geraetehaus.jpg"
+                             alt="Feuerwehrfahrzeuge vor dem Gerätehaus in Esselborn"
+                             loading="lazy"
+                             width="400"
+                             height="220">
                         <figcaption>Gerätehaus und Fahrzeuge</figcaption>
                     </figure>
                     <figure class="galerie-item">
-                        <img src="img/feuerwehr-knutfeuer.jpg" alt="Feuerwehr bei der traditionellen Knutfeuer-Veranstaltung" loading="lazy" tabindex="0">
+                        <img src="img/feuerwehr-knutfeuer.jpg"
+                             alt="Feuerwehr bei der traditionellen Knutfeuer-Veranstaltung"
+                             loading="lazy"
+                             width="400"
+                             height="220">
                         <figcaption>Knutfeuer</figcaption>
                     </figure>
                     <figure class="galerie-item">
-                        <img src="img/feuerwehr-leiterstellen.jpg" alt="Übung Leiter anlegen mit der Drehleiter" loading="lazy" tabindex="0">
+                        <img src="img/feuerwehr-leiterstellen.jpg"
+                             alt="Übung Leiter anlegen mit der Drehleiter"
+                             loading="lazy"
+                             width="400"
+                             height="220">
                         <figcaption>Leiterstell-Übung</figcaption>
                     </figure>
                 </div>
-                
+
                 <h3 class="galerie-subtitle">125-Jahr-Feier 2024</h3>
                 <div class="galerie-grid galerie-small">
                     <figure class="galerie-item">
-                        <img src="img/125/jubilaeum-0.jpg" alt="125-Jahr-Feier: Festzelt mit Feuerwehrfahnen" loading="lazy" tabindex="0">
+                        <img src="img/125/jubilaeum-0.jpg"
+                             alt="125-Jahr-Feier: Festzelt mit Feuerwehrfahnen"
+                             loading="lazy"
+                             width="300"
+                             height="160">
                     </figure>
                     <figure class="galerie-item">
-                        <img src="img/125/jubilaeum-1.jpg" alt="125-Jahr-Feier: Ehrengäste bei der Feierstunde" loading="lazy" tabindex="0">
+                        <img src="img/125/jubilaeum-1.jpg"
+                             alt="125-Jahr-Feier: Ehrengäste bei der Feierstunde"
+                             loading="lazy"
+                             width="300"
+                             height="160">
                     </figure>
                     <figure class="galerie-item">
-                        <img src="img/125/jubilaeum-2.jpg" alt="125-Jahr-Feier: Musikkapelle beim Festumzug" loading="lazy" tabindex="0">
+                        <img src="img/125/jubilaeum-2.jpg"
+                             alt="125-Jahr-Feier: Musikkapelle beim Festumzug"
+                             loading="lazy"
+                             width="300"
+                             height="160">
                     </figure>
                     <figure class="galerie-item">
-                        <img src="img/125/jubilaeum-3.jpg" alt="125-Jahr-Feier: Historische Feuerwehrfahrzeuge" loading="lazy" tabindex="0">
+                        <img src="img/125/jubilaeum-3.jpg"
+                             alt="125-Jahr-Feier: Historische Feuerwehrfahrzeuge"
+                             loading="lazy"
+                             width="300"
+                             height="160">
                     </figure>
                     <figure class="galerie-item">
-                        <img src="img/125/jubilaeum-4.jpg" alt="125-Jahr-Feier: Feuerwehr bei der Vorführung" loading="lazy" tabindex="0">
+                        <img src="img/125/jubilaeum-4.jpg"
+                             alt="125-Jahr-Feier: Feuerwehr bei der Vorführung"
+                             loading="lazy"
+                             width="300"
+                             height="160">
                     </figure>
                     <figure class="galerie-item">
-                        <img src="img/125/jubilaeum-5.jpg" alt="125-Jahr-Feier: Kinder bei der Feuerwehr-Übung" loading="lazy" tabindex="0">
+                        <img src="img/125/jubilaeum-5.jpg"
+                             alt="125-Jahr-Feier: Kinder bei der Feuerwehr-Übung"
+                             loading="lazy"
+                             width="300"
+                             height="160">
                     </figure>
                     <figure class="galerie-item">
-                        <img src="img/125/jubilaeum-6.jpg" alt="125-Jahr-Feier: Gemeinschaftsfoto der Mannschaft" loading="lazy" tabindex="0">
+                        <img src="img/125/jubilaeum-6.jpg"
+                             alt="125-Jahr-Feier: Gemeinschaftsfoto der Mannschaft"
+                             loading="lazy"
+                             width="300"
+                             height="160">
                     </figure>
                     <figure class="galerie-item">
-                        <img src="img/125/jubilaeum-7.jpg" alt="125-Jahr-Feier: Festabend mit Musik" loading="lazy" tabindex="0">
+                        <img src="img/125/jubilaeum-7.jpg"
+                             alt="125-Jahr-Feier: Festabend mit Musik"
+                             loading="lazy"
+                             width="300"
+                             height="160">
                     </figure>
                     <figure class="galerie-item">
-                        <img src="img/125/jubilaeum-8.jpg" alt="125-Jahr-Feier: Ehrung langjähriger Mitglieder" loading="lazy" tabindex="0">
+                        <img src="img/125/jubilaeum-8.jpg"
+                             alt="125-Jahr-Feier: Ehrung langjähriger Mitglieder"
+                             loading="lazy"
+                             width="300"
+                             height="160">
                     </figure>
                     <figure class="galerie-item">
-                        <img src="img/125/jubilaeum-9.jpg" alt="125-Jahr-Feier: Fahnenweihe mit Festgästen" loading="lazy" tabindex="0">
+                        <img src="img/125/jubilaeum-9.jpg"
+                             alt="125-Jahr-Feier: Fahnenweihe mit Festgästen"
+                             loading="lazy"
+                             width="300"
+                             height="160">
                     </figure>
                     <figure class="galerie-item">
-                        <img src="img/125/jubilaeum-10.jpg" alt="125-Jahr-Feier: Abschlussfeuerwerk" loading="lazy" tabindex="0">
+                        <img src="img/125/jubilaeum-10.jpg"
+                             alt="125-Jahr-Feier: Abschlussfeuerwerk"
+                             loading="lazy"
+                             width="300"
+                             height="160">
                     </figure>
                 </div>
             </div>
@@ -323,17 +458,31 @@
                         Berichte, Bilder und Neuigkeiten aus der Feuerwehr Esselborn
                     </p>
                 </div>
-                
+
                 <div class="newsletter-grid" id="newsletter-container">
-                    <p class="loading-text">Beiträge werden geladen...</p>
+                    <!-- Skeleton Loader -->
+                    <div class="newsletter-card skeleton" aria-hidden="true">
+                        <div class="newsletter-bild skeleton" style="aspect-ratio:4/3"></div>
+                        <div class="newsletter-content">
+                            <div class="skeleton skeleton-text skeleton-text-medium" style="margin-bottom:0.5rem"></div>
+                            <div class="skeleton skeleton-text skeleton-text-short" style="width:30%"></div>
+                        </div>
+                    </div>
+                    <div class="newsletter-card skeleton" aria-hidden="true">
+                        <div class="newsletter-bild skeleton" style="aspect-ratio:4/3"></div>
+                        <div class="newsletter-content">
+                            <div class="skeleton skeleton-text skeleton-text-medium" style="margin-bottom:0.5rem"></div>
+                            <div class="skeleton skeleton-text skeleton-text-short" style="width:30%"></div>
+                        </div>
+                    </div>
                 </div>
-                
+
                 <div class="instagram-link-section">
-                    <a href="https://www.instagram.com/feuerwehr_esselborn" 
+                    <a href="https://www.instagram.com/feuerwehr_esselborn"
                        class="btn btn-primary instagram-link"
                        target="_blank"
                        rel="noopener noreferrer">
-                        📷 Mehr auf Instagram
+                        <span class="icon" aria-hidden="true">📷</span> Mehr auf Instagram
                     </a>
                 </div>
             </div>
@@ -344,21 +493,21 @@
             <div class="container jubilaeum-container">
                 <h2 id="jubilaeum-heading">125 Jahre Feuerwehr Esselborn</h2>
                 <p class="jubilaeum-text">
-                    Seit 1891 stehen wir für die Sicherheit in Esselborn. Über 135 Jahre ehrenamtliches Engagement 
+                    Seit 1891 stehen wir für die Sicherheit in Esselborn. Über 135 Jahre ehrenamtliches Engagement
                     für unsere Gemeinde.
                 </p>
-                
+
                 <div class="stats-grid">
                     <div class="stat">
-                        <span id="jahre-count" class="stat-number">0</span>
+                        <span id="jahre-count" class="stat-number" data-target="135" data-suffix="+">&nbsp;</span>
                         <span class="stat-label">Jahre seit Gründung</span>
                     </div>
                     <div class="stat">
-                        <span id="mitglieder-count" class="stat-number">0</span>
+                        <span id="mitglieder-count" class="stat-number" data-target="65">&nbsp;</span>
                         <span class="stat-label">Vereinsmitglieder</span>
                     </div>
                     <div class="stat">
-                        <span id="aktive-count" class="stat-number">0</span>
+                        <span id="aktive-count" class="stat-number" data-target="0" data-fallback="–">&nbsp;</span>
                         <span class="stat-label">aktive Wehr</span>
                     </div>
                     <div class="stat">
@@ -366,11 +515,11 @@
                         <span class="stat-label">gegründet</span>
                     </div>
                 </div>
-                
+
                 <div class="standort-section">
-                    <h3 class="standort-titel">📍 Unser Standort</h3>
+                    <h3 class="standort-titel"><span class="icon" aria-hidden="true">📍</span> Unser Standort</h3>
                     <div class="standort-card">
-                        <div class="standort-icon">🚒</div>
+                        <div class="standort-icon" aria-hidden="true">🚒</div>
                         <div class="standort-details">
                             <p class="standort-name">Feuerwehrhaus Esselborn</p>
                             <address class="standort-adresse">
@@ -378,12 +527,12 @@
                                 55234 Esselborn
                             </address>
                         </div>
-                        <a href="https://www.openstreetmap.org/?mlat=49.714445&mlon=8.118250#map=19/49.714445/8.118250" 
+                        <a href="https://www.openstreetmap.org/?mlat=49.714445&mlon=8.118250#map=19/49.714445/8.118250"
                            class="btn btn-primary standort-link"
                            target="_blank"
                            rel="noopener noreferrer"
                            aria-label="Standort auf OpenStreetMap anzeigen (öffnet in neuem Tab)">
-                            🗺️ Karte anzeigen
+                            <span class="icon" aria-hidden="true">🗺️</span> Karte anzeigen
                             <span class="external-link-icon" aria-hidden="true">↗</span>
                         </a>
                     </div>
@@ -417,16 +566,19 @@
         </div>
     </footer>
 
-    
-    <!-- Lightbox für Galerie -->
-    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Bild vergrößert">
-        <button class="lightbox-close" aria-label="Schließen">&times;</button>
-        <button class="lightbox-prev" aria-label="Vorheriges Bild">&#10094;</button>
-        <button class="lightbox-next" aria-label="Nächstes Bild">&#10095;</button>
-        <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Bild vergrößert">
+        <button class="lightbox-close" aria-label="Schließen" type="button">&times;</button>
+        <button class="lightbox-prev" aria-label="Vorheriges Bild" type="button">&#10094;</button>
+        <button class="lightbox-next" aria-label="Nächstes Bild" type="button">&#10095;</button>
+        <img id="lightbox-img"
+             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+             alt=""
+             width="800"
+             height="600">
         <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
-    
+
     <script src="js/main.js"></script>
 </body>
 </html>
