@@ -50,9 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile Navigation
     initMobileNav();
 
-    // Dark Mode
-    initThemeToggle();
-
     // Lightbox
     initLightbox();
 });
@@ -644,33 +641,6 @@ async function loadNewsletter() {
             </div>
         `;
     }
-}
-
-/**
- * Theme Toggle (Dark Mode)
- */
-function initThemeToggle() {
-    const themeToggle = document.getElementById('theme-toggle');
-    if (!themeToggle) return;
-
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        themeToggle.innerHTML = '☀️';
-        themeToggle.setAttribute('aria-label', 'Light Mode umschalten');
-    }
-
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        themeToggle.innerHTML = newTheme === 'dark' ? '☀️' : '🌙';
-        themeToggle.setAttribute('aria-label', newTheme === 'dark' ? 'Light Mode umschalten' : 'Dark Mode umschalten');
-    });
 }
 
 /**

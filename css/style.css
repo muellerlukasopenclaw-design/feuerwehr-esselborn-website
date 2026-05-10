@@ -237,26 +237,6 @@ a:active { color: var(--ffw-rot-sehr-dunkel); }
   margin-left: auto;
 }
 
-.dark-mode-toggle {
-  background: none;
-  border: 2px solid var(--color-border);
-  padding: var(--space-xs);
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-size: 1.25rem;
-  min-height: 44px;
-  min-width: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color var(--transition-fast), background var(--transition-fast);
-}
-
-.dark-mode-toggle:hover {
-  border-color: var(--ffw-rot);
-  background: var(--ffw-rot-05);
-}
-
 .menu-toggle {
   display: none;
   background: var(--color-background);
@@ -1594,36 +1574,33 @@ section:nth-child(even) { background: var(--color-background-alt); }
 
 .legal-content .btn { margin-top: var(--space-lg); }
 
-/* === Dark Mode === */
-[data-theme="dark"] {
-  --color-text: #F3F4F6;
-  --color-text-light: #9CA3AF;
-  --color-background: #111827;
-  --color-background-alt: #1F2937;
-  --color-border: #374151;
-  --kontrast-sehr-dunkel: #F9FAFB;
-  --kontrast-dunkel: #F3F4F6;
-}
+/* === Dark Mode (fuer prefers-color-scheme) === */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #F3F4F6;
+    --color-text-light: #9CA3AF;
+    --color-background: #111827;
+    --color-background-alt: #1F2937;
+    --color-border: #374151;
+    --kontrast-sehr-dunkel: #F9FAFB;
+    --kontrast-dunkel: #F3F4F6;
+  }
 
-[data-theme="dark"] .main-nav { background: rgba(17, 24, 39, 0.95); }
-[data-theme="dark"] .nav-links { background: var(--color-background); }
-[data-theme="dark"] .mitglied-card,
-[data-theme="dark"] .termin-card,
-[data-theme="dark"] .mitglied-art,
-[data-theme="dark"] .newsletter-card,
-[data-theme="dark"] .stat {
-  background: var(--color-background-alt);
+  .main-nav { background: rgba(17, 24, 39, 0.95); }
+  .nav-links { background: var(--color-background); }
+  .mitglied-card,
+  .termin-card,
+  .mitglied-art,
+  .newsletter-card,
+  .stat {
+    background: var(--color-background-alt);
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--ffw-rot-dunkel) 0%, var(--ffw-rot) 100%);
+  }
+  .galerie-item { background: var(--color-background-alt); }
+  .hilfe-details { background: var(--color-background); }
 }
-[data-theme="dark"] .hero {
-  background: linear-gradient(135deg, var(--ffw-rot-dunkel) 0%, var(--ffw-rot) 100%);
-}
-
-/* === Footer Dark === */
-.footer-dark {
-  background: linear-gradient(135deg, var(--grau-900) 0%, #16213e 100%);
-}
-[data-theme="dark"] .galerie-item { background: var(--color-background-alt); }
-[data-theme="dark"] .hilfe-details { background: var(--color-background); }
 
 /* === Mobile Optimierungen === */
 @media (max-width: 768px) {
@@ -1693,7 +1670,7 @@ section:nth-child(even) { background: var(--color-background-alt); }
 /* === Print === */
 @media print {
   .main-nav, .btn, .menu-toggle, .preloader, .lightbox,
-  .scroll-progress, .dark-mode-toggle { display: none !important; }
+  .scroll-progress { display: none !important; }
 
   .hero {
     min-height: auto;
