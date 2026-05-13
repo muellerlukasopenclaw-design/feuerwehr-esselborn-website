@@ -1574,34 +1574,6 @@ section:nth-child(even) { background: var(--color-background-alt); }
 
 .legal-content .btn { margin-top: var(--space-lg); }
 
-/* === Dark Mode (fuer prefers-color-scheme) === */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: #F3F4F6;
-    --color-text-light: #9CA3AF;
-    --color-background: #111827;
-    --color-background-alt: #1F2937;
-    --color-border: #374151;
-    --kontrast-sehr-dunkel: #F9FAFB;
-    --kontrast-dunkel: #F3F4F6;
-  }
-
-  .main-nav { background: rgba(17, 24, 39, 0.95); }
-  .nav-links { background: var(--color-background); }
-  .mitglied-card,
-  .termin-card,
-  .mitglied-art,
-  .newsletter-card,
-  .stat {
-    background: var(--color-background-alt);
-  }
-  .hero {
-    background: linear-gradient(135deg, var(--ffw-rot-dunkel) 0%, var(--ffw-rot) 100%);
-  }
-  .galerie-item { background: var(--color-background-alt); }
-  .hilfe-details { background: var(--color-background); }
-}
-
 /* === Mobile Optimierungen === */
 @media (max-width: 768px) {
   .hero {
