@@ -272,7 +272,16 @@ async function loadTermine() {
         const wiederkehrend = data.wiederkehrend || [];
         const hilfetexte = data.hilfetexte || {};
 
-        if (termine2026.length === 0 && wiederkehrend.length === 0) {
+        // Nur zukünftige Termine anzeigen (Vergangene bleiben in der JSON)
+        const heute = new Date();
+        heute.setHours(0, 0, 0, 0);
+        const termineZukuenftig = termine2026.filter(termin => {
+            const terminDatum = new Date(termin.datum);
+            terminDatum.setHours(0, 0, 0, 0);
+            return terminDatum >= heute;
+        });
+
+        if (termineZukuenftig.length === 0 && wiederkehrend.length === 0) {
             container.innerHTML = '<p class="loading-text">Aktuell keine Termine verfügbar.</p>';
             return;
         }
@@ -280,9 +289,9 @@ async function loadTermine() {
         let html = '';
 
         // Termine 2026 anzeigen
-        if (termine2026.length > 0) {
+        if (termineZukuenftig.length > 0) {
             // Sortiere nach Datum
-            const sortedTermine = [...termine2026].sort((a, b) => new Date(a.datum) - new Date(b.datum));
+            const sortedTermine = [...termineZukuenftig].sort((a, b) => new Date(a.datum) - new Date(b.datum));
 
             // Gruppiere nach Monat
             const termineByMonth = {};
@@ -344,8 +353,8 @@ async function loadTermine() {
 
         container.innerHTML = html;
 
-        // Countdown zum nächsten Termin
-        updateCountdown(termine2026);
+        // Countdown zum nächsten Termin (nur zukünftige)
+        updateCountdown(termineZukuenftig);
 
     } catch (error) {
         console.error('Fehler beim Laden der Termine:', error);
