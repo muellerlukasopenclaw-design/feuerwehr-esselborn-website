@@ -1182,7 +1182,7 @@ section:nth-child(even) { background: var(--color-background-alt); }
 .footer-brand {
   flex: 1;
   min-width: 250px;
-  text-align: left;
+  text-align: center;
 }
 
 .footer-name {
