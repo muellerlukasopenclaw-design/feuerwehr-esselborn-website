@@ -258,4 +258,4 @@ Diese Website wurde für die Feuerwehr Esselborn erstellt und ist für deren exk
 ---
 
 **Fragen oder Probleme?**  
-Kontakt: feuerwehr@gemeinde-esselborn.de
+Kontakt: Foerderverein-FFW-Esselborn@outlook.de
