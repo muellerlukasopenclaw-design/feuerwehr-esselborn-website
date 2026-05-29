@@ -274,11 +274,11 @@ async function loadTermine() {
 
         // Nur zukünftige Termine anzeigen (Vergangene bleiben in der JSON)
         const heute = new Date();
-        heute.setHours(0, 0, 0, 0);
+        const heuteLokal = new Date(heute.getFullYear(), heute.getMonth(), heute.getDate());
         const termineZukuenftig = termine2026.filter(termin => {
-            const terminDatum = new Date(termin.datum);
-            terminDatum.setHours(0, 0, 0, 0);
-            return terminDatum >= heute;
+            const parts = termin.datum.split('-');
+            const terminDatum = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+            return terminDatum >= heuteLokal;
         });
 
         if (termineZukuenftig.length === 0 && wiederkehrend.length === 0) {
@@ -291,12 +291,18 @@ async function loadTermine() {
         // Termine 2026 anzeigen
         if (termineZukuenftig.length > 0) {
             // Sortiere nach Datum
-            const sortedTermine = [...termineZukuenftig].sort((a, b) => new Date(a.datum) - new Date(b.datum));
+            const sortedTermine = [...termineZukuenftig].sort((a, b) => {
+                const aParts = a.datum.split('-');
+                const bParts = b.datum.split('-');
+                return new Date(parseInt(aParts[0]), parseInt(aParts[1]) - 1, parseInt(aParts[2])) -
+                       new Date(parseInt(bParts[0]), parseInt(bParts[1]) - 1, parseInt(bParts[2]));
+            });
 
             // Gruppiere nach Monat
             const termineByMonth = {};
             sortedTermine.forEach(termin => {
-                const date = new Date(termin.datum);
+                const parts = termin.datum.split('-');
+                const date = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
                 const monthKey = date.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
                 if (!termineByMonth[monthKey]) {
                     termineByMonth[monthKey] = [];
@@ -380,16 +386,16 @@ function updateCountdown(termine) {
     let naechsterTerminDatum = null;
 
     const heute = new Date();
-    heute.setHours(0, 0, 0, 0);
+    // Lokales Datum ohne Zeit für Vergleich (vermeidet UTC-Zeitzonen-Probleme)
+    const heuteLokal = new Date(heute.getFullYear(), heute.getMonth(), heute.getDate());
 
     // Nächsten zukünftigen Termin finden
     const zukuenftigeTermine = termine
-        .map(t => ({ ...t, dateObj: new Date(t.datum) }))
-        .filter(t => {
-            const tDate = new Date(t.datum);
-            tDate.setHours(0, 0, 0, 0);
-            return tDate >= heute;
+        .map(t => {
+            const parts = t.datum.split('-');
+            return { ...t, dateObj: new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2])) };
         })
+        .filter(t => t.dateObj >= heuteLokal)
         .sort((a, b) => a.dateObj - b.dateObj);
 
     if (zukuenftigeTermine.length === 0) {
@@ -400,8 +406,8 @@ function updateCountdown(termine) {
     const naechsterTermin = zukuenftigeTermine[0];
     naechsterTerminDatum = naechsterTermin.datum;
 
-    const diffZeit = naechsterTermin.dateObj - heute;
-    const diffTage = Math.ceil(diffZeit / (1000 * 60 * 60 * 24));
+    const diffZeit = naechsterTermin.dateObj - heuteLokal;
+    const diffTage = Math.round(diffZeit / (1000 * 60 * 60 * 24));
 
     tageElement.textContent = diffTage;
 
