@@ -1,10 +1,10 @@
 # Feuerwehr Esselborn - Moderne Website
 
-🌐 **Live-Version:** https://feuerwehr.gemeinde-esselborn.de/ (voraussichtlich ab April 2026)
+🌐 **Live-Version:** https://feuerwehr.gemeinde-esselborn.de/
 
 🖼️ **Demo-Version:** https://muellerlukasopenclaw-design.github.io/feuerwehr-esselborn-website/
 
-**Status:** ✅ Abgeschlossen | **Version:** 1.0 | **Datum:** April 2026
+**Status:** ✅ Abgeschlossen | **Version:** 1.0 | **Datum:** Mai 2026
 
 ---
 
@@ -39,6 +39,10 @@ feuerwehr-esselborn-site/
 ├── legal/
 │   ├── impressum.html     # Impressum
 │   └── datenschutz.html   # Datenschutzerklärung
+├── Dockerfile             # Docker-Image (nginx-alpine)
+├── docker-compose.yml     # Portainer-Stack-Config
+├── docker/
+│   └── nginx.conf         # nginx-Konfiguration
 └── README.md              # Diese Datei
 ```
 
@@ -91,15 +95,31 @@ Alle Termine für 2026 sind dort hinterlegt – einfach Datum, Uhrzeit oder Tite
 
 ## 🚀 Deployment
 
-### Voraussetzungen
+### Option 1: Docker (empfohlen)
 
-- Statischer Webspace (kein PHP nötig!)
-- Optional: SSL-Zertifikat (HTTPS empfohlen)
+**Voraussetzungen:** Docker + Docker Compose
 
-### Schritte
+```bash
+# Image bauen
+docker build -t feuerwehr-website .
 
-1. **Alle Dateien hochladen** per FTP/SFTP
-2. **Fertig** – keine Installation, keine Datenbank
+# Oder: Image von GHCR pullen
+docker pull ghcr.io/muellerlukasopenclaw-design/feuerwehr-esselborn-website:latest
+
+# Mit docker-compose starten
+docker-compose up -d
+```
+
+**Portainer-Stack:** Stack `nginx_feuerwehr_new` auf dem Raspberry Pi
+
+### Option 2: Statisch (Legacy)
+
+**Voraussetzungen:** Statischer Webspace (kein PHP nötig!)
+
+```bash
+# Alle Dateien hochladen per FTP/SFTP
+# Fertig – keine Installation, keine Datenbank
+```
 
 ### Empfohlene Ordnerstruktur auf Server
 
@@ -115,11 +135,36 @@ Alle Termine für 2026 sind dort hinterlegt – einfach Datum, Uhrzeit oder Tite
 
 ---
 
+## 🔄 CI/CD & Auto-Deploy
+
+### GitHub Actions
+
+Bei jedem Push auf `master`/`main`:
+1. **HTML/CSS/JSON-Validierung**
+2. **Docker-Image Build** (Multi-Platform: AMD64 + ARM64)
+3. **Push zu GitHub Container Registry (GHCR)**
+4. **Artifact Attestation** für Sicherheit
+
+### Auto-Deploy
+
+- **Watchtower** prüft täglich um 2:00 Uhr auf neue Images
+- Bei neuem Image: Automatischer Container-Restart
+- **Manuell:** Portainer → Stack → "Pull and redeploy"
+
+### Image-Registry
+
+```
+ghcr.io/muellerlukasopenclaw-design/feuerwehr-esselborn-website:latest
+```
+
+---
+
 ## 📊 Technische Spezifikation
 
 | Aspekt | Implementierung | Begründung |
 |--------|-----------------|------------|
 | **Architektur** | 100% Statisch | Kein Server nötig, GitHub Pages kompatibel |
+| **Container** | Docker (nginx-alpine) | Einfaches Deployment, Auto-Updates |
 | **CSS** | Vanilla CSS mit Variablen | Kein Build-Prozess nötig |
 | **JS** | Vanilla JS (~5 KB) | Keine Framework-Abhängigkeit |
 | **Bilder** | Lazy Loading + SVG-Platzhalter | Performance |
@@ -212,6 +257,7 @@ Die folgenden Inhalte sollten manuell überprüft und ergänzt werden:
 - ✅ Keine externen Tracking-Skripte
 - ✅ Keine Cookies (außer technisch notwendige)
 - ✅ OpenStreetMap erst bei Klick (kein automatisches IP-Tracking)
+- ✅ Cloudflare CDN (DSGVO-konform, EU-US Data Privacy Framework)
 - ✅ Statisches Hosting möglich (kein Server-Processing)
 
 ### Performance
@@ -234,7 +280,7 @@ Diese Website wurde für die Feuerwehr Esselborn erstellt und ist für deren exk
 ## 🔧 Entwickler-Notizen
 
 **Migration durchgeführt von:** OpenClaw  
-**Letzte Aktualisierung:** April 2026  
+**Letzte Aktualisierung:** Mai 2026  
 **Version:** 1.0 (Production Ready)
 
 **Technische Entscheidungen:**
