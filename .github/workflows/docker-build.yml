@@ -63,13 +63,12 @@ jobs:
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
 
-      - name: Trigger Portainer Webhook
+      - name: Deploy Info
         if: github.event_name != 'pull_request'
         run: |
-          if [ -n "${{ secrets.PORTAINER_WEBHOOK_URL }}" ]; then
-            echo "Triggering Portainer webhook..."
-            curl -X POST "${{ secrets.PORTAINER_WEBHOOK_URL }}" || true
-          else
-            echo "No PORTAINER_WEBHOOK_URL secret set. Skipping webhook trigger."
-            echo "To enable auto-deploy, set the PORTAINER_WEBHOOK_URL secret in GitHub."
-          fi
+          echo "✅ Image pushed to GHCR"
+          echo ""
+          echo "Auto-Deploy: Watchtower prüft täglich um 2:00 Uhr auf neue Images"
+          echo "und aktualisiert den Container automatisch."
+          echo ""
+          echo "Manuelles Deploy: Portainer Stack 'nginx_feuerwehr_new' → 'Pull and redeploy'"
